@@ -1,0 +1,23 @@
+{
+  "name": "sharky-ai-landing",
+  "version": "1.0.0",
+  "description": "Landing Page para Sharky AI - Automatización de Barberías y Spas",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "python": "python3 server.py"
+  },
+  "keywords": [
+    "landing-page",
+    "sharky-ai",
+    "barberia",
+    "spa",
+    "whatsapp-bot"
+  ],
+  "author": "Juan Pablo Chacon",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

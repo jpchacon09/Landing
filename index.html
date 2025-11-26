@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Primary Meta Tags -->
+    <title>Sharky AI - Automatiza tu Barbería o Spa con IA en WhatsApp | Colombia</title>
+    <meta name="title" content="Sharky AI - Automatiza tu Barbería o Spa con IA en WhatsApp | Colombia">
+    <meta name="description"
+        content="Sistema de agendamiento inteligente por WhatsApp para barberías y spas en Colombia. Automatiza reservas, recordatorios y marketing. Implementación en 24 horas. Más de 50 negocios confían en nosotros.">
+    <meta name="keywords" content="barberia, spa, whatsapp bot, automatizacion, agendamiento, IA, Colombia, reservas automaticas, marketing automatico">
+    <meta name="author" content="Sharky AI">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sharkyai.co/">
+    <meta property="og:title" content="Sharky AI - Automatiza tu Barbería o Spa con IA en WhatsApp">
+    <meta property="og:description" content="Automatiza tu negocio con IA. +40% más citas, 95% menos cancelaciones. Primera semana GRATIS.">
+    <meta property="og:image" content="https://sharkyai.co/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sharkyai.co/">
+    <meta property="twitter:title" content="Sharky AI - Automatiza tu Barbería o Spa con IA en WhatsApp">
+    <meta property="twitter:description" content="Automatiza tu negocio con IA. +40% más citas, 95% menos cancelaciones. Primera semana GRATIS.">
+    <meta property="twitter:image" content="https://sharkyai.co/og-image.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦈</text></svg>">
+
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://wa.me">
+    <link rel="dns-prefetch" href="https://formsubmit.co">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous">
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#00f2ff">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Sharky AI",
+        "description": "Sistema de agendamiento inteligente con IA para barberías y spas",
+        "url": "https://sharkyai.co",
+        "telephone": "+573123766146",
+        "email": "jpchaconb@gmail.com",
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "CO",
+            "addressRegion": "Colombia"
+        },
+        "priceRange": "$500,000 - $1,000,000 COP",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "ratingCount": "50"
+        }
+    }
+    </script>
+</head>
+
+<body>
+
+    <!-- FOMO Notification Popup -->
+    <div class="fomo-notification" id="fomo-popup">
+        <div class="fomo-avatar"></div>
+        <div class="fomo-content">
+            <strong id="fomo-name"></strong>
+            <p id="fomo-message"></p>
+        </div>
+        <button class="fomo-close">&times;</button>
+    </div>
+
+    <!-- FOMO Bar -->
+    <div class="fomo-bar">
+        <div class="container">
+            <p><span class="pulse-dot"></span> <strong>¡OFERTA LIMITADA!</strong> Solo quedan <span id="slots"
+                    class="slot-counter">5</span> cupos de implementación para esta semana. <span
+                    id="countdown-top"></span></p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">🦈 Sharky <span class="highlight">AI</span> <span class="beta-tag">PRO</span></div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#problema">¿Por Qué?</a></li>
+                <li><a href="#solucion">Cómo Funciona</a></li>
+                <li><a href="#planes">Planes</a></li>
+                <li><a href="#testimonios">Casos de Éxito</a></li>
+                <li><a href="#faq">Preguntas</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="https://wa.me/573123766146?text=Hola%20Sharky%20AI,%20quiero%20una%20demo%20gratuita"
+                    class="btn btn-primary cta-whatsapp" target="_blank">
+                    <i class="fab fa-whatsapp"></i> <span class="desktop-only">Demo Gratis</span>
+                </a>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" id="inicio">
+        <div class="hero-bg-glow"></div>
+        <div class="hero-bg-pattern"></div>
+        <div class="container hero-content">
+            <div class="hero-text reveal-left">
+                <div class="badge-pill">
+                    <span class="badge-icon">🚀</span> Más de 50 barberías y spas ya están automatizadas
+                </div>
+                <h1>Automatiza tu Barbería o Spa y <span class="gradient-text">Gana 3X Más Dinero</span> con IA en
+                    WhatsApp</h1>
+                <p class="hero-sub">
+                    Sharky AI es tu asistente inteligente disponible 24/7 que agenda citas, envía recordatorios
+                    automáticos y gestiona tu negocio mientras duermes. <strong>Sin apps complicadas. Todo desde
+                        WhatsApp.</strong>
+                </p>
+
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="40">0</span><span class="stat-plus">%</span>
+                        <span class="stat-label">Más Citas</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="95">0</span><span class="stat-plus">%</span>
+                        <span class="stat-label">Menos Cancelaciones</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Atención Disponible</span>
+                    </div>
+                </div>
+
+                <div class="hero-buttons">
+                    <a href="#contacto" class="btn btn-primary btn-lg pulse">
+                        <i class="fas fa-rocket"></i> Solicitar Demo Gratis
+                    </a>
+                    <a href="#planes" class="btn btn-outline btn-lg">
+                        Ver Planes y Precios
+                    </a>
+                </div>
+
+                <div class="hero-trust">
+                    <div class="trust-item">
+                        <i class="fas fa-shield-check"></i>
+                        <span>Garantía 30 días</span>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-bolt"></i>
+                        <span>Setup en 24h</span>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-gift"></i>
+                        <span>Primera semana gratis</span>
+                    </div>
+                </div>
+
+                <!-- Urgency Timer -->
+                <div class="urgency-box">
+                    <div class="urgency-icon">⏰</div>
+                    <div class="urgency-content">
+                        <p class="urgency-title">DESCUENTO EXCLUSIVO - Termina en:</p>
+                        <div class="timer-display" id="main-countdown">
+                            <div class="time-box">
+                                <span id="hours-main">00</span>
+                                <small>Horas</small>
+                            </div>
+                            <span class="timer-sep">:</span>
+                            <div class="time-box">
+                                <span id="minutes-main">00</span>
+                                <small>Minutos</small>
+                            </div>
+                            <span class="timer-sep">:</span>
+                            <div class="time-box">
+                                <span id="seconds-main">00</span>
+                                <small>Segundos</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-visual reveal-right">
+                <div class="phone-mockup-wrapper">
+                    <div class="phone-mockup">
+                        <div class="notch"></div>
+                        <div class="screen">
+                            <div class="chat-header">
+                                <div class="avatar">🦈</div>
+                                <div class="chat-info">
+                                    <span class="name">Sharky AI</span>
+                                    <span class="status"><span class="status-dot"></span> En línea</span>
+                                </div>
+                            </div>
+                            <div class="chat-body">
+                                <div class="chat-bubble bot fade-in">¡Hola! 👋 Soy Sharky, el asistente de Barbería El
+                                    Rey. ¿Quieres agendar tu corte?</div>
+                                <div class="chat-bubble user fade-in">Sí, para mañana a las 5pm por favor</div>
+                                <div class="chat-bubble bot fade-in">
+                                    <div class="typing-indicator">
+                                        <span></span><span></span><span></span>
+                                    </div>
+                                </div>
+                                <div class="chat-bubble bot fade-in">Perfecto! Tengo disponible:<br>🪒 Corte + Barba -
+                                    $35.000<br>📅 Mañana 5:00 PM con Carlos<br><br>¿Te lo confirmo?</div>
+                                <div class="chat-bubble user fade-in">Dale, confírmalo 👍</div>
+                                <div class="chat-bubble bot success fade-in">✅ ¡Listo! Tu cita está agendada.<br>📍 Te
+                                    envío la ubicación por acá 👇<br>⏰ Recordatorio 1 hora antes</div>
+                            </div>
+                            <div class="chat-input-area">
+                                <div class="input-placeholder">Escribe un mensaje...</div>
+                                <div class="send-btn"><i class="fas fa-paper-plane"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Floating Elements -->
+                    <div class="float-card card-1">
+                        <i class="fab fa-google"></i> Sincronizado con Calendar
+                    </div>
+                    <div class="float-card card-2">
+                        <i class="fas fa-bell"></i> Recordatorio Enviado
+                    </div>
+                    <div class="float-card card-3">
+                        <i class="fas fa-chart-line"></i> +40% Reservas
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Social Proof Banner -->
+    <div class="social-proof-banner">
+        <div class="container">
+            <div class="proof-content">
+                <div class="proof-item">
+                    <div class="proof-number">50+</div>
+                    <div class="proof-label">Negocios Activos</div>
+                </div>
+                <div class="proof-divider"></div>
+                <div class="proof-item">
+                    <div class="proof-number">15K+</div>
+                    <div class="proof-label">Citas Agendadas</div>
+                </div>
+                <div class="proof-divider"></div>
+                <div class="proof-item">
+                    <div class="proof-number">4.9/5</div>
+                    <div class="proof-label">⭐ Calificación</div>
+                </div>
+                <div class="proof-divider"></div>
+                <div class="proof-item">
+                    <div class="proof-logos">
+                        <span>🏆</span>
+                        <span>Presente en: Bogotá • Medellín • Cali • Barranquilla</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Problem vs Solution Section -->
+    <section id="problema" class="comparison-section">
+        <div class="container">
+            <h2 class="section-title text-center reveal-up">¿Te identificas con esto?</h2>
+            <p class="section-subtitle reveal-up">La realidad de muchos negocios antes de Sharky AI</p>
+
+            <div class="comparison-grid">
+                <div class="comparison-card pain reveal-left">
+                    <div class="card-icon pain-icon">😫</div>
+                    <h3>❌ Sin Automatización</h3>
+                    <ul>
+                        <li><i class="fas fa-times-circle"></i> <strong>Pierdes dinero:</strong> Dejas de cortar pelo o
+                            hacer uñas para contestar WhatsApp todo el día</li>
+                        <li><i class="fas fa-times-circle"></i> <strong>Clientes molestos:</strong> Te escriben a las
+                            11 PM y se enojan si no respondes inmediatamente</li>
+                        <li><i class="fas fa-times-circle"></i> <strong>Cancelaciones:</strong> "Disculpa, se me
+                            olvidó" - Pierdes $200k+ al mes en espacios vacíos</li>
+                        <li><i class="fas fa-times-circle"></i> <strong>Desorganización:</strong> Agenda de papel
+                            tachada, confusión con las citas</li>
+                        <li><i class="fas fa-times-circle"></i> <strong>Sin vida:</strong> Trabajas de sol a sol y
+                            aún así pierdes clientes</li>
+                    </ul>
+                </div>
+
+                <div class="vs-badge">
+                    <span>VS</span>
+                    <div class="vs-arrow">→</div>
+                </div>
+
+                <div class="comparison-card gain reveal-right">
+                    <div class="card-icon gain-icon">🚀</div>
+                    <h3>✅ Con Sharky AI</h3>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> <strong>Respuestas instantáneas:</strong> El bot
+                            responde en 3 segundos, 24/7, siempre amable</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Agenda llena:</strong> Clientes reservan
+                            mientras duermes, en domingos, festivos, a cualquier hora</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Cero olvidos:</strong> Recordatorios
+                            automáticos = 95% menos cancelaciones</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Todo organizado:</strong> Sincronización
+                            automática con Google Calendar, cero errores</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Más libertad:</strong> Tú trabajas en lo que
+                            amas, Sharky hace el resto</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it Works -->
+    <section id="solucion" class="steps-section">
+        <div class="container">
+            <h2 class="section-title text-center reveal-up">Tan fácil como 1, 2, 3</h2>
+            <p class="section-subtitle reveal-up">Así de simple funciona Sharky AI en tu negocio</p>
+
+            <div class="steps-grid">
+                <div class="step-card reveal-up" style="transition-delay: 0.1s;">
+                    <div class="step-number">01</div>
+                    <div class="step-icon"><i class="fab fa-whatsapp"></i></div>
+                    <h3>Cliente Escribe</h3>
+                    <p>Tu cliente envía un mensaje a tu WhatsApp preguntando por citas, precios, ubicación o
+                        servicios. A cualquier hora.</p>
+                </div>
+
+                <div class="step-card reveal-up" style="transition-delay: 0.2s;">
+                    <div class="step-number">02</div>
+                    <div class="step-icon"><i class="fas fa-robot"></i></div>
+                    <h3>Sharky Responde</h3>
+                    <p>Nuestra IA entiende el mensaje, consulta tu disponibilidad en tiempo real y responde al
+                        instante. Como un humano, pero mejor.</p>
+                </div>
+
+                <div class="step-card reveal-up" style="transition-delay: 0.3s;">
+                    <div class="step-number">03</div>
+                    <div class="step-icon"><i class="fas fa-calendar-check"></i></div>
+                    <h3>¡Listo, Agendado!</h3>
+                    <p>La cita aparece automáticamente en tu Google Calendar, el cliente recibe confirmación, y
+                        ambos reciben recordatorios. Todo automático.</p>
+                </div>
+            </div>
+
+            <div class="video-demo reveal-up">
+                <div class="demo-card">
+                    <div class="demo-icon">🎬</div>
+                    <h3>¿Quieres verlo en acción?</h3>
+                    <p>Mira cómo Sharky maneja una conversación real con un cliente</p>
+                    <a href="https://wa.me/573123766146?text=Hola!%20Quiero%20ver%20una%20demo%20de%20Sharky%20AI"
+                        class="btn btn-outline" target="_blank">
+                        <i class="fas fa-play-circle"></i> Solicitar Demo en Vivo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonios" class="testimonials">
+        <div class="container">
+            <h2 class="section-title text-center reveal-up">Casos de Éxito Reales en Colombia</h2>
+            <p class="section-subtitle reveal-up">Barberos y dueños de spas <span class="highlight">facturando más con
+                    Sharky AI</span></p>
+
+            <div class="testimonials-grid">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card reveal-up">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-quote">"Parce, yo era escéptico de toda esta tecnología. Pero en el primer
+                        mes recuperé la inversión completa solo con las citas que el bot capturó de gente que escribía
+                        de madrugada o domingos. Ahora tengo la agenda full hasta 3 semanas adelante. Una nota total."
+                    </p>
+                    <div class="author-row">
+                        <div class="author-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                            CR</div>
+                        <div class="author-info">
+                            <h4>Carlos Rodríguez</h4>
+                            <span>El Patrón Barbería • Medellín 🇨🇴</span>
+                            <div class="testimonial-result">📈 +45% ingresos en 2 meses</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card reveal-up" style="transition-delay: 0.1s;">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-quote">"Tengo 3 manicuristas y antes era un caos total coordinar las citas,
+                        había dobles reservas, peleas. Sharky lo maneja todo automáticamente y hasta envía la ubicación
+                        por Google Maps. Las cancelaciones bajaron un 90%. Mis clientas felices porque pueden agendar
+                        desde su celular sin llamar."</p>
+                    <div class="author-row">
+                        <div class="author-avatar" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                            VM</div>
+                        <div class="author-info">
+                            <h4>Valentina Muñoz</h4>
+                            <span>Uñas y Estilo Spa • Bogotá 🇨🇴</span>
+                            <div class="testimonial-result">⏰ 90% menos cancelaciones</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card reveal-up" style="transition-delay: 0.2s;">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-quote">"Llevo 8 meses con el plan Elite y cambió mi vida. Los reportes me
+                        muestran qué días vendo más, qué servicios pedir, cuándo hacer promociones. Las campañas
+                        automáticas de WhatsApp me traen 15-20 clientes nuevos cada semana. Invertí $1M y ya recuperé
+                        eso como 5 veces."</p>
+                    <div class="author-row">
+                        <div class="author-avatar" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                            JM</div>
+                        <div class="author-info">
+                            <h4>Julián Moreno</h4>
+                            <span>Kings Cut Barbería • Cali 🇨🇴</span>
+                            <div class="testimonial-result">🎯 3X más clientes nuevos/mes</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 4 -->
+                <div class="testimonial-card reveal-up">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-quote">"Antes pagaba $1.2M al mes por una recepcionista que igual cometía
+                        errores, llegaba tarde o se enfermaba. Ahora Sharky hace TODO ese trabajo mejor y nunca falla.
+                        Me ahorro esa plata todos los meses y las citas se manejan mil veces mejor que antes."</p>
+                    <div class="author-row">
+                        <div class="author-avatar" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                            LC</div>
+                        <div class="author-info">
+                            <h4>Laura Cristina Vargas</h4>
+                            <span>Bella Nails Spa • Barranquilla 🇨🇴</span>
+                            <div class="testimonial-result">💰 Ahorro $1.2M/mes en nómina</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 5 -->
+                <div class="testimonial-card reveal-up" style="transition-delay: 0.1s;">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-quote">"El plan Pro es oro puro para mi barbería. Los recordatorios
+                        automáticos son CLAVE, casi nadie me cancela ahora. Y las promociones automáticas de cumpleaños
+                        y clientes inactivos me llenaron la agenda. El ROI es brutal, cada peso invertido vuelve
+                        multiplicado."</p>
+                    <div class="author-row">
+                        <div class="author-avatar" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                            DF</div>
+                        <div class="author-info">
+                            <h4>Diego Fernández</h4>
+                            <span>Urban Style Barbería • Cartagena 🇨🇴</span>
+                            <div class="testimonial-result">📅 Agenda llena x 3 semanas</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 6 -->
+                <div class="testimonial-card reveal-up" style="transition-delay: 0.2s;">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-quote">"Yo le tenía miedo a la tecnología, pero Juan y su equipo me ayudaron
+                        con todo. La implementación fue rapidísima, en 1 día ya estaba funcionando. Sharky es súper
+                        fácil de usar, todo por WhatsApp. Ahora atiendo clientes que antes perdía porque estaba
+                        ocupada. Mis ventas subieron 60%."</p>
+                    <div class="author-row">
+                        <div class="author-avatar" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);">
+                            SR</div>
+                        <div class="author-info">
+                            <h4>Sandra Ramírez</h4>
+                            <span>Luxury Nails Spa • Bucaramanga 🇨🇴</span>
+                            <div class="testimonial-result">📊 +60% más reservas</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="planes" class="pricing">
+        <div class="container">
+            <h2 class="section-title text-center reveal-up">Invierte en <span class="highlight">tu
+                    Tranquilidad</span></h2>
+            <p class="pricing-subtitle reveal-up">Elige el plan perfecto para tu negocio • Implementación inicial:
+                <strong>$250.000 COP</strong> (Pago único)</p>
+
+            <div class="pricing-toggle reveal-up">
+                <div class="toggle-badge">💰 20% OFF - Oferta por tiempo limitado</div>
+            </div>
+
+            <div class="pricing-grid">
+                <!-- Basic Plan -->
+                <div class="pricing-card reveal-up">
+                    <div class="card-header">
+                        <h3>Basic</h3>
+                        <div class="price">
+                            $500k<span>/mes</span>
+                        </div>
+                        <p class="plan-desc">Perfecto para negocios que inician</p>
+                    </div>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> Agendamiento Automático 24/7</li>
+                        <li><i class="fas fa-check"></i> Integración Google Calendar</li>
+                        <li><i class="fas fa-check"></i> Recordatorios Automáticos</li>
+                        <li><i class="fas fa-check"></i> Respuestas Inteligentes con IA</li>
+                        <li><i class="fas fa-check"></i> Soporte por Email</li>
+                        <li class="disabled"><i class="fas fa-times"></i> Google Maps</li>
+                        <li class="disabled"><i class="fas fa-times"></i> Promociones Masivas</li>
+                        <li class="disabled"><i class="fas fa-times"></i> Reportes Avanzados</li>
+                    </ul>
+                    <a href="https://wa.me/573123766146?text=Hola!%20Quiero%20el%20Plan%20BASIC%20de%20Sharky%20AI.%20Me%20interesa%20recibir%20más%20información."
+                        class="btn btn-outline btn-block" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Empezar con Basic
+                    </a>
+                    <p class="pricing-setup">+ $250k implementación inicial</p>
+                    <div class="plan-guarantee">✅ Garantía 30 días</div>
+                </div>
+
+                <!-- Pro Plan (Popular) -->
+                <div class="pricing-card popular reveal-up">
+                    <div class="popular-tag">🔥 MÁS POPULAR</div>
+                    <div class="card-header">
+                        <h3>Pro</h3>
+                        <div class="price">
+                            $700k<span>/mes</span>
+                        </div>
+                        <p class="plan-desc">Para negocios serios en crecimiento</p>
+                    </div>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> <strong>Todo lo del Basic +</strong></li>
+                        <li><i class="fas fa-check"></i> Atención Premium 24/7</li>
+                        <li><i class="fas fa-check"></i> Google Maps Integrado</li>
+                        <li><i class="fas fa-check"></i> Promociones Automáticas</li>
+                        <li><i class="fas fa-check"></i> Recordatorios Inteligentes</li>
+                        <li><i class="fas fa-check"></i> Múltiples Barberos/Técnicos</li>
+                        <li><i class="fas fa-check"></i> Soporte Prioritario</li>
+                        <li class="disabled"><i class="fas fa-times"></i> Forecast Financiero</li>
+                    </ul>
+                    <a href="https://wa.me/573123766146?text=Hola!%20Quiero%20el%20Plan%20PRO%20de%20Sharky%20AI.%20Es%20el%20más%20popular%20y%20me%20interesa."
+                        class="btn btn-primary btn-block pulse" target="_blank">
+                        <i class="fas fa-rocket"></i> Quiero el Plan Pro
+                    </a>
+                    <p class="pricing-setup">+ $250k implementación inicial</p>
+                    <div class="plan-guarantee">✅ Garantía 30 días + 1ra semana GRATIS</div>
+                </div>
+
+                <!-- Elite Plan -->
+                <div class="pricing-card reveal-up">
+                    <div class="elite-badge">👑 ELITE</div>
+                    <div class="card-header">
+                        <h3>Elite</h3>
+                        <div class="price">
+                            $1M<span>/mes</span>
+                        </div>
+                        <p class="plan-desc">Control total de tu negocio</p>
+                    </div>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> <strong>Todo lo del Pro +</strong></li>
+                        <li><i class="fas fa-check"></i> Forecast Financiero con IA</li>
+                        <li><i class="fas fa-check"></i> Control de Inventario</li>
+                        <li><i class="fas fa-check"></i> Marketing Automático Avanzado</li>
+                        <li><i class="fas fa-check"></i> Reportes Ejecutivos Personalizados</li>
+                        <li><i class="fas fa-check"></i> Análisis de Rentabilidad</li>
+                        <li><i class="fas fa-check"></i> Soporte VIP Dedicado</li>
+                        <li><i class="fas fa-check"></i> Consultoría Mensual Incluida</li>
+                    </ul>
+                    <a href="https://wa.me/573123766146?text=Hola!%20Quiero%20el%20Plan%20ELITE%20de%20Sharky%20AI.%20Necesito%20el%20máximo%20control%20de%20mi%20negocio."
+                        class="btn btn-outline btn-block" target="_blank">
+                        <i class="fas fa-crown"></i> Solicitar Plan Elite
+                    </a>
+                    <p class="pricing-setup">+ $250k implementación inicial</p>
+                    <div class="plan-guarantee">✅ Garantía 30 días + Consultoría Gratis</div>
+                </div>
+            </div>
+
+            <div class="pricing-guarantee reveal-up">
+                <div class="guarantee-box">
+                    <div class="guarantee-icon">🛡️</div>
+                    <div class="guarantee-content">
+                        <h3>Garantía Total de Satisfacción</h3>
+                        <p>Si en los primeros 30 días no estás 100% satisfecho con Sharky AI, te devolvemos todo tu
+                            dinero. Sin preguntas. Sin letra pequeña.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pricing-faq reveal-up">
+                <p><strong>¿Dudas sobre qué plan elegir?</strong> Agenda una llamada gratuita de 15 min y te ayudamos
+                    👉 <a href="https://wa.me/573123766146?text=Hola,%20tengo%20dudas%20sobre%20qué%20plan%20elegir"
+                        target="_blank">WhatsApp</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <h2 class="section-title text-center reveal-up">Preguntas Frecuentes</h2>
+            <p class="section-subtitle reveal-up">Todo lo que necesitas saber sobre Sharky AI</p>
+
+            <div class="faq-grid">
+                <div class="faq-item reveal-up">
+                    <div class="faq-question">
+                        <h4><i class="fas fa-laptop"></i> ¿Necesito un computador o conocimientos técnicos?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>No. Todo funciona desde la nube automáticamente. Tú solo necesitas tu celular para ver las
+                            citas en Google Calendar. Nosotros configuramos todo por ti en menos de 24 horas.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal-up">
+                    <div class="faq-question">
+                        <h4><i class="fas fa-ban"></i> ¿Qué pasa si un cliente quiere cancelar?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>El cliente simplemente escribe "cancelar cita" o "no puedo ir" y Sharky liberará el espacio
+                            automáticamente en tu calendario. Además, puedes configurar políticas de cancelación (ej:
+                            solo con 24h de anticipación).</p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal-up">
+                    <div class="faq-question">
+                        <h4><i class="fab fa-whatsapp"></i> ¿Puedo usar mi mismo número de WhatsApp?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sí. Nos integramos a tu WhatsApp Business actual. Tú puedes seguir contestando manualmente
+                            cuando quieras. Sharky solo interviene cuando detecta una consulta sobre citas o cuando no
+                            has contestado. Tienes control total.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal-up">
+                    <div class="faq-question">
+                        <h4><i class="fas fa-clock"></i> ¿Cuánto tarda realmente la implementación?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Normalmente en menos de 24 horas estás funcionando al 100%. Nosotros hacemos todo: conectar
+                            tu WhatsApp, sincronizar tu calendario, configurar tus servicios y precios, entrenar a tu
+                            equipo. Tú solo disfrutas los resultados.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal-up">
+                    <div class="faq-question">
+                        <h4><i class="fas fa-robot"></i> ¿El bot suena como un robot?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Para nada. Sharky AI usa tecnología de última generación que entiende contexto y conversa
+                            naturalmente. Tus clientes pensarán que es una persona real. Además, personalizamos el tono
+                            según tu marca (formal, casual, amigable, etc).</p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal-up">
+                    <div class="faq-question">
+                        <h4><i class="fas fa-times-circle"></i> ¿Puedo cancelar cuando quiera?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sí, sin ataduras. No hay contratos largos ni permanencias mínimas. Puedes cancelar en
+                            cualquier momento. Si en los primeros 30 días no estás satisfecho, te devolvemos el 100% de
+                            tu dinero.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal-up">
+                    <div class="faq-question">
+                        <h4><i class="fas fa-users"></i> ¿Funciona si tengo varios barberos/técnicos?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>¡Perfecto para equipos! Sharky maneja calendarios independientes para cada miembro de tu
+                            equipo. Los clientes pueden pedir a su barbero favorito o aceptar el primero disponible.
+                            Todo automático.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal-up">
+                    <div class="faq-question">
+                        <h4><i class="fas fa-headset"></i> ¿Qué tipo de soporte ofrecen?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Depende del plan: Basic tiene soporte por email (respuesta en 24h), Pro tiene soporte
+                            prioritario por WhatsApp, y Elite incluye un asesor VIP dedicado con respuesta en menos de
+                            2 horas. Todos incluyen capacitación completa al inicio.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contacto" class="contact">
+        <div class="container">
+            <div class="contact-wrapper reveal-up">
+                <div class="contact-header">
+                    <h2>¿Listo para Transformar tu Negocio?</h2>
+                    <p>Déjanos tus datos y te contactamos para una <strong>demo personalizada gratuita</strong> de 15
+                        minutos. Sin compromiso.</p>
+                    <div class="contact-benefits-mini">
+                        <span>✅ Demo gratis</span>
+                        <span>✅ Sin compromiso</span>
+                        <span>✅ Setup en 24h</span>
+                    </div>
+                </div>
+
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>¿Por qué agendar una demo?</h3>
+                        <div class="info-list">
+                            <div class="info-item">
+                                <div class="info-icon">🎯</div>
+                                <div>
+                                    <strong>Personalizada para ti</strong>
+                                    <p>Te mostramos cómo funciona específicamente para tu barbería o spa</p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-icon">💡</div>
+                                <div>
+                                    <strong>Sin compromiso</strong>
+                                    <p>100% gratis, sin obligación de compra</p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-icon">⚡</div>
+                                <div>
+                                    <strong>Resultados rápidos</strong>
+                                    <p>Si decides continuar, estarás operando en 24h</p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-icon">🎁</div>
+                                <div>
+                                    <strong>Bonus especial</strong>
+                                    <p>Primera semana gratis para probar sin riesgo</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contact-direct">
+                            <h4>O chatea directo con nosotros:</h4>
+                            <a href="https://wa.me/573123766146?text=Hola!%20Quiero%20una%20demo%20gratuita%20de%20Sharky%20AI"
+                                class="btn btn-whatsapp-big" target="_blank">
+                                <i class="fab fa-whatsapp"></i>
+                                <div>
+                                    <strong>WhatsApp Directo</strong>
+                                    <span>+57 312 376 6146</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <form action="https://formsubmit.co/jpchaconb@gmail.com" method="POST" class="modern-form"
+                        id="contact-form">
+                        <!-- Formsubmit Configuration -->
+                        <input type="hidden" name="_subject" value="🚀 Nueva Solicitud de Demo - Sharky AI">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_next"
+                            value="https://wa.me/573123766146?text=Gracias%20por%20tu%20interés!%20Revisamos%20tu%20solicitud%20y%20te%20contactamos%20pronto.">
+                        <input type="text" name="_honey" style="display:none">
+
+                        <div class="form-header">
+                            <h3>Solicita tu Demo Gratuita</h3>
+                            <p>Completa el formulario y te contactamos en menos de 2 horas</p>
+                        </div>
+
+                        <div class="input-group">
+                            <input type="text" name="name" required placeholder=" " id="name">
+                            <label for="name">Nombre Completo *</label>
+                        </div>
+
+                        <div class="input-group">
+                            <input type="tel" name="phone" required placeholder=" " id="phone"
+                                pattern="[0-9+\s\-()]*">
+                            <label for="phone">WhatsApp / Teléfono *</label>
+                        </div>
+
+                        <div class="input-group">
+                            <input type="email" name="email" required placeholder=" " id="email">
+                            <label for="email">Email *</label>
+                        </div>
+
+                        <div class="input-group">
+                            <input type="text" name="business" required placeholder=" " id="business">
+                            <label for="business">Nombre de tu Negocio *</label>
+                        </div>
+
+                        <div class="input-group">
+                            <select name="business_type" required id="business-type">
+                                <option value="">Selecciona...</option>
+                                <option value="Barbería">🪒 Barbería</option>
+                                <option value="Spa de Uñas">💅 Spa de Uñas</option>
+                                <option value="Salón de Belleza">💇 Salón de Belleza</option>
+                                <option value="Peluquería">✂️ Peluquería</option>
+                                <option value="Otro">🏪 Otro tipo de negocio</option>
+                            </select>
+                            <label for="business-type" class="select-label">Tipo de Negocio *</label>
+                        </div>
+
+                        <div class="input-group">
+                            <input type="text" name="city" required placeholder=" " id="city">
+                            <label for="city">Ciudad *</label>
+                        </div>
+
+                        <div class="input-group">
+                            <select name="plan" id="plan-select">
+                                <option value="Aún no estoy seguro">Aún no estoy seguro</option>
+                                <option value="Basic - $500k/mes">Basic - $500k/mes</option>
+                                <option value="Pro - $700k/mes" selected>Pro - $700k/mes (Recomendado)</option>
+                                <option value="Elite - $1M/mes">Elite - $1M/mes</option>
+                            </select>
+                            <label for="plan-select" class="select-label">Plan de Interés</label>
+                        </div>
+
+                        <div class="input-group">
+                            <textarea name="message" rows="3" placeholder=" " id="message"></textarea>
+                            <label for="message">Cuéntanos sobre tu negocio (opcional)</label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block btn-submit pulse">
+                            <i class="fas fa-rocket"></i> Solicitar Demo Gratuita
+                        </button>
+
+                        <p class="form-disclaimer">
+                            🔒 Tus datos están 100% seguros. No compartimos tu información con terceros ni enviamos
+                            spam.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <div class="cta-box reveal-up">
+                <h2>No Sigas Perdiendo Dinero</h2>
+                <p>Cada día sin Sharky AI es dinero que dejas de ganar. Únete a los más de 50 negocios que ya están
+                    facturando más.</p>
+                <div class="cta-buttons">
+                    <a href="#contacto" class="btn btn-primary btn-lg pulse">
+                        <i class="fas fa-rocket"></i> Empezar Ahora
+                    </a>
+                    <a href="https://wa.me/573123766146?text=Hola,%20tengo%20una%20pregunta%20sobre%20Sharky%20AI"
+                        class="btn btn-outline btn-lg" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Hablar con un Asesor
+                    </a>
+                </div>
+                <div class="cta-trust">
+                    <span>✅ Sin permanencia</span>
+                    <span>✅ Garantía 30 días</span>
+                    <span>✅ Primera semana gratis</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <h3>🦈 Sharky AI</h3>
+                <p>Automatización inteligente con IA para barberías y spas en Colombia</p>
+                <p class="footer-tagline">Más clientes. Menos estrés. Mejores resultados.</p>
+            </div>
+
+            <div class="footer-links">
+                <h4>Enlaces</h4>
+                <a href="#inicio">Inicio</a>
+                <a href="#problema">¿Por Qué?</a>
+                <a href="#planes">Planes</a>
+                <a href="#testimonios">Casos de Éxito</a>
+                <a href="#faq">Preguntas</a>
+            </div>
+
+            <div class="footer-contact">
+                <h4>Contacto</h4>
+                <a href="https://wa.me/573123766146" target="_blank"><i class="fab fa-whatsapp"></i> +57 312 376
+                    6146</a>
+                <a href="mailto:jpchaconb@gmail.com"><i class="fas fa-envelope"></i> jpchaconb@gmail.com</a>
+                <p><i class="fas fa-map-marker-alt"></i> Colombia 🇨🇴</p>
+            </div>
+
+            <div class="footer-social">
+                <h4>Síguenos</h4>
+                <div class="social-links">
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="mailto:jpchaconb@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2024 Sharky AI. Todos los derechos reservados.</p>
+                <p class="footer-love">Hecho con 💙 para emprendedores colombianos</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/573123766146?text=Hola!%20Tengo%20una%20pregunta%20sobre%20Sharky%20AI"
+        class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">¿Necesitas ayuda?</span>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

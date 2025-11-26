@@ -1,0 +1,102 @@
+╔════════════════════════════════════════════════════════════════╗
+║                                                                ║
+║          🦈  SHARKY AI - LANDING PAGE                         ║
+║          Guía de Inicio Rápido                                ║
+║                                                                ║
+╚════════════════════════════════════════════════════════════════╝
+
+📂 UBICACIÓN DEL PROYECTO:
+   /Users/jpchacon/LandingPage
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🚀 OPCIÓN 1: PYTHON (MÁS FÁCIL - RECOMENDADO)
+
+1. Abre la Terminal (Command + Espacio, escribe "Terminal")
+
+2. Navega a la carpeta:
+   cd /Users/jpchacon/LandingPage
+
+3. Ejecuta:
+   python3 server.py
+
+4. ¡Listo! Se abrirá automáticamente en tu navegador
+   http://localhost:8000
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🚀 OPCIÓN 2: SCRIPT AUTOMÁTICO
+
+1. Abre Terminal
+
+2. Ejecuta:
+   cd /Users/jpchacon/LandingPage
+   ./start.sh
+
+3. El script detectará automáticamente Python o Node.js
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🚀 OPCIÓN 3: NODE.JS
+
+1. Abre Terminal
+
+2. Ejecuta:
+   cd /Users/jpchacon/LandingPage
+   npm install
+   npm start
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⛔ DETENER EL SERVIDOR
+
+   Presiona: Ctrl + C en la terminal
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📱 VER EN OTROS DISPOSITIVOS (MÓVIL/TABLET)
+
+1. Asegúrate de que el servidor esté corriendo
+
+2. En la Terminal, ejecuta:
+   ifconfig | grep "inet "
+
+3. Busca tu IP local (ejemplo: 192.168.1.100)
+
+4. En tu móvil/tablet (misma red WiFi), abre:
+   http://TU_IP:8000
+   
+   Ejemplo: http://192.168.1.100:8000
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎨 PERSONALIZAR
+
+• Colores: Edita styles.css (líneas 1-22)
+• Contenido: Edita index.html
+• Número WhatsApp: Busca y reemplaza "573123766146"
+• Email formulario: Cambia en index.html línea ~809
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📚 DOCUMENTACIÓN COMPLETA
+
+• README.md - Guía completa y detallada
+• MEJORAS.md - Lista de todas las mejoras implementadas
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📞 SOPORTE
+
+   📧 Email: jpchaconb@gmail.com
+   📱 WhatsApp: +57 312 376 6146
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✨ ¡TODO LISTO! 
+
+Tu landing page está configurada y lista para usar.
+
+Simplemente ejecuta: python3 server.py
+
+🦈 Sharky AI - Automatización inteligente para tu negocio
