@@ -1,6 +1,6 @@
-# 🦈 Sharky AI - Landing Page
+# 🧠 SINAPSIO - Landing Page
 
-Landing page profesional para Sharky AI, sistema de automatización con IA para barberías y spas en Colombia.
+Landing page profesional para SINAPSIO, sistema de automatización con IA para barberías y spas en Colombia.
 
 ## 🚀 Inicio Rápido
 
@@ -89,15 +89,15 @@ Todo el contenido se encuentra en `index.html`. Las secciones principales son:
 
 ### Cambiar números de WhatsApp
 
-Busca y reemplaza `573123766146` por tu número en:
+Busca y reemplaza `573222317169` por tu número en:
 - `index.html` (todos los enlaces de WhatsApp)
-- Formato: código de país + número (ej: 573123766146 para Colombia)
+- Formato: código de país + número (ej: 573222317169 para Colombia)
 
 ### Modificar email del formulario
 
 En `index.html` línea ~809, cambia:
 ```html
-<form action="https://formsubmit.co/jpchaconb@gmail.com" method="POST">
+<form action="https://formsubmit.co/sinapsio.ia@gmail.com" method="POST">
 ```
 
 ## 🔧 Comandos Útiles
@@ -160,15 +160,15 @@ Prueba en Chrome DevTools:
 ## 📞 Soporte
 
 ¿Necesitas ayuda? Contacta:
-- 📧 Email: jpchaconb@gmail.com
-- 📱 WhatsApp: +57 312 376 6146
+- 📧 Email: sinapsio.ia@gmail.com
+- 📱 WhatsApp: +57 322 231 7169
 
 ## 📄 Licencia
 
-Este proyecto es propiedad de Sharky AI © 2024
+Este proyecto es propiedad de SINAPSIO © 2024
 
 ---
 
 **Hecho con 💙 para emprendedores colombianos**
 
-🦈 Sharky AI - Automatización inteligente para tu negocio
+🧠 SINAPSIO - Automatización inteligente para tu negocio

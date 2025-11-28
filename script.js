@@ -418,9 +418,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // 17. CONSOLE MESSAGE (Easter Egg)
     // ========================================
 
-    console.log('%c🦈 Sharky AI', 'font-size: 24px; font-weight: bold; color: #00f2ff;');
+    console.log('%c🧠 SINAPSIO — AI Appointment Agents', 'font-size: 24px; font-weight: bold; color: #00f2ff;');
     console.log('%c¿Te gusta lo que ves? Únete a nosotros! 🚀', 'font-size: 14px; color: #fff;');
-    console.log('%cWhatsApp: +57 312 376 6146', 'font-size: 12px; color: #25D366;');
+    console.log('%cWhatsApp: +57 322 231 7169', 'font-size: 12px; color: #25D366;');
 
     // ========================================
     // 18. PREVENT FORM RESUBMISSION ON PAGE RELOAD

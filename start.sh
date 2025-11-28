@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# Script de inicio para Sharky AI Landing Page
+# Script de inicio para SINAPSIO Landing Page
 
 echo "=================================================="
-echo "🦈  SHARKY AI - Landing Page"
+echo "🧠  SINAPSIO - Landing Page"
 echo "=================================================="
 echo ""
 

@@ -29,7 +29,7 @@ app.use((req, res) => {
 // Iniciar servidor
 app.listen(PORT, () => {
     console.log('='.repeat(50));
-    console.log('🦈 Sharky AI - Servidor Local Iniciado');
+    console.log('🧠 SINAPSIO - Servidor Local Iniciado');
     console.log('='.repeat(50));
     console.log(`\n✅ Servidor corriendo en: http://localhost:${PORT}`);
     console.log('✅ Presiona Ctrl+C para detener el servidor\n');

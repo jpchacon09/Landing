@@ -6,7 +6,7 @@
 - ✅ Meta tags SEO completos (keywords, description, author)
 - ✅ Open Graph tags para Facebook/LinkedIn
 - ✅ Twitter Card tags para mejor compartir
-- ✅ Favicon dinámico con emoji de tiburón
+- ✅ Favicon dinámico con emoji de cerebro
 - ✅ Theme color para navegadores móviles
 
 ### 2. Optimización de Performance
@@ -189,4 +189,4 @@ http://TU_IP:8000
 **Resultado Final:**
 Tu landing ahora está completamente lista para correr localmente con un simple comando y está optimizada para SEO y performance. 🚀
 
-🦈 Sharky AI - Hecho con 💙
+🦈 SINAPSIO - Hecho con 💙

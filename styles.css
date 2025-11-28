@@ -239,6 +239,40 @@ ul {
     gap: 8px;
 }
 
+.logo-img {
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 6px;
+    box-shadow: 0 10px 30px rgba(0, 242, 255, 0.15);
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+    gap: 4px;
+}
+
+.brand-name {
+    font-weight: 800;
+    letter-spacing: 0.6px;
+    font-size: 1.05rem;
+}
+
+.brand-tagline {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.logo .beta-tag {
+    margin-left: 4px;
+}
+
 .highlight {
     background: var(--gradient-main);
     -webkit-background-clip: text;
@@ -478,6 +512,53 @@ ul {
     color: var(--text-muted);
     margin-bottom: 35px;
     line-height: 1.7;
+}
+
+.hero-logo-card {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    box-shadow: var(--shadow-lg);
+    margin-bottom: 30px;
+    backdrop-filter: blur(8px);
+}
+
+.hero-logo-card img {
+    width: 68px;
+    height: 68px;
+    border-radius: 14px;
+    object-fit: contain;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 8px;
+    box-shadow: 0 10px 30px rgba(0, 242, 255, 0.18);
+}
+
+.hero-logo-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.hero-logo-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.hero-logo-copy strong {
+    font-size: 1.2rem;
+    letter-spacing: 0.5px;
+}
+
+.hero-logo-copy small {
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    letter-spacing: 0.04em;
 }
 
 .hero-stats {
@@ -1849,6 +1930,11 @@ footer {
         font-size: 2.5rem;
     }
 
+    .hero-logo-card {
+        width: 100%;
+        justify-content: center;
+    }
+
     .hero-stats,
     .hero-buttons,
     .hero-trust {
@@ -1952,6 +2038,16 @@ footer {
 @media (max-width: 640px) {
     .hero-text h1 {
         font-size: 2rem;
+    }
+
+    .hero-logo-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .hero-logo-copy strong {
+        font-size: 1.1rem;
     }
 
     .section-title {

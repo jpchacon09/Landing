@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Servidor HTTP simple para Sharky AI Landing Page
+Servidor HTTP simple para SINAPSIO Landing Page
 Ejecuta: python3 server.py
 Luego abre: http://localhost:8000
 """
@@ -30,7 +30,7 @@ def main():
 
     with socketserver.TCPServer(("", PORT), MyHTTPRequestHandler) as httpd:
         print("=" * 50)
-        print("🦈 Sharky AI - Servidor Local Iniciado")
+        print("🧠 SINAPSIO - Servidor Local Iniciado")
         print("=" * 50)
         print(f"\n✅ Servidor corriendo en: http://localhost:{PORT}")
         print(f"✅ Presiona Ctrl+C para detener el servidor\n")

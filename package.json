@@ -1,7 +1,7 @@
 {
-  "name": "sharky-ai-landing",
+  "name": "sinapsio-landing",
   "version": "1.0.0",
-  "description": "Landing Page para Sharky AI - Automatización de Barberías y Spas",
+  "description": "Landing Page para SINAPSIO - AI Appointment Agents en WhatsApp",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -10,9 +10,9 @@
   },
   "keywords": [
     "landing-page",
-    "sharky-ai",
-    "barberia",
-    "spa",
+    "sinapsio",
+    "ia",
+    "appointment-agents",
     "whatsapp-bot"
   ],
   "author": "Juan Pablo Chacon",
