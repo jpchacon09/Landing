@@ -779,9 +779,12 @@ ul {
     border: 10px solid #2a2a2a;
     position: relative;
     margin: 0 auto;
-    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8), 0 0 60px rgba(0, 242, 255, 0.2);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4), 0 0 60px rgba(79, 70, 229, 0.15);
+    /* Softer shadow */
     transform: rotateY(-10deg) rotateX(5deg);
     transition: transform 0.5s ease;
+    color: #fff;
+    /* FORCE WHITE TEXT INSIDE PHONE */
 }
 
 .phone-mockup:hover {
@@ -876,6 +879,8 @@ ul {
     position: relative;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
     line-height: 1.4;
+    color: #fff;
+    /* Explicitly white for dark mode chat */
 }
 
 .chat-bubble.bot {
@@ -949,44 +954,51 @@ ul {
     color: #fff;
 }
 
-/* Floating Cards */
+/* ====================
+   FLOATING CARDS (Phone)
+==================== */
 .float-card {
     position: absolute;
-    background: rgba(20, 20, 30, 0.95);
-    backdrop-filter: blur(15px);
+    background: #ffffff;
+    color: var(--text-color);
     padding: 12px 18px;
     border-radius: 12px;
-    border: 1px solid var(--card-border);
     font-size: 0.85rem;
+    font-weight: 600;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     display: flex;
     align-items: center;
     gap: 10px;
-    box-shadow: var(--shadow-lg);
-    z-index: 5;
+    z-index: 10;
+    animation: float 6s ease-in-out infinite;
+    border: 1px solid rgba(0, 0, 0, 0.05);
     white-space: nowrap;
 }
 
 .card-1 {
     top: 15%;
-    left: -80px;
-    animation: float 6s infinite ease-in-out;
+    left: -60px;
+    animation-delay: 0s;
 }
 
 .card-2 {
-    bottom: 30%;
-    right: -80px;
-    animation: float 7s infinite ease-in-out reverse;
+    top: 45%;
+    right: -50px;
+    animation-delay: 2s;
 }
 
 .card-3 {
-    bottom: 15%;
-    left: -60px;
-    animation: float 8s infinite ease-in-out;
+    bottom: 20%;
+    left: -40px;
+    animation-delay: 4s;
 }
 
 .float-card i {
     color: var(--primary-color);
     font-size: 1.1rem;
+    background: rgba(79, 70, 229, 0.1);
+    padding: 6px;
+    border-radius: 8px;
 }
 
 /* ====================
