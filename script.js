@@ -274,7 +274,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const contactForm = document.getElementById('contact-form');
 
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
+        contactForm.addEventListener('submit', function (e) {
             // Basic validation (HTML5 handles most of it)
             const phone = document.getElementById('phone').value;
             const email = document.getElementById('email').value;
@@ -429,5 +429,19 @@ document.addEventListener('DOMContentLoaded', () => {
     if (window.history.replaceState) {
         window.history.replaceState(null, null, window.location.href);
     }
+
+    // ========================================
+    // 19. DYNAMIC HEADER (Navbar Scroll Effect)
+    // ========================================
+
+    const navbar = document.querySelector('.navbar');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 20) {
+            navbar.classList.add('navbar-scrolled');
+        } else {
+            navbar.classList.remove('navbar-scrolled');
+        }
+    });
 
 });
