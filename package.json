@@ -1,12 +1,11 @@
 {
   "name": "sinapsio-landing",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Landing Page para SINAPSIO - AI Appointment Agents en WhatsApp",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js",
-    "python": "python3 server.py"
+    "start": "NODE_ENV=production node server.js",
+    "dev": "node server.js"
   },
   "keywords": [
     "landing-page",
@@ -18,11 +17,9 @@
   "author": "Juan Pablo Chacon",
   "license": "MIT",
   "engines": {
-    "node": ">=14.0.0",
-    "npm": ">=6.0.0"
+    "node": ">=18.0.0"
   },
   "dependencies": {
-    "express": "^4.18.2",
-    "open": "^8.4.2"
+    "express": "^4.18.2"
   }
 }
