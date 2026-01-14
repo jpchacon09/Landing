@@ -8,8 +8,10 @@ WORKDIR /app
 # Copiar package files
 COPY package*.json ./
 
-# Instalar solo dependencias de producción
-RUN npm ci --only=production && npm cache clean --force
+# Instalar dependencias de forma robusta
+# Si existe package-lock.json usa npm ci, si no usa npm install
+RUN if [ -f package-lock.json ]; then npm ci --omit=dev; else npm install --omit=dev; fi && \
+    npm cache clean --force
 
 # Copiar archivos necesarios
 COPY index.html ./
@@ -26,9 +28,9 @@ ENV PORT=8000
 # Puerto expuesto
 EXPOSE 8000
 
-# Health check
+# Health check logic optimized for Node
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-    CMD node -e "require('http').get('http://localhost:8000/health', (r) => process.exit(r.statusCode === 200 ? 0 : 1))"
+    CMD node -e "require('http').get('http://0.0.0.0:8000/health', (r) => process.exit(r.statusCode === 200 ? 0 : 1))"
 
 # Comando de inicio
 CMD ["node", "server.js"]
