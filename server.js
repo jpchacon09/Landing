@@ -27,7 +27,7 @@ app.get('/', (req, res) => {
 
 // Health check para EasyPanel/Docker
 app.get('/health', (req, res) => {
-    res.status(200).json({ status: 'ok', timestamp: new Date().toISOString() });
+    res.status(200).send('ok');
 });
 
 // Manejo de 404 - redirigir a index (SPA style)

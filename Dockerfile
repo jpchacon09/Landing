@@ -18,6 +18,9 @@ COPY index.html ./
 COPY server.js ./
 COPY assets/ ./assets/
 
+# Ajustar permisos para el usuario no-root
+RUN chown -R nodejs:nodejs /app
+
 # Cambiar a usuario no-root
 USER nodejs
 
