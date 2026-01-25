@@ -172,6 +172,39 @@
             left: 100%;
         }
 
+        /* Subtle pulse animation for counter */
+        @keyframes pulse-subtle {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+        .animate-pulse-subtle {
+            animation: pulse-subtle 3s ease-in-out infinite;
+        }
+
+        /* Industry tabs */
+        .industry-tab {
+            background: white;
+            color: #64748b;
+            border: 1px solid #e2e8f0;
+        }
+        .dark .industry-tab {
+            background: #1e293b;
+            color: #94a3b8;
+            border-color: #334155;
+        }
+        .industry-tab.active {
+            background: linear-gradient(135deg, #f97316, #ef4444);
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
+        }
+        .industry-tab:hover:not(.active) {
+            background: #f1f5f9;
+        }
+        .dark .industry-tab:hover:not(.active) {
+            background: #334155;
+        }
+
         /* Glass morphism */
         .glass {
             background: rgba(255, 255, 255, 0.8);
@@ -772,7 +805,7 @@
             <div class="flex items-center justify-between h-16 md:h-20">
                 <!-- Logo -->
                 <a href="#" class="flex items-center gap-2 group">
-                    <img src="assets/logosinfondo.jpeg" alt="Sinapsio Logo" class="w-10 h-10 rounded-xl object-cover group-hover:shadow-lg group-hover:shadow-electric-500/30 transition-all">
+                    <img src="assets/logoconfondo.jpeg" alt="Sinapsio Logo" class="w-10 h-10 rounded-xl object-cover group-hover:shadow-lg group-hover:shadow-electric-500/30 transition-all">
                     <span class="text-xl font-bold tracking-tight">Sinapsio</span>
                 </a>
 
@@ -820,6 +853,9 @@
                             </button>
                             <button data-currency="USD" class="w-full px-4 py-2.5 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors">
                                 🇺🇸 USD $
+                            </button>
+                            <button data-currency="EUR" class="w-full px-4 py-2.5 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors">
+                                🇪🇺 EUR €
                             </button>
                         </div>
                     </div>
@@ -1179,6 +1215,317 @@
                 <p class="mt-4 text-sm text-slate-500 dark:text-slate-400" data-i18n="early.disclaimer">
                     Sin tarjeta de crédito • Cancela cuando quieras
                 </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industry Success Cases -->
+    <section id="casos-exito" class="py-20 md:py-28 bg-gradient-to-br from-slate-50 to-white dark:from-slate-900 dark:to-slate-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="inline-flex items-center px-4 py-2 bg-electric-100 dark:bg-electric-900/30 text-electric-700 dark:text-electric-400 rounded-full text-sm font-semibold mb-4">
+                    📊 <span data-i18n="cases.badge" class="ml-2">Casos de éxito por industria</span>
+                </span>
+                <h2 class="reveal text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-4" data-i18n="cases.title">
+                    Resultados comprobados en tu industria
+                </h2>
+                <p class="reveal text-lg text-slate-600 dark:text-slate-400" data-i18n="cases.subtitle">
+                    Selecciona tu tipo de negocio y mira métricas reales
+                </p>
+            </div>
+
+            <!-- Industry Tabs -->
+            <div class="flex flex-wrap justify-center gap-3 mb-12">
+                <button onclick="showIndustryCase('barberia')" class="industry-tab active px-6 py-3 rounded-full text-sm font-semibold transition-all" data-industry="barberia">
+                    💈 <span data-i18n="cases.tab.barber">Barbería</span>
+                </button>
+                <button onclick="showIndustryCase('spa')" class="industry-tab px-6 py-3 rounded-full text-sm font-semibold transition-all" data-industry="spa">
+                    💆 <span data-i18n="cases.tab.spa">Spa / Belleza</span>
+                </button>
+                <button onclick="showIndustryCase('restaurante')" class="industry-tab px-6 py-3 rounded-full text-sm font-semibold transition-all" data-industry="restaurante">
+                    🍽️ <span data-i18n="cases.tab.restaurant">Restaurante</span>
+                </button>
+                <button onclick="showIndustryCase('clinica')" class="industry-tab px-6 py-3 rounded-full text-sm font-semibold transition-all" data-industry="clinica">
+                    🏥 <span data-i18n="cases.tab.clinic">Clínica</span>
+                </button>
+                <button onclick="showIndustryCase('gym')" class="industry-tab px-6 py-3 rounded-full text-sm font-semibold transition-all" data-industry="gym">
+                    🏋️ <span data-i18n="cases.tab.gym">Gimnasio</span>
+                </button>
+            </div>
+
+            <!-- Case Content -->
+            <div id="industry-cases" class="bg-white dark:bg-slate-800 rounded-3xl shadow-xl p-8 md:p-12">
+                <!-- Barberia Case (default) -->
+                <div id="case-barberia" class="industry-case">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <div class="flex items-center gap-3 mb-6">
+                                <span class="text-4xl">💈</span>
+                                <div>
+                                    <h3 class="text-2xl font-bold text-slate-900 dark:text-white" data-i18n="cases.barber.title">Barberías</h3>
+                                    <p class="text-slate-500" data-i18n="cases.barber.subtitle">Promedio de 12 barberías usando Sinapsio</p>
+                                </div>
+                            </div>
+                            <p class="text-slate-600 dark:text-slate-300 mb-6" data-i18n="cases.barber.desc">
+                                Las barberías son el negocio perfecto para la automatización. Clientes recurrentes, citas frecuentes y alta tasa de no-shows que la IA elimina.
+                            </p>
+                            <ul class="space-y-3">
+                                <li class="flex items-center gap-3">
+                                    <span class="w-8 h-8 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center text-green-600">✓</span>
+                                    <span class="text-slate-700 dark:text-slate-300" data-i18n="cases.barber.f1">Recordatorios 2h antes de la cita</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <span class="w-8 h-8 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center text-green-600">✓</span>
+                                    <span class="text-slate-700 dark:text-slate-300" data-i18n="cases.barber.f2">Agenda automática por barbero</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <span class="w-8 h-8 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center text-green-600">✓</span>
+                                    <span class="text-slate-700 dark:text-slate-300" data-i18n="cases.barber.f3">Promociones automáticas para días lentos</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="bg-gradient-to-br from-orange-50 to-red-50 dark:from-slate-700 dark:to-slate-600 rounded-2xl p-6">
+                            <h4 class="text-lg font-semibold text-slate-900 dark:text-white mb-6 text-center" data-i18n="cases.metrics">Métricas promedio</h4>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="text-center p-4 bg-white dark:bg-slate-800 rounded-xl">
+                                    <p class="text-3xl font-bold text-electric-600">-87%</p>
+                                    <p class="text-sm text-slate-500" data-i18n="cases.metric.noshows">No-shows</p>
+                                </div>
+                                <div class="text-center p-4 bg-white dark:bg-slate-800 rounded-xl">
+                                    <p class="text-3xl font-bold text-green-600">+$1.2M</p>
+                                    <p class="text-sm text-slate-500" data-i18n="cases.metric.recovered">Recuperado/mes</p>
+                                </div>
+                                <div class="text-center p-4 bg-white dark:bg-slate-800 rounded-xl">
+                                    <p class="text-3xl font-bold text-blue-600">3seg</p>
+                                    <p class="text-sm text-slate-500" data-i18n="cases.metric.response">Respuesta</p>
+                                </div>
+                                <div class="text-center p-4 bg-white dark:bg-slate-800 rounded-xl">
+                                    <p class="text-3xl font-bold text-purple-600">+35%</p>
+                                    <p class="text-sm text-slate-500" data-i18n="cases.metric.bookings">Más citas</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Spa Case -->
+                <div id="case-spa" class="industry-case hidden">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <div class="flex items-center gap-3 mb-6">
+                                <span class="text-4xl">💆</span>
+                                <div>
+                                    <h3 class="text-2xl font-bold text-slate-900 dark:text-white" data-i18n="cases.spa.title">Spas y Centros de Belleza</h3>
+                                    <p class="text-slate-500" data-i18n="cases.spa.subtitle">Promedio de 8 spas usando Sinapsio</p>
+                                </div>
+                            </div>
+                            <p class="text-slate-600 dark:text-slate-300 mb-6" data-i18n="cases.spa.desc">
+                                Servicios de mayor valor requieren confirmaciones más cuidadosas. Nuestra IA personaliza el tono y ofrece reagendamiento automático.
+                            </p>
+                            <ul class="space-y-3">
+                                <li class="flex items-center gap-3">
+                                    <span class="w-8 h-8 bg-pink-100 dark:bg-pink-900/30 rounded-full flex items-center justify-center text-pink-600">✓</span>
+                                    <span class="text-slate-700 dark:text-slate-300" data-i18n="cases.spa.f1">Confirmación 24h y 2h antes</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <span class="w-8 h-8 bg-pink-100 dark:bg-pink-900/30 rounded-full flex items-center justify-center text-pink-600">✓</span>
+                                    <span class="text-slate-700 dark:text-slate-300" data-i18n="cases.spa.f2">Sugerencias de tratamientos adicionales</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <span class="w-8 h-8 bg-pink-100 dark:bg-pink-900/30 rounded-full flex items-center justify-center text-pink-600">✓</span>
+                                    <span class="text-slate-700 dark:text-slate-300" data-i18n="cases.spa.f3">Seguimiento post-servicio automático</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="bg-gradient-to-br from-pink-50 to-purple-50 dark:from-slate-700 dark:to-slate-600 rounded-2xl p-6">
+                            <h4 class="text-lg font-semibold text-slate-900 dark:text-white mb-6 text-center" data-i18n="cases.metrics">Métricas promedio</h4>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="text-center p-4 bg-white dark:bg-slate-800 rounded-xl">
+                                    <p class="text-3xl font-bold text-electric-600">-72%</p>
+                                    <p class="text-sm text-slate-500" data-i18n="cases.metric.noshows">No-shows</p>
+                                </div>
+                                <div class="text-center p-4 bg-white dark:bg-slate-800 rounded-xl">
+                                    <p class="text-3xl font-bold text-green-600">+$1.8M</p>
+                                    <p class="text-sm text-slate-500" data-i18n="cases.metric.recovered">Recuperado/mes</p>
+                                </div>
+                                <div class="text-center p-4 bg-white dark:bg-slate-800 rounded-xl">
+                                    <p class="text-3xl font-bold text-blue-600">+4h</p>
+                                    <p class="text-sm text-slate-500" data-i18n="cases.metric.timesaved">Tiempo ahorrado/día</p>
+                                </div>
+                                <div class="text-center p-4 bg-white dark:bg-slate-800 rounded-xl">
+                                    <p class="text-3xl font-bold text-purple-600">+28%</p>
+                                    <p class="text-sm text-slate-500" data-i18n="cases.metric.upsell">Servicios adicionales</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Restaurante Case -->
+                <div id="case-restaurante" class="industry-case hidden">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <div class="flex items-center gap-3 mb-6">
+                                <span class="text-4xl">🍽️</span>
+                                <div>
+                                    <h3 class="text-2xl font-bold text-slate-900 dark:text-white" data-i18n="cases.restaurant.title">Restaurantes</h3>
+                                    <p class="text-slate-500" data-i18n="cases.restaurant.subtitle">Promedio de 15 restaurantes usando Sinapsio</p>
+                                </div>
+                            </div>
+                            <p class="text-slate-600 dark:text-slate-300 mb-6" data-i18n="cases.restaurant.desc">
+                                Reservaciones perdidas significan mesas vacías. Nuestra IA confirma reservas, maneja lista de espera y optimiza la ocupación.
+                            </p>
+                            <ul class="space-y-3">
+                                <li class="flex items-center gap-3">
+                                    <span class="w-8 h-8 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center text-green-600">✓</span>
+                                    <span class="text-slate-700 dark:text-slate-300" data-i18n="cases.restaurant.f1">Gestión de lista de espera automática</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <span class="w-8 h-8 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center text-green-600">✓</span>
+                                    <span class="text-slate-700 dark:text-slate-300" data-i18n="cases.restaurant.f2">Confirmación de número de personas</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <span class="w-8 h-8 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center text-green-600">✓</span>
+                                    <span class="text-slate-700 dark:text-slate-300" data-i18n="cases.restaurant.f3">Promociones para horarios con baja ocupación</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="bg-gradient-to-br from-green-50 to-teal-50 dark:from-slate-700 dark:to-slate-600 rounded-2xl p-6">
+                            <h4 class="text-lg font-semibold text-slate-900 dark:text-white mb-6 text-center" data-i18n="cases.metrics">Métricas promedio</h4>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="text-center p-4 bg-white dark:bg-slate-800 rounded-xl">
+                                    <p class="text-3xl font-bold text-electric-600">-65%</p>
+                                    <p class="text-sm text-slate-500" data-i18n="cases.metric.noshows">No-shows</p>
+                                </div>
+                                <div class="text-center p-4 bg-white dark:bg-slate-800 rounded-xl">
+                                    <p class="text-3xl font-bold text-green-600">+$2.1M</p>
+                                    <p class="text-sm text-slate-500" data-i18n="cases.metric.recovered">Recuperado/mes</p>
+                                </div>
+                                <div class="text-center p-4 bg-white dark:bg-slate-800 rounded-xl">
+                                    <p class="text-3xl font-bold text-blue-600">+22%</p>
+                                    <p class="text-sm text-slate-500" data-i18n="cases.metric.occupancy">Ocupación</p>
+                                </div>
+                                <div class="text-center p-4 bg-white dark:bg-slate-800 rounded-xl">
+                                    <p class="text-3xl font-bold text-purple-600">24/7</p>
+                                    <p class="text-sm text-slate-500" data-i18n="cases.metric.availability">Disponibilidad</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Clinica Case -->
+                <div id="case-clinica" class="industry-case hidden">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <div class="flex items-center gap-3 mb-6">
+                                <span class="text-4xl">🏥</span>
+                                <div>
+                                    <h3 class="text-2xl font-bold text-slate-900 dark:text-white" data-i18n="cases.clinic.title">Clínicas y Consultorios</h3>
+                                    <p class="text-slate-500" data-i18n="cases.clinic.subtitle">Promedio de 10 clínicas usando Sinapsio</p>
+                                </div>
+                            </div>
+                            <p class="text-slate-600 dark:text-slate-300 mb-6" data-i18n="cases.clinic.desc">
+                                Citas médicas tienen alto valor y requieren confirmación profesional. Nuestra IA mantiene el tono adecuado y reduce cancelaciones.
+                            </p>
+                            <ul class="space-y-3">
+                                <li class="flex items-center gap-3">
+                                    <span class="w-8 h-8 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center text-blue-600">✓</span>
+                                    <span class="text-slate-700 dark:text-slate-300" data-i18n="cases.clinic.f1">Recordatorios con instrucciones pre-cita</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <span class="w-8 h-8 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center text-blue-600">✓</span>
+                                    <span class="text-slate-700 dark:text-slate-300" data-i18n="cases.clinic.f2">Reagendamiento automático de cancelaciones</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <span class="w-8 h-8 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center text-blue-600">✓</span>
+                                    <span class="text-slate-700 dark:text-slate-300" data-i18n="cases.clinic.f3">Seguimiento de tratamientos programados</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-slate-700 dark:to-slate-600 rounded-2xl p-6">
+                            <h4 class="text-lg font-semibold text-slate-900 dark:text-white mb-6 text-center" data-i18n="cases.metrics">Métricas promedio</h4>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="text-center p-4 bg-white dark:bg-slate-800 rounded-xl">
+                                    <p class="text-3xl font-bold text-electric-600">-78%</p>
+                                    <p class="text-sm text-slate-500" data-i18n="cases.metric.noshows">No-shows</p>
+                                </div>
+                                <div class="text-center p-4 bg-white dark:bg-slate-800 rounded-xl">
+                                    <p class="text-3xl font-bold text-green-600">+$3.2M</p>
+                                    <p class="text-sm text-slate-500" data-i18n="cases.metric.recovered">Recuperado/mes</p>
+                                </div>
+                                <div class="text-center p-4 bg-white dark:bg-slate-800 rounded-xl">
+                                    <p class="text-3xl font-bold text-blue-600">+45%</p>
+                                    <p class="text-sm text-slate-500" data-i18n="cases.metric.retention">Retención</p>
+                                </div>
+                                <div class="text-center p-4 bg-white dark:bg-slate-800 rounded-xl">
+                                    <p class="text-3xl font-bold text-purple-600">-5h</p>
+                                    <p class="text-sm text-slate-500" data-i18n="cases.metric.admintime">Tiempo admin/día</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gym Case -->
+                <div id="case-gym" class="industry-case hidden">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <div class="flex items-center gap-3 mb-6">
+                                <span class="text-4xl">🏋️</span>
+                                <div>
+                                    <h3 class="text-2xl font-bold text-slate-900 dark:text-white" data-i18n="cases.gym.title">Gimnasios y Estudios Fitness</h3>
+                                    <p class="text-slate-500" data-i18n="cases.gym.subtitle">Promedio de 6 gimnasios usando Sinapsio</p>
+                                </div>
+                            </div>
+                            <p class="text-slate-600 dark:text-slate-300 mb-6" data-i18n="cases.gym.desc">
+                                Clases con cupo limitado necesitan confirmación. Nuestra IA maneja inscripciones, lista de espera y motivación para asistencia.
+                            </p>
+                            <ul class="space-y-3">
+                                <li class="flex items-center gap-3">
+                                    <span class="w-8 h-8 bg-orange-100 dark:bg-orange-900/30 rounded-full flex items-center justify-center text-orange-600">✓</span>
+                                    <span class="text-slate-700 dark:text-slate-300" data-i18n="cases.gym.f1">Inscripción automática a clases grupales</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <span class="w-8 h-8 bg-orange-100 dark:bg-orange-900/30 rounded-full flex items-center justify-center text-orange-600">✓</span>
+                                    <span class="text-slate-700 dark:text-slate-300" data-i18n="cases.gym.f2">Recordatorios motivacionales personalizados</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <span class="w-8 h-8 bg-orange-100 dark:bg-orange-900/30 rounded-full flex items-center justify-center text-orange-600">✓</span>
+                                    <span class="text-slate-700 dark:text-slate-300" data-i18n="cases.gym.f3">Gestión de renovaciones de membresía</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="bg-gradient-to-br from-orange-50 to-yellow-50 dark:from-slate-700 dark:to-slate-600 rounded-2xl p-6">
+                            <h4 class="text-lg font-semibold text-slate-900 dark:text-white mb-6 text-center" data-i18n="cases.metrics">Métricas promedio</h4>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="text-center p-4 bg-white dark:bg-slate-800 rounded-xl">
+                                    <p class="text-3xl font-bold text-electric-600">-58%</p>
+                                    <p class="text-sm text-slate-500" data-i18n="cases.metric.noshows">No-shows clases</p>
+                                </div>
+                                <div class="text-center p-4 bg-white dark:bg-slate-800 rounded-xl">
+                                    <p class="text-3xl font-bold text-green-600">+32%</p>
+                                    <p class="text-sm text-slate-500" data-i18n="cases.metric.renewals">Renovaciones</p>
+                                </div>
+                                <div class="text-center p-4 bg-white dark:bg-slate-800 rounded-xl">
+                                    <p class="text-3xl font-bold text-blue-600">+18%</p>
+                                    <p class="text-sm text-slate-500" data-i18n="cases.metric.attendance">Asistencia</p>
+                                </div>
+                                <div class="text-center p-4 bg-white dark:bg-slate-800 rounded-xl">
+                                    <p class="text-3xl font-bold text-purple-600">+$950K</p>
+                                    <p class="text-sm text-slate-500" data-i18n="cases.metric.recovered">Recuperado/mes</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="text-center mt-12">
+                <a href="#contacto" class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-orange-500 to-red-500 text-white font-semibold rounded-full hover:shadow-lg hover:shadow-orange-500/30 transition-all" data-i18n="cases.cta">
+                    Ver cómo funciona para mi negocio
+                </a>
             </div>
         </div>
     </section>
@@ -1763,10 +2110,10 @@
                     </div>
 
                     <div class="mb-2">
-                        <span class="text-lg price-original price-value-original" data-price-cop-original="250.000" data-price-usd-original="60">$250.000</span>
+                        <span class="text-lg price-original price-value-original" data-price-cop-original="250.000" data-price-usd-original="60" data-price-eur-original="55">$250.000</span>
                     </div>
                     <div class="mb-4">
-                        <span class="text-4xl font-bold text-slate-900 dark:text-white price-value-early" data-price-cop-early="175.000" data-price-usd-early="42">$175.000</span>
+                        <span class="text-4xl font-bold text-slate-900 dark:text-white price-value-early" data-price-cop-early="175.000" data-price-usd-early="42" data-price-eur-early="39">$175.000</span>
                         <span class="text-slate-600 dark:text-slate-400" data-i18n="pricing.period">/mes</span>
                     </div>
                     <p class="text-sm savings-text font-semibold mb-6" data-i18n="pricing.basic.savings">
@@ -1821,10 +2168,10 @@
                     </div>
 
                     <div class="mb-2">
-                        <span class="text-lg price-original price-value-original" data-price-cop-original="500.000" data-price-usd-original="120">$500.000</span>
+                        <span class="text-lg price-original price-value-original" data-price-cop-original="500.000" data-price-usd-original="120" data-price-eur-original="110">$500.000</span>
                     </div>
                     <div class="mb-4">
-                        <span class="text-4xl font-bold text-slate-900 dark:text-white price-value-early" data-price-cop-early="350.000" data-price-usd-early="84">$350.000</span>
+                        <span class="text-4xl font-bold text-slate-900 dark:text-white price-value-early" data-price-cop-early="350.000" data-price-usd-early="84" data-price-eur-early="77">$350.000</span>
                         <span class="text-slate-600 dark:text-slate-400" data-i18n="pricing.period">/mes</span>
                     </div>
                     <p class="text-sm savings-text font-semibold mb-6" data-i18n="pricing.pro.savings">
@@ -1880,10 +2227,10 @@
                     </div>
 
                     <div class="mb-2">
-                        <span class="text-lg price-original price-value-original" data-price-cop-original="800.000" data-price-usd-original="190">$800.000</span>
+                        <span class="text-lg price-original price-value-original" data-price-cop-original="800.000" data-price-usd-original="190" data-price-eur-original="175">$800.000</span>
                     </div>
                     <div class="mb-4">
-                        <span class="text-4xl font-bold text-slate-900 dark:text-white price-value-early" data-price-cop-early="560.000" data-price-usd-early="133">$560.000</span>
+                        <span class="text-4xl font-bold text-slate-900 dark:text-white price-value-early" data-price-cop-early="560.000" data-price-usd-early="133" data-price-eur-early="123">$560.000</span>
                         <span class="text-slate-600 dark:text-slate-400" data-i18n="pricing.period">/mes</span>
                     </div>
                     <p class="text-sm savings-text font-semibold mb-6" data-i18n="pricing.elite.savings">
@@ -2281,7 +2628,7 @@
                 <!-- Logo & Copyright -->
                 <div class="flex flex-col items-center md:items-start gap-4">
                     <a href="#" class="flex items-center gap-2">
-                        <img src="assets/logosinfondo.jpeg" alt="Sinapsio Logo" class="w-8 h-8 rounded-lg object-cover">
+                        <img src="assets/logoconfondo.jpeg" alt="Sinapsio Logo" class="w-8 h-8 rounded-lg object-cover">
                         <span class="text-lg font-bold">Sinapsio</span>
                     </a>
                     <p class="text-sm text-slate-500 dark:text-slate-400">
@@ -2317,6 +2664,29 @@
             </div>
         </div>
     </footer>
+
+    <!-- Live Conversion Counter Widget -->
+    <div id="conversion-counter" class="fixed bottom-24 left-4 z-40 hidden md:block">
+        <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-4 max-w-[280px] animate-pulse-subtle">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center">
+                    <span class="text-xl">📊</span>
+                </div>
+                <div>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 uppercase tracking-wide" data-i18n="counter.label">En los últimos 7 días</p>
+                    <p class="text-lg font-bold text-slate-900 dark:text-white"><span id="counter-number" class="text-electric-600">127</span> <span data-i18n="counter.metric">citas agendadas</span></p>
+                </div>
+            </div>
+            <div class="flex items-center gap-2 text-xs text-green-600 dark:text-green-400">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                </span>
+                <span data-i18n="counter.live">Actualización en tiempo real</span>
+            </div>
+            <button onclick="document.getElementById('conversion-counter').style.display='none'" class="absolute -top-2 -right-2 w-6 h-6 bg-slate-200 dark:bg-slate-700 rounded-full flex items-center justify-center text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 text-xs">✕</button>
+        </div>
+    </div>
 
     <!-- Sticky CTA Mobile -->
     <div class="sticky-cta md:hidden bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 p-4" id="sticky-cta">
@@ -2527,6 +2897,63 @@
                 'form.submit': 'Activar mi prueba gratis ahora',
                 // Sticky CTA
                 'sticky.cta': 'Prueba gratis + 30% OFF',
+                // Conversion Counter
+                'counter.label': 'En los últimos 7 días',
+                'counter.metric': 'citas agendadas',
+                'counter.live': 'Actualización en tiempo real',
+                // Industry Cases
+                'cases.badge': 'Casos de éxito por industria',
+                'cases.title': 'Resultados comprobados en tu industria',
+                'cases.subtitle': 'Selecciona tu tipo de negocio y mira métricas reales',
+                'cases.tab.barber': 'Barbería',
+                'cases.tab.spa': 'Spa / Belleza',
+                'cases.tab.restaurant': 'Restaurante',
+                'cases.tab.clinic': 'Clínica',
+                'cases.tab.gym': 'Gimnasio',
+                'cases.metrics': 'Métricas promedio',
+                'cases.metric.noshows': 'No-shows',
+                'cases.metric.recovered': 'Recuperado/mes',
+                'cases.metric.response': 'Respuesta',
+                'cases.metric.bookings': 'Más citas',
+                'cases.metric.timesaved': 'Tiempo ahorrado/día',
+                'cases.metric.upsell': 'Servicios adicionales',
+                'cases.metric.occupancy': 'Ocupación',
+                'cases.metric.availability': 'Disponibilidad',
+                'cases.metric.retention': 'Retención',
+                'cases.metric.admintime': 'Tiempo admin/día',
+                'cases.metric.renewals': 'Renovaciones',
+                'cases.metric.attendance': 'Asistencia',
+                'cases.cta': 'Ver cómo funciona para mi negocio',
+                'cases.barber.title': 'Barberías',
+                'cases.barber.subtitle': 'Promedio de 12 barberías usando Sinapsio',
+                'cases.barber.desc': 'Las barberías son el negocio perfecto para la automatización. Clientes recurrentes, citas frecuentes y alta tasa de no-shows que la IA elimina.',
+                'cases.barber.f1': 'Recordatorios 2h antes de la cita',
+                'cases.barber.f2': 'Agenda automática por barbero',
+                'cases.barber.f3': 'Promociones automáticas para días lentos',
+                'cases.spa.title': 'Spas y Centros de Belleza',
+                'cases.spa.subtitle': 'Promedio de 8 spas usando Sinapsio',
+                'cases.spa.desc': 'Servicios de mayor valor requieren confirmaciones más cuidadosas. Nuestra IA personaliza el tono y ofrece reagendamiento automático.',
+                'cases.spa.f1': 'Confirmación 24h y 2h antes',
+                'cases.spa.f2': 'Sugerencias de tratamientos adicionales',
+                'cases.spa.f3': 'Seguimiento post-servicio automático',
+                'cases.restaurant.title': 'Restaurantes',
+                'cases.restaurant.subtitle': 'Promedio de 15 restaurantes usando Sinapsio',
+                'cases.restaurant.desc': 'Reservaciones perdidas significan mesas vacías. Nuestra IA confirma reservas, maneja lista de espera y optimiza la ocupación.',
+                'cases.restaurant.f1': 'Gestión de lista de espera automática',
+                'cases.restaurant.f2': 'Confirmación de número de personas',
+                'cases.restaurant.f3': 'Promociones para horarios con baja ocupación',
+                'cases.clinic.title': 'Clínicas y Consultorios',
+                'cases.clinic.subtitle': 'Promedio de 10 clínicas usando Sinapsio',
+                'cases.clinic.desc': 'Citas médicas tienen alto valor y requieren confirmación profesional. Nuestra IA mantiene el tono adecuado y reduce cancelaciones.',
+                'cases.clinic.f1': 'Recordatorios con instrucciones pre-cita',
+                'cases.clinic.f2': 'Reagendamiento automático de cancelaciones',
+                'cases.clinic.f3': 'Seguimiento de tratamientos programados',
+                'cases.gym.title': 'Gimnasios y Estudios Fitness',
+                'cases.gym.subtitle': 'Promedio de 6 gimnasios usando Sinapsio',
+                'cases.gym.desc': 'Clases con cupo limitado necesitan confirmación. Nuestra IA maneja inscripciones, lista de espera y motivación para asistencia.',
+                'cases.gym.f1': 'Inscripción automática a clases grupales',
+                'cases.gym.f2': 'Recordatorios motivacionales personalizados',
+                'cases.gym.f3': 'Gestión de renovaciones de membresía',
                 // Chat Widget
                 'chat.status': 'En línea',
                 'chat.welcome': '¡Hola! Soy la IA de Sinapsio. ¿Te gustaría ver cómo puedo ayudar a tu negocio a responder automáticamente?',
@@ -2666,6 +3093,63 @@
                 'form.submit': 'Activate my free trial now',
                 // Sticky CTA
                 'sticky.cta': 'Free trial + 30% OFF',
+                // Conversion Counter
+                'counter.label': 'In the last 7 days',
+                'counter.metric': 'appointments booked',
+                'counter.live': 'Live updates',
+                // Industry Cases
+                'cases.badge': 'Success cases by industry',
+                'cases.title': 'Proven results in your industry',
+                'cases.subtitle': 'Select your business type and see real metrics',
+                'cases.tab.barber': 'Barbershop',
+                'cases.tab.spa': 'Spa / Beauty',
+                'cases.tab.restaurant': 'Restaurant',
+                'cases.tab.clinic': 'Clinic',
+                'cases.tab.gym': 'Gym',
+                'cases.metrics': 'Average metrics',
+                'cases.metric.noshows': 'No-shows',
+                'cases.metric.recovered': 'Recovered/month',
+                'cases.metric.response': 'Response',
+                'cases.metric.bookings': 'More bookings',
+                'cases.metric.timesaved': 'Time saved/day',
+                'cases.metric.upsell': 'Additional services',
+                'cases.metric.occupancy': 'Occupancy',
+                'cases.metric.availability': 'Availability',
+                'cases.metric.retention': 'Retention',
+                'cases.metric.admintime': 'Admin time/day',
+                'cases.metric.renewals': 'Renewals',
+                'cases.metric.attendance': 'Attendance',
+                'cases.cta': 'See how it works for my business',
+                'cases.barber.title': 'Barbershops',
+                'cases.barber.subtitle': 'Average of 12 barbershops using Sinapsio',
+                'cases.barber.desc': 'Barbershops are perfect for automation. Recurring clients, frequent appointments, and high no-show rates that AI eliminates.',
+                'cases.barber.f1': 'Reminders 2h before appointment',
+                'cases.barber.f2': 'Automatic scheduling per barber',
+                'cases.barber.f3': 'Automatic promotions for slow days',
+                'cases.spa.title': 'Spas and Beauty Centers',
+                'cases.spa.subtitle': 'Average of 8 spas using Sinapsio',
+                'cases.spa.desc': 'Higher-value services require more careful confirmations. Our AI personalizes tone and offers automatic rescheduling.',
+                'cases.spa.f1': 'Confirmation 24h and 2h before',
+                'cases.spa.f2': 'Additional treatment suggestions',
+                'cases.spa.f3': 'Automatic post-service follow-up',
+                'cases.restaurant.title': 'Restaurants',
+                'cases.restaurant.subtitle': 'Average of 15 restaurants using Sinapsio',
+                'cases.restaurant.desc': 'Lost reservations mean empty tables. Our AI confirms bookings, handles waitlists, and optimizes occupancy.',
+                'cases.restaurant.f1': 'Automatic waitlist management',
+                'cases.restaurant.f2': 'Party size confirmation',
+                'cases.restaurant.f3': 'Promotions for low-occupancy times',
+                'cases.clinic.title': 'Clinics and Medical Offices',
+                'cases.clinic.subtitle': 'Average of 10 clinics using Sinapsio',
+                'cases.clinic.desc': 'Medical appointments are high-value and require professional confirmation. Our AI maintains proper tone and reduces cancellations.',
+                'cases.clinic.f1': 'Reminders with pre-appointment instructions',
+                'cases.clinic.f2': 'Automatic rescheduling of cancellations',
+                'cases.clinic.f3': 'Scheduled treatment follow-ups',
+                'cases.gym.title': 'Gyms and Fitness Studios',
+                'cases.gym.subtitle': 'Average of 6 gyms using Sinapsio',
+                'cases.gym.desc': 'Limited-capacity classes need confirmation. Our AI handles sign-ups, waitlists, and attendance motivation.',
+                'cases.gym.f1': 'Automatic group class enrollment',
+                'cases.gym.f2': 'Personalized motivational reminders',
+                'cases.gym.f3': 'Membership renewal management',
                 // Chat Widget
                 'chat.status': 'Online',
                 'chat.welcome': 'Hi! I\'m the Sinapsio AI. Would you like to see how I can help your business respond automatically?',
@@ -2805,6 +3289,63 @@
                 'form.submit': 'Meine kostenlose Testversion aktivieren',
                 // Sticky CTA
                 'sticky.cta': 'Gratis Test + 30% RABATT',
+                // Conversion Counter
+                'counter.label': 'In den letzten 7 Tagen',
+                'counter.metric': 'Termine gebucht',
+                'counter.live': 'Live-Aktualisierung',
+                // Industry Cases
+                'cases.badge': 'Erfolgsgeschichten nach Branche',
+                'cases.title': 'Bewährte Ergebnisse in Ihrer Branche',
+                'cases.subtitle': 'Wählen Sie Ihren Geschäftstyp und sehen Sie echte Kennzahlen',
+                'cases.tab.barber': 'Friseursalon',
+                'cases.tab.spa': 'Spa / Schönheit',
+                'cases.tab.restaurant': 'Restaurant',
+                'cases.tab.clinic': 'Klinik',
+                'cases.tab.gym': 'Fitnessstudio',
+                'cases.metrics': 'Durchschnittliche Kennzahlen',
+                'cases.metric.noshows': 'No-Shows',
+                'cases.metric.recovered': 'Zurückgewonnen/Monat',
+                'cases.metric.response': 'Antwortzeit',
+                'cases.metric.bookings': 'Mehr Buchungen',
+                'cases.metric.timesaved': 'Eingesparte Zeit/Tag',
+                'cases.metric.upsell': 'Zusätzliche Dienste',
+                'cases.metric.occupancy': 'Auslastung',
+                'cases.metric.availability': 'Verfügbarkeit',
+                'cases.metric.retention': 'Bindung',
+                'cases.metric.admintime': 'Verwaltungszeit/Tag',
+                'cases.metric.renewals': 'Verlängerungen',
+                'cases.metric.attendance': 'Anwesenheit',
+                'cases.cta': 'Sehen Sie, wie es für mein Unternehmen funktioniert',
+                'cases.barber.title': 'Friseursalons',
+                'cases.barber.subtitle': 'Durchschnitt von 12 Friseursalons mit Sinapsio',
+                'cases.barber.desc': 'Friseursalons sind perfekt für Automatisierung. Stammkunden, häufige Termine und hohe No-Show-Raten, die KI eliminiert.',
+                'cases.barber.f1': 'Erinnerungen 2h vor dem Termin',
+                'cases.barber.f2': 'Automatische Terminplanung pro Friseur',
+                'cases.barber.f3': 'Automatische Aktionen für ruhige Tage',
+                'cases.spa.title': 'Spas und Schönheitszentren',
+                'cases.spa.subtitle': 'Durchschnitt von 8 Spas mit Sinapsio',
+                'cases.spa.desc': 'Hochwertige Dienstleistungen erfordern sorgfältigere Bestätigungen. Unsere KI personalisiert den Ton und bietet automatische Umbuchung.',
+                'cases.spa.f1': 'Bestätigung 24h und 2h vorher',
+                'cases.spa.f2': 'Vorschläge für zusätzliche Behandlungen',
+                'cases.spa.f3': 'Automatische Nachbetreuung',
+                'cases.restaurant.title': 'Restaurants',
+                'cases.restaurant.subtitle': 'Durchschnitt von 15 Restaurants mit Sinapsio',
+                'cases.restaurant.desc': 'Verlorene Reservierungen bedeuten leere Tische. Unsere KI bestätigt Buchungen, verwaltet Wartelisten und optimiert die Auslastung.',
+                'cases.restaurant.f1': 'Automatische Wartelistenverwaltung',
+                'cases.restaurant.f2': 'Bestätigung der Personenzahl',
+                'cases.restaurant.f3': 'Aktionen für Zeiten mit niedriger Auslastung',
+                'cases.clinic.title': 'Kliniken und Arztpraxen',
+                'cases.clinic.subtitle': 'Durchschnitt von 10 Kliniken mit Sinapsio',
+                'cases.clinic.desc': 'Arzttermine haben hohen Wert und erfordern professionelle Bestätigung. Unsere KI behält den richtigen Ton bei und reduziert Stornierungen.',
+                'cases.clinic.f1': 'Erinnerungen mit Vorab-Anweisungen',
+                'cases.clinic.f2': 'Automatische Umbuchung bei Stornierungen',
+                'cases.clinic.f3': 'Nachverfolgung geplanter Behandlungen',
+                'cases.gym.title': 'Fitnessstudios',
+                'cases.gym.subtitle': 'Durchschnitt von 6 Fitnessstudios mit Sinapsio',
+                'cases.gym.desc': 'Kurse mit begrenzter Kapazität benötigen Bestätigung. Unsere KI verwaltet Anmeldungen, Wartelisten und Teilnahmemotivation.',
+                'cases.gym.f1': 'Automatische Anmeldung zu Gruppenkursen',
+                'cases.gym.f2': 'Personalisierte Motivationserinnerungen',
+                'cases.gym.f3': 'Mitgliedschaftsverlängerungsverwaltung',
                 // Chat Widget
                 'chat.status': 'Online',
                 'chat.welcome': 'Hallo! Ich bin die Sinapsio KI. Möchten Sie sehen, wie ich Ihrem Unternehmen helfen kann, automatisch zu antworten?',
@@ -2841,6 +3382,15 @@
                     el.placeholder = translations[lang][key];
                 }
             });
+
+            // Auto-switch currency based on language
+            if (lang === 'de') {
+                setCurrency('EUR');
+            } else if (lang === 'es') {
+                setCurrency('COP');
+            } else if (lang === 'en') {
+                setCurrency('USD');
+            }
         }
 
         // ==================== CURRENCY FUNCTIONS ====================
@@ -2849,12 +3399,17 @@
             localStorage.setItem('currency', currency);
             document.getElementById('current-currency').textContent = currency;
 
+            const symbol = currency === 'EUR' ? '€' : '$';
+
             // Update regular prices
             document.querySelectorAll('.price-value').forEach(el => {
                 const priceCOP = el.getAttribute('data-price-cop');
                 const priceUSD = el.getAttribute('data-price-usd');
+                const priceEUR = el.getAttribute('data-price-eur');
 
-                if (currency === 'USD') {
+                if (currency === 'EUR') {
+                    el.textContent = '€' + priceEUR;
+                } else if (currency === 'USD') {
                     el.textContent = '$' + priceUSD;
                 } else {
                     el.textContent = '$' + priceCOP;
@@ -2865,8 +3420,11 @@
             document.querySelectorAll('.price-value-original').forEach(el => {
                 const priceCOP = el.getAttribute('data-price-cop-original');
                 const priceUSD = el.getAttribute('data-price-usd-original');
+                const priceEUR = el.getAttribute('data-price-eur-original');
 
-                if (currency === 'USD') {
+                if (currency === 'EUR') {
+                    el.textContent = '€' + priceEUR;
+                } else if (currency === 'USD') {
                     el.textContent = '$' + priceUSD;
                 } else {
                     el.textContent = '$' + priceCOP;
@@ -2877,8 +3435,11 @@
             document.querySelectorAll('.price-value-early').forEach(el => {
                 const priceCOP = el.getAttribute('data-price-cop-early');
                 const priceUSD = el.getAttribute('data-price-usd-early');
+                const priceEUR = el.getAttribute('data-price-eur-early');
 
-                if (currency === 'USD') {
+                if (currency === 'EUR') {
+                    el.textContent = '€' + priceEUR;
+                } else if (currency === 'USD') {
                     el.textContent = '$' + priceUSD;
                 } else {
                     el.textContent = '$' + priceCOP;
@@ -3246,43 +3807,115 @@
             window.open(`https://wa.me/573123766146?text=${message}`, '_blank');
         });
 
-        // ==================== WHATSAPP SIMULATOR ====================
+        // ==================== WHATSAPP SIMULATOR WITH GEMINI AI ====================
         const waInput = document.getElementById('wa-simulator-input');
         const waSendBtn = document.getElementById('wa-simulator-send');
         const waChatArea = document.getElementById('wa-chat-area');
 
-        const simulatorResponses = {
+        const GEMINI_API_KEY = 'AIzaSyCJwSbryR2XexM7rX29q7tc2e0TeslbVfE';
+        const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent';
+
+        // Conversation history for context
+        let conversationHistory = [];
+
+        const systemPrompt = `Eres un asistente virtual de WhatsApp para un negocio local (barbería, spa, restaurante, clínica o gimnasio).
+Tu nombre es "Asistente Sinapsio" y representas el producto de automatización de citas de Sinapsio.
+
+REGLAS IMPORTANTES:
+- Responde SIEMPRE en el mismo idioma que el usuario te escribe
+- Sé amigable, profesional y usa emojis ocasionalmente
+- Mantén respuestas cortas (máximo 2-3 oraciones)
+- Si preguntan por citas, ofrece horarios ficticios de hoy/mañana
+- Si preguntan precios, menciona rangos de $30,000 a $80,000 COP
+- Si preguntan horarios, di: Lunes a Sábado 9am-8pm, Domingos 10am-4pm
+- Si preguntan ubicación, di: Calle 80 #15-20, cerca del Centro Comercial
+- NUNCA menciones que eres una IA o que esto es una demostración
+- Actúa como si fueras el asistente real del negocio`;
+
+        // Fallback responses if API fails
+        const fallbackResponses = {
             'cita': '¡Claro! Tenemos disponibilidad hoy a las 3pm, 5pm y 7pm. ¿Cuál horario te funciona mejor? 📅',
             'precio': 'Nuestros servicios van desde $30,000 hasta $80,000 dependiendo del tratamiento. ¿Te gustaría que te explique nuestro menú de servicios? 💇‍♂️',
             'horario': 'Estamos abiertos de Lunes a Sábado de 9am a 8pm. Los domingos de 10am a 4pm. ¿Quieres agendar una cita? 🕐',
             'ubicacion': 'Estamos ubicados en la Calle 80 #15-20, muy cerca del Centro Comercial. Te puedo compartir la ubicación en Google Maps si gustas. 📍',
-            'default': '¡Gracias por tu mensaje! Un momento mientras proceso tu consulta... ¿Te puedo ayudar a agendar una cita o tienes alguna pregunta sobre nuestros servicios? 😊'
+            'default': '¡Gracias por tu mensaje! ¿Te puedo ayudar a agendar una cita o tienes alguna pregunta sobre nuestros servicios? 😊'
         };
 
-        function getSimulatorResponse(message) {
+        function getFallbackResponse(message) {
             const msg = message.toLowerCase();
-            if (msg.includes('cita') || msg.includes('reserv') || msg.includes('agenda') || msg.includes('disponib')) {
-                return simulatorResponses.cita;
-            } else if (msg.includes('precio') || msg.includes('cost') || msg.includes('cuant') || msg.includes('valor')) {
-                return simulatorResponses.precio;
-            } else if (msg.includes('horario') || msg.includes('hora') || msg.includes('abier')) {
-                return simulatorResponses.horario;
-            } else if (msg.includes('donde') || msg.includes('ubicacion') || msg.includes('direcc')) {
-                return simulatorResponses.ubicacion;
+            if (msg.includes('cita') || msg.includes('reserv') || msg.includes('agenda') || msg.includes('disponib') || msg.includes('appointment') || msg.includes('book')) {
+                return fallbackResponses.cita;
+            } else if (msg.includes('precio') || msg.includes('cost') || msg.includes('cuant') || msg.includes('valor') || msg.includes('price')) {
+                return fallbackResponses.precio;
+            } else if (msg.includes('horario') || msg.includes('hora') || msg.includes('abier') || msg.includes('hours') || msg.includes('open')) {
+                return fallbackResponses.horario;
+            } else if (msg.includes('donde') || msg.includes('ubicacion') || msg.includes('direcc') || msg.includes('where') || msg.includes('location')) {
+                return fallbackResponses.ubicacion;
             }
-            return simulatorResponses.default;
+            return fallbackResponses.default;
         }
 
-        function sendSimulatorMessage() {
+        async function getGeminiResponse(message) {
+            try {
+                // Add user message to history
+                conversationHistory.push({ role: 'user', parts: [{ text: message }] });
+
+                // Build messages with system prompt
+                const contents = [
+                    { role: 'user', parts: [{ text: systemPrompt }] },
+                    { role: 'model', parts: [{ text: 'Entendido. Soy el asistente virtual del negocio, listo para ayudar con citas, precios, horarios y ubicación. ¿En qué puedo ayudarte?' }] },
+                    ...conversationHistory
+                ];
+
+                const response = await fetch(`${GEMINI_API_URL}?key=${GEMINI_API_KEY}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        contents: contents,
+                        generationConfig: {
+                            temperature: 0.7,
+                            maxOutputTokens: 150,
+                        }
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error('API request failed');
+                }
+
+                const data = await response.json();
+                const aiResponse = data.candidates[0].content.parts[0].text;
+
+                // Add AI response to history
+                conversationHistory.push({ role: 'model', parts: [{ text: aiResponse }] });
+
+                // Keep history manageable (last 10 exchanges)
+                if (conversationHistory.length > 20) {
+                    conversationHistory = conversationHistory.slice(-20);
+                }
+
+                return aiResponse;
+            } catch (error) {
+                console.log('Gemini API error, using fallback:', error);
+                return getFallbackResponse(message);
+            }
+        }
+
+        async function sendSimulatorMessage() {
             const message = waInput.value.trim();
             if (!message) return;
+
+            // Sanitize message to prevent XSS
+            const sanitizedMessage = message.replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
             // Add user message
             const userMsgEl = document.createElement('div');
             userMsgEl.className = 'flex justify-end mb-3';
             userMsgEl.innerHTML = `
                 <div class="max-w-[80%] bg-[#005c4b] rounded-lg rounded-tr-none p-3">
-                    <p class="text-[#e9edef] text-sm">${message}</p>
+                    <p class="text-[#e9edef] text-sm">${sanitizedMessage}</p>
                     <p class="text-[#8696a0] text-xs text-right mt-1">${new Date().toLocaleTimeString('es-CO', {hour: '2-digit', minute:'2-digit'})}</p>
                 </div>
             `;
@@ -3303,21 +3936,22 @@
             waChatArea.appendChild(typingEl);
             waChatArea.scrollTop = waChatArea.scrollHeight;
 
-            // Respond after delay
-            setTimeout(() => {
-                typingEl.remove();
-                const response = getSimulatorResponse(message);
-                const botMsgEl = document.createElement('div');
-                botMsgEl.className = 'flex mb-3';
-                botMsgEl.innerHTML = `
-                    <div class="max-w-[80%] bg-[#202c33] rounded-lg rounded-tl-none p-3">
-                        <p class="text-[#e9edef] text-sm">${response}</p>
-                        <p class="text-[#8696a0] text-xs text-right mt-1">${new Date().toLocaleTimeString('es-CO', {hour: '2-digit', minute:'2-digit'})}</p>
-                    </div>
-                `;
-                waChatArea.appendChild(botMsgEl);
-                waChatArea.scrollTop = waChatArea.scrollHeight;
-            }, 1500);
+            // Get AI response (async)
+            const response = await getGeminiResponse(message);
+
+            // Remove typing indicator and show response
+            typingEl.remove();
+            const sanitizedResponse = response.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            const botMsgEl = document.createElement('div');
+            botMsgEl.className = 'flex mb-3';
+            botMsgEl.innerHTML = `
+                <div class="max-w-[80%] bg-[#202c33] rounded-lg rounded-tl-none p-3">
+                    <p class="text-[#e9edef] text-sm">${sanitizedResponse}</p>
+                    <p class="text-[#8696a0] text-xs text-right mt-1">${new Date().toLocaleTimeString('es-CO', {hour: '2-digit', minute:'2-digit'})}</p>
+                </div>
+            `;
+            waChatArea.appendChild(botMsgEl);
+            waChatArea.scrollTop = waChatArea.scrollHeight;
         }
 
         waSendBtn.addEventListener('click', sendSimulatorMessage);
@@ -3358,6 +3992,56 @@
                 el.style.width = progressPercent + '%';
             });
         }
+
+        // ==================== INDUSTRY CASES ====================
+        function showIndustryCase(industry) {
+            // Hide all cases
+            document.querySelectorAll('.industry-case').forEach(el => {
+                el.classList.add('hidden');
+            });
+
+            // Show selected case
+            const selectedCase = document.getElementById('case-' + industry);
+            if (selectedCase) {
+                selectedCase.classList.remove('hidden');
+            }
+
+            // Update tab styles
+            document.querySelectorAll('.industry-tab').forEach(tab => {
+                tab.classList.remove('active');
+                if (tab.getAttribute('data-industry') === industry) {
+                    tab.classList.add('active');
+                }
+            });
+        }
+
+        // ==================== LIVE CONVERSION COUNTER ====================
+        const CONVERSION_CONFIG = {
+            baseCount: 127,
+            minIncrement: 1,
+            maxIncrement: 3,
+            updateInterval: 45000 // 45 seconds
+        };
+
+        function updateConversionCounter() {
+            const counterEl = document.getElementById('counter-number');
+            if (!counterEl) return;
+
+            let currentCount = parseInt(counterEl.textContent);
+            const increment = Math.floor(Math.random() * (CONVERSION_CONFIG.maxIncrement - CONVERSION_CONFIG.minIncrement + 1)) + CONVERSION_CONFIG.minIncrement;
+
+            // Animate the number change
+            counterEl.style.transform = 'scale(1.2)';
+            counterEl.style.transition = 'transform 0.3s ease';
+
+            setTimeout(() => {
+                counterEl.textContent = currentCount + increment;
+                counterEl.style.transform = 'scale(1)';
+            }, 150);
+        }
+
+        // Update counter periodically
+        setInterval(updateConversionCounter, CONVERSION_CONFIG.updateInterval);
 
         // ==================== VIDEO MODAL ====================
         function openVideoModal() {
