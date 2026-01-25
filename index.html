@@ -772,16 +772,7 @@
             <div class="flex items-center justify-between h-16 md:h-20">
                 <!-- Logo -->
                 <a href="#" class="flex items-center gap-2 group">
-                    <div class="w-10 h-10 bg-gradient-to-br from-electric-500 to-electric-700 rounded-xl flex items-center justify-center p-2 group-hover:shadow-lg group-hover:shadow-electric-500/30 transition-all">
-                        <svg viewBox="0 0 24 24" fill="none" class="w-full h-full text-white">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" fill="currentColor" opacity="0.2"/>
-                            <path d="M12 4.5c-4.14 0-7.5 3.36-7.5 7.5s3.36 7.5 7.5 7.5 7.5-3.36 7.5-7.5-3.36-7.5-7.5-7.5z" stroke="currentColor" stroke-width="1.5"/>
-                            <circle cx="9" cy="10" r="1.5" fill="currentColor"/>
-                            <circle cx="15" cy="10" r="1.5" fill="currentColor"/>
-                            <path d="M8 15c0-2.21 1.79-4 4-4s4 1.79 4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                            <path d="M12 2v2M12 20v2M2 12h2M20 12h2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
-                        </svg>
-                    </div>
+                    <img src="assets/logosinfondo.jpeg" alt="Sinapsio Logo" class="w-10 h-10 rounded-xl object-cover group-hover:shadow-lg group-hover:shadow-electric-500/30 transition-all">
                     <span class="text-xl font-bold tracking-tight">Sinapsio</span>
                 </a>
 
@@ -929,12 +920,12 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
                             </svg>
                         </a>
-                        <a href="#video" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-900 dark:text-white text-base font-semibold rounded-full border border-slate-200 dark:border-slate-700 transition-all">
+                        <button onclick="openVideoModal()" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-900 dark:text-white text-base font-semibold rounded-full border border-slate-200 dark:border-slate-700 transition-all">
                             <svg class="w-5 h-5 text-electric-600" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M8 5v14l11-7z"/>
                             </svg>
                             <span data-i18n="hero.cta2">Ver Demo 1 min</span>
-                        </a>
+                        </button>
                     </div>
 
                     <!-- Social Proof Mini -->
@@ -1772,14 +1763,14 @@
                     </div>
 
                     <div class="mb-2">
-                        <span class="text-lg price-original price-value-original" data-price-cop-original="150.000" data-price-usd-original="150">$150.000</span>
+                        <span class="text-lg price-original price-value-original" data-price-cop-original="250.000" data-price-usd-original="60">$250.000</span>
                     </div>
                     <div class="mb-4">
-                        <span class="text-4xl font-bold text-slate-900 dark:text-white price-value-early" data-price-cop-early="105.000" data-price-usd-early="105">$105.000</span>
+                        <span class="text-4xl font-bold text-slate-900 dark:text-white price-value-early" data-price-cop-early="175.000" data-price-usd-early="42">$175.000</span>
                         <span class="text-slate-600 dark:text-slate-400" data-i18n="pricing.period">/mes</span>
                     </div>
                     <p class="text-sm savings-text font-semibold mb-6" data-i18n="pricing.basic.savings">
-                        Ahorras $45.000/mes = $540.000/año
+                        Ahorras $75.000/mes = $900.000/año
                     </p>
 
                     <ul class="space-y-4 mb-8">
@@ -1830,14 +1821,14 @@
                     </div>
 
                     <div class="mb-2">
-                        <span class="text-lg price-original price-value-original" data-price-cop-original="250.000" data-price-usd-original="230">$250.000</span>
+                        <span class="text-lg price-original price-value-original" data-price-cop-original="500.000" data-price-usd-original="120">$500.000</span>
                     </div>
                     <div class="mb-4">
-                        <span class="text-4xl font-bold text-slate-900 dark:text-white price-value-early" data-price-cop-early="175.000" data-price-usd-early="161">$175.000</span>
+                        <span class="text-4xl font-bold text-slate-900 dark:text-white price-value-early" data-price-cop-early="350.000" data-price-usd-early="84">$350.000</span>
                         <span class="text-slate-600 dark:text-slate-400" data-i18n="pricing.period">/mes</span>
                     </div>
                     <p class="text-sm savings-text font-semibold mb-6" data-i18n="pricing.pro.savings">
-                        Ahorras $75.000/mes = $900.000/año
+                        Ahorras $150.000/mes = $1.800.000/año
                     </p>
 
                     <ul class="space-y-4 mb-8">
@@ -1889,14 +1880,14 @@
                     </div>
 
                     <div class="mb-2">
-                        <span class="text-lg price-original price-value-original" data-price-cop-original="400.000" data-price-usd-original="400">$400.000</span>
+                        <span class="text-lg price-original price-value-original" data-price-cop-original="800.000" data-price-usd-original="190">$800.000</span>
                     </div>
                     <div class="mb-4">
-                        <span class="text-4xl font-bold text-slate-900 dark:text-white price-value-early" data-price-cop-early="280.000" data-price-usd-early="280">$280.000</span>
+                        <span class="text-4xl font-bold text-slate-900 dark:text-white price-value-early" data-price-cop-early="560.000" data-price-usd-early="133">$560.000</span>
                         <span class="text-slate-600 dark:text-slate-400" data-i18n="pricing.period">/mes</span>
                     </div>
                     <p class="text-sm savings-text font-semibold mb-6" data-i18n="pricing.elite.savings">
-                        Ahorras $120.000/mes = $1.440.000/año
+                        Ahorras $240.000/mes = $2.880.000/año
                     </p>
 
                     <ul class="space-y-4 mb-8">
@@ -2290,14 +2281,7 @@
                 <!-- Logo & Copyright -->
                 <div class="flex flex-col items-center md:items-start gap-4">
                     <a href="#" class="flex items-center gap-2">
-                        <div class="w-8 h-8 bg-gradient-to-br from-electric-500 to-electric-700 rounded-lg flex items-center justify-center p-1.5">
-                            <svg viewBox="0 0 24 24" fill="none" class="w-full h-full text-white">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" fill="currentColor" opacity="0.2"/>
-                                <circle cx="9" cy="10" r="1.5" fill="currentColor"/>
-                                <circle cx="15" cy="10" r="1.5" fill="currentColor"/>
-                                <path d="M8 15c0-2.21 1.79-4 4-4s4 1.79 4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                            </svg>
-                        </div>
+                        <img src="assets/logosinfondo.jpeg" alt="Sinapsio Logo" class="w-8 h-8 rounded-lg object-cover">
                         <span class="text-lg font-bold">Sinapsio</span>
                     </a>
                     <p class="text-sm text-slate-500 dark:text-slate-400">
@@ -2523,9 +2507,9 @@
                 'pricing.basic.f2': 'Hasta 200 conversaciones/mes',
                 'pricing.basic.f3': 'Recordatorios por WhatsApp',
                 'pricing.basic.f4': 'Soporte por email',
-                'pricing.basic.savings': 'Ahorras $45.000/mes = $540.000/año',
-                'pricing.pro.savings': 'Ahorras $75.000/mes = $900.000/año',
-                'pricing.elite.savings': 'Ahorras $120.000/mes = $1.440.000/año',
+                'pricing.basic.savings': 'Ahorras $75.000/mes = $900.000/año',
+                'pricing.pro.savings': 'Ahorras $150.000/mes = $1.800.000/año',
+                'pricing.elite.savings': 'Ahorras $240.000/mes = $2.880.000/año',
                 // Urgency
                 'urgency.badge': 'Oferta por tiempo limitado',
                 'urgency.title': '⏰ Solo quedan <span class="text-orange-400 early-spots-count">47</span> cupos Early Adopter',
@@ -2662,9 +2646,9 @@
                 'pricing.basic.f2': 'Up to 200 conversations/month',
                 'pricing.basic.f3': 'WhatsApp reminders',
                 'pricing.basic.f4': 'Email support',
-                'pricing.basic.savings': 'Save $45/month = $540/year',
-                'pricing.pro.savings': 'Save $69/month = $828/year',
-                'pricing.elite.savings': 'Save $120/month = $1,440/year',
+                'pricing.basic.savings': 'Save $18/month = $216/year',
+                'pricing.pro.savings': 'Save $36/month = $432/year',
+                'pricing.elite.savings': 'Save $57/month = $684/year',
                 // Urgency
                 'urgency.badge': 'Limited time offer',
                 'urgency.title': '⏰ Only <span class="text-orange-400 early-spots-count">47</span> Early Adopter spots left',
@@ -2801,9 +2785,9 @@
                 'pricing.basic.f2': 'Bis zu 200 Gespräche/Monat',
                 'pricing.basic.f3': 'WhatsApp-Erinnerungen',
                 'pricing.basic.f4': 'E-Mail-Support',
-                'pricing.basic.savings': 'Sie sparen 45€/Monat = 540€/Jahr',
-                'pricing.pro.savings': 'Sie sparen 69€/Monat = 828€/Jahr',
-                'pricing.elite.savings': 'Sie sparen 120€/Monat = 1.440€/Jahr',
+                'pricing.basic.savings': 'Sie sparen 18€/Monat = 216€/Jahr',
+                'pricing.pro.savings': 'Sie sparen 36€/Monat = 432€/Jahr',
+                'pricing.elite.savings': 'Sie sparen 57€/Monat = 684€/Jahr',
                 // Urgency
                 'urgency.badge': 'Zeitlich begrenztes Angebot',
                 'urgency.title': '⏰ Nur noch <span class="text-orange-400 early-spots-count">47</span> Early Adopter Plätze',
@@ -3375,6 +3359,33 @@
             });
         }
 
+        // ==================== VIDEO MODAL ====================
+        function openVideoModal() {
+            const modal = document.getElementById('videoModal');
+            const video = document.getElementById('demoVideo');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+            video.play();
+        }
+
+        function closeVideoModal() {
+            const modal = document.getElementById('videoModal');
+            const video = document.getElementById('demoVideo');
+            video.pause();
+            video.currentTime = 0;
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeVideoModal();
+            }
+        });
+
         // ==================== INIT ====================
         // Apply saved language and currency on page load
         setLanguage(currentLang);
@@ -3383,5 +3394,24 @@
         // Initialize Early Adopter spots
         updateEarlyAdopterSpots();
     </script>
+
+    <!-- Video Modal -->
+    <div id="videoModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/90 backdrop-blur-sm" onclick="if(event.target === this) closeVideoModal()">
+        <div class="relative w-full max-w-4xl mx-4">
+            <!-- Close button -->
+            <button onclick="closeVideoModal()" class="absolute -top-12 right-0 text-white hover:text-electric-400 transition-colors">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+            <!-- Video container -->
+            <div class="bg-slate-900 rounded-2xl overflow-hidden shadow-2xl">
+                <video id="demoVideo" class="w-full" controls>
+                    <source src="assets/Video.mp4" type="video/mp4">
+                    Tu navegador no soporta video HTML5.
+                </video>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
