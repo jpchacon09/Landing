@@ -950,12 +950,12 @@
                     </div>
 
                     <div class="reveal flex flex-col sm:flex-row gap-4 justify-center lg:justify-start" style="animation-delay: 0.4s;">
-                        <a href="#contacto" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white text-base font-semibold rounded-full btn-glow shadow-lg shadow-orange-500/30 hover:shadow-orange-500/50 transition-all">
+                        <button onclick="openOnboardingModal()" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white text-base font-semibold rounded-full btn-glow shadow-lg shadow-orange-500/30 hover:shadow-orange-500/50 transition-all">
                             <span data-i18n="hero.cta1">Prueba gratis 15 días + 30% OFF</span>
                             <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
                             </svg>
-                        </a>
+                        </button>
                         <button onclick="openVideoModal()" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-900 dark:text-white text-base font-semibold rounded-full border border-slate-200 dark:border-slate-700 transition-all">
                             <svg class="w-5 h-5 text-electric-600" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M8 5v14l11-7z"/>
@@ -1206,12 +1206,12 @@
 
             <!-- CTA -->
             <div class="reveal text-center">
-                <a href="#contacto" class="inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-orange-500 to-red-500 text-white text-lg font-bold rounded-full shadow-xl shadow-orange-500/30 hover:shadow-orange-500/50 hover:scale-105 transition-all btn-premium">
+                <button onclick="openOnboardingModal()" class="inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-orange-500 to-red-500 text-white text-lg font-bold rounded-full shadow-xl shadow-orange-500/30 hover:shadow-orange-500/50 hover:scale-105 transition-all btn-premium">
                     <span data-i18n="early.cta">Activar mi prueba gratis ahora</span>
                     <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
                     </svg>
-                </a>
+                </button>
                 <p class="mt-4 text-sm text-slate-500 dark:text-slate-400" data-i18n="early.disclaimer">
                     Sin tarjeta de crédito • Cancela cuando quieras
                 </p>
@@ -1523,9 +1523,9 @@
 
             <!-- CTA -->
             <div class="text-center mt-12">
-                <a href="#contacto" class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-orange-500 to-red-500 text-white font-semibold rounded-full hover:shadow-lg hover:shadow-orange-500/30 transition-all" data-i18n="cases.cta">
+                <button onclick="openOnboardingModal()" class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-orange-500 to-red-500 text-white font-semibold rounded-full hover:shadow-lg hover:shadow-orange-500/30 transition-all" data-i18n="cases.cta">
                     Ver cómo funciona para mi negocio
-                </a>
+                </button>
             </div>
         </div>
     </section>
@@ -2147,9 +2147,9 @@
                         </li>
                     </ul>
 
-                    <a href="#contacto" class="block w-full py-3 text-center text-white font-semibold bg-gradient-to-r from-orange-500 to-red-500 rounded-full hover:shadow-lg hover:shadow-orange-500/30 transition-all" data-i18n="pricing.cta.early">
+                    <button onclick="openOnboardingModal()" class="block w-full py-3 text-center text-white font-semibold bg-gradient-to-r from-orange-500 to-red-500 rounded-full hover:shadow-lg hover:shadow-orange-500/30 transition-all" data-i18n="pricing.cta.early">
                         Activar prueba gratis
-                    </a>
+                    </button>
                 </div>
 
                 <!-- Pro Plan (Popular) -->
@@ -2211,9 +2211,9 @@
                         </li>
                     </ul>
 
-                    <a href="#contacto" class="block w-full py-3 text-center text-white font-semibold bg-gradient-to-r from-orange-500 to-red-500 rounded-full btn-glow hover:shadow-lg hover:shadow-orange-500/30 transition-all" data-i18n="pricing.cta.early">
+                    <button onclick="openOnboardingModal()" class="block w-full py-3 text-center text-white font-semibold bg-gradient-to-r from-orange-500 to-red-500 rounded-full btn-glow hover:shadow-lg hover:shadow-orange-500/30 transition-all" data-i18n="pricing.cta.early">
                         Activar prueba gratis
-                    </a>
+                    </button>
                 </div>
 
                 <!-- Elite Plan -->
@@ -2270,9 +2270,9 @@
                         </li>
                     </ul>
 
-                    <a href="#contacto" class="block w-full py-3 text-center text-white font-semibold bg-gradient-to-r from-orange-500 to-red-500 rounded-full hover:shadow-lg hover:shadow-orange-500/30 transition-all" data-i18n="pricing.cta.early">
+                    <button onclick="openOnboardingModal()" class="block w-full py-3 text-center text-white font-semibold bg-gradient-to-r from-orange-500 to-red-500 rounded-full hover:shadow-lg hover:shadow-orange-500/30 transition-all" data-i18n="pricing.cta.early">
                         Activar prueba gratis
-                    </a>
+                    </button>
                 </div>
             </div>
         </div>
@@ -2608,12 +2608,12 @@
             </div>
 
             <!-- CTA -->
-            <a href="#contacto" class="inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-orange-500 to-red-500 text-white text-lg font-bold rounded-full shadow-xl shadow-orange-500/30 hover:shadow-orange-500/50 hover:scale-105 transition-all btn-premium">
+            <button onclick="openOnboardingModal()" class="inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-orange-500 to-red-500 text-white text-lg font-bold rounded-full shadow-xl shadow-orange-500/30 hover:shadow-orange-500/50 hover:scale-105 transition-all btn-premium">
                 <span data-i18n="urgency.cta">Asegurar mi cupo ahora</span>
                 <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
                 </svg>
-            </a>
+            </button>
 
             <p class="mt-6 text-sm text-slate-400">
                 ✓ 15 días gratis &nbsp; ✓ Sin tarjeta de crédito &nbsp; ✓ Cancela cuando quieras
@@ -2690,9 +2690,9 @@
 
     <!-- Sticky CTA Mobile -->
     <div class="sticky-cta md:hidden bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 p-4" id="sticky-cta">
-        <a href="#contacto" class="block w-full py-3 text-center text-white font-semibold bg-gradient-to-r from-orange-500 to-red-500 rounded-full btn-glow transition-colors" data-i18n="sticky.cta">
-            Auditoría Gratis + 50% OFF
-        </a>
+        <button onclick="openOnboardingModal()" class="block w-full py-3 text-center text-white font-semibold bg-gradient-to-r from-orange-500 to-red-500 rounded-full btn-glow transition-colors" data-i18n="sticky.cta">
+            Prueba gratis + 30% OFF
+        </button>
     </div>
 
     <!-- AI Chat Widget -->
@@ -2954,6 +2954,74 @@
                 'cases.gym.f1': 'Inscripción automática a clases grupales',
                 'cases.gym.f2': 'Recordatorios motivacionales personalizados',
                 'cases.gym.f3': 'Gestión de renovaciones de membresía',
+                // Onboarding Form
+                'onboarding.title': 'Configura tu asistente IA',
+                'onboarding.subtitle': 'Cuéntanos sobre tu negocio para personalizar tu bot',
+                'onboarding.step': 'Paso',
+                'onboarding.step1.title': 'Información básica',
+                'onboarding.step2.title': 'Horarios y equipo',
+                'onboarding.step3.title': 'Servicios y precios',
+                'onboarding.step4.title': 'Preferencias del asistente',
+                'onboarding.step5.title': 'Detalles finales',
+                'onboarding.field.businessName': 'Nombre de tu negocio *',
+                'onboarding.field.socialMedia': 'Redes sociales de tu negocio *',
+                'onboarding.field.activity': 'Actividad principal de tu negocio *',
+                'onboarding.field.location': 'Ubicación de tu negocio *',
+                'onboarding.field.schedule': 'Horario de atención',
+                'onboarding.field.lastAppointment': 'Última cita del día',
+                'onboarding.field.closedDays': 'Días de cierre o especiales',
+                'onboarding.field.teamSize': '¿Cuántos colaboradores tienes? *',
+                'onboarding.field.chooseProvider': '¿Clientes pueden elegir con quién agendar? *',
+                'onboarding.field.services': 'Describe tus servicios agendables *',
+                'onboarding.field.popularService': '¿Cuál es tu servicio más popular?',
+                'onboarding.field.cancellationTime': 'Tiempo para cancelar sin penalización',
+                'onboarding.field.deposit': '¿Piden anticipo?',
+                'onboarding.field.parking': '¿Parqueadero disponible?',
+                'onboarding.field.customerData': '¿Qué datos capturar de clientes?',
+                'onboarding.field.personality': 'Personalidad del asistente',
+                'onboarding.field.paymentMethods': 'Métodos de pago aceptados',
+                'onboarding.field.hasGoogle': '¿Tienes cuenta de Google? *',
+                'onboarding.field.currentCalendar': 'Sistema de calendario actual',
+                'onboarding.field.reminders': '¿Recordatorios automáticos?',
+                'onboarding.field.reminderTime': 'Tiempo de anticipación',
+                'onboarding.field.referrals': '¿Programa de referidos o descuentos?',
+                'onboarding.field.additionalInfo': 'Información adicional del negocio',
+                'onboarding.field.contactWhatsapp': 'Tu WhatsApp para contactarte *',
+                'onboarding.placeholder.businessName': 'Ej: Barbería Elite',
+                'onboarding.placeholder.socialMedia': '@tunegocio en Instagram',
+                'onboarding.placeholder.activity': 'Ej: Barbería especializada en cortes modernos',
+                'onboarding.placeholder.location': 'Calle 80 #15-20, Bogotá',
+                'onboarding.placeholder.schedule': '9am - 8pm',
+                'onboarding.placeholder.lastAppointment': '7:00 PM',
+                'onboarding.placeholder.closedDays': 'Domingos cerrado, festivos horario reducido',
+                'onboarding.placeholder.teamSize': 'Ej: 3 barberos - Juan, Pedro, María',
+                'onboarding.placeholder.services': 'Ej: Corte clásico - $25,000 - 30min\nCorte + barba - $40,000 - 45min',
+                'onboarding.placeholder.popularService': 'Corte clásico',
+                'onboarding.placeholder.parking': 'Sí, gratis',
+                'onboarding.placeholder.reminderTime': '24h y 2h antes',
+                'onboarding.placeholder.referrals': 'Ej: 10% descuento por referir un amigo',
+                'onboarding.placeholder.additionalInfo': 'Cualquier otra información relevante para configurar tu asistente',
+                'onboarding.option.yes': 'Sí',
+                'onboarding.option.no': 'No',
+                'onboarding.option.other': 'Otro',
+                'onboarding.data.name': 'Nombre',
+                'onboarding.data.phone': 'Teléfono',
+                'onboarding.data.id': 'Cédula',
+                'onboarding.data.birthday': 'Cumpleaños',
+                'onboarding.data.address': 'Dirección',
+                'onboarding.personality.professional': 'Profesional',
+                'onboarding.personality.friendly': 'Amigable',
+                'onboarding.personality.casual': 'Casual',
+                'onboarding.payment.cash': 'Efectivo',
+                'onboarding.payment.card': 'Tarjeta',
+                'onboarding.payment.transfer': 'Transferencia',
+                'onboarding.calendar.none': 'No uso',
+                'onboarding.btn.back': 'Atrás',
+                'onboarding.btn.next': 'Siguiente',
+                'onboarding.btn.submit': 'Enviar y activar',
+                'onboarding.success.title': '¡Información recibida!',
+                'onboarding.success.message': 'Nuestro equipo está configurando tu asistente IA. Te contactaremos por WhatsApp en menos de 2 horas.',
+                'onboarding.success.close': 'Entendido',
                 // Chat Widget
                 'chat.status': 'En línea',
                 'chat.welcome': '¡Hola! Soy la IA de Sinapsio. ¿Te gustaría ver cómo puedo ayudar a tu negocio a responder automáticamente?',
@@ -3150,6 +3218,74 @@
                 'cases.gym.f1': 'Automatic group class enrollment',
                 'cases.gym.f2': 'Personalized motivational reminders',
                 'cases.gym.f3': 'Membership renewal management',
+                // Onboarding Form
+                'onboarding.title': 'Set up your AI assistant',
+                'onboarding.subtitle': 'Tell us about your business to personalize your bot',
+                'onboarding.step': 'Step',
+                'onboarding.step1.title': 'Basic information',
+                'onboarding.step2.title': 'Schedule and team',
+                'onboarding.step3.title': 'Services and pricing',
+                'onboarding.step4.title': 'Assistant preferences',
+                'onboarding.step5.title': 'Final details',
+                'onboarding.field.businessName': 'Your business name *',
+                'onboarding.field.socialMedia': 'Business social media *',
+                'onboarding.field.activity': 'Main business activity *',
+                'onboarding.field.location': 'Business location *',
+                'onboarding.field.schedule': 'Business hours',
+                'onboarding.field.lastAppointment': 'Last appointment time',
+                'onboarding.field.closedDays': 'Closed or special days',
+                'onboarding.field.teamSize': 'How many team members? *',
+                'onboarding.field.chooseProvider': 'Can clients choose their provider? *',
+                'onboarding.field.services': 'Describe your bookable services *',
+                'onboarding.field.popularService': 'What is your most popular service?',
+                'onboarding.field.cancellationTime': 'Cancellation time without penalty',
+                'onboarding.field.deposit': 'Do you require a deposit?',
+                'onboarding.field.parking': 'Parking available?',
+                'onboarding.field.customerData': 'What customer data to collect?',
+                'onboarding.field.personality': 'Assistant personality',
+                'onboarding.field.paymentMethods': 'Accepted payment methods',
+                'onboarding.field.hasGoogle': 'Do you have a Google account? *',
+                'onboarding.field.currentCalendar': 'Current calendar system',
+                'onboarding.field.reminders': 'Automatic reminders?',
+                'onboarding.field.reminderTime': 'Reminder advance time',
+                'onboarding.field.referrals': 'Referral or discount program?',
+                'onboarding.field.additionalInfo': 'Additional business information',
+                'onboarding.field.contactWhatsapp': 'Your WhatsApp to contact you *',
+                'onboarding.placeholder.businessName': 'e.g. Elite Barbershop',
+                'onboarding.placeholder.socialMedia': '@yourbusiness on Instagram',
+                'onboarding.placeholder.activity': 'e.g. Barbershop specializing in modern cuts',
+                'onboarding.placeholder.location': '123 Main Street, City',
+                'onboarding.placeholder.schedule': '9am - 8pm',
+                'onboarding.placeholder.lastAppointment': '7:00 PM',
+                'onboarding.placeholder.closedDays': 'Sundays closed, holidays reduced hours',
+                'onboarding.placeholder.teamSize': 'e.g. 3 barbers - John, Peter, Mary',
+                'onboarding.placeholder.services': 'e.g. Classic cut - $25 - 30min\nCut + beard - $40 - 45min',
+                'onboarding.placeholder.popularService': 'Classic cut',
+                'onboarding.placeholder.parking': 'Yes, free',
+                'onboarding.placeholder.reminderTime': '24h and 2h before',
+                'onboarding.placeholder.referrals': 'e.g. 10% discount for referring a friend',
+                'onboarding.placeholder.additionalInfo': 'Any other relevant information to set up your assistant',
+                'onboarding.option.yes': 'Yes',
+                'onboarding.option.no': 'No',
+                'onboarding.option.other': 'Other',
+                'onboarding.data.name': 'Name',
+                'onboarding.data.phone': 'Phone',
+                'onboarding.data.id': 'ID Number',
+                'onboarding.data.birthday': 'Birthday',
+                'onboarding.data.address': 'Address',
+                'onboarding.personality.professional': 'Professional',
+                'onboarding.personality.friendly': 'Friendly',
+                'onboarding.personality.casual': 'Casual',
+                'onboarding.payment.cash': 'Cash',
+                'onboarding.payment.card': 'Card',
+                'onboarding.payment.transfer': 'Transfer',
+                'onboarding.calendar.none': 'None',
+                'onboarding.btn.back': 'Back',
+                'onboarding.btn.next': 'Next',
+                'onboarding.btn.submit': 'Submit and activate',
+                'onboarding.success.title': 'Information received!',
+                'onboarding.success.message': 'Our team is setting up your AI assistant. We will contact you via WhatsApp in less than 2 hours.',
+                'onboarding.success.close': 'Got it',
                 // Chat Widget
                 'chat.status': 'Online',
                 'chat.welcome': 'Hi! I\'m the Sinapsio AI. Would you like to see how I can help your business respond automatically?',
@@ -3346,6 +3482,74 @@
                 'cases.gym.f1': 'Automatische Anmeldung zu Gruppenkursen',
                 'cases.gym.f2': 'Personalisierte Motivationserinnerungen',
                 'cases.gym.f3': 'Mitgliedschaftsverlängerungsverwaltung',
+                // Onboarding Form
+                'onboarding.title': 'Richten Sie Ihren KI-Assistenten ein',
+                'onboarding.subtitle': 'Erzählen Sie uns von Ihrem Unternehmen, um Ihren Bot zu personalisieren',
+                'onboarding.step': 'Schritt',
+                'onboarding.step1.title': 'Grundlegende Informationen',
+                'onboarding.step2.title': 'Zeitplan und Team',
+                'onboarding.step3.title': 'Dienstleistungen und Preise',
+                'onboarding.step4.title': 'Assistenten-Einstellungen',
+                'onboarding.step5.title': 'Letzte Details',
+                'onboarding.field.businessName': 'Name Ihres Unternehmens *',
+                'onboarding.field.socialMedia': 'Social Media Ihres Unternehmens *',
+                'onboarding.field.activity': 'Haupttätigkeit Ihres Unternehmens *',
+                'onboarding.field.location': 'Standort Ihres Unternehmens *',
+                'onboarding.field.schedule': 'Geschäftszeiten',
+                'onboarding.field.lastAppointment': 'Letzter Termin des Tages',
+                'onboarding.field.closedDays': 'Geschlossene oder besondere Tage',
+                'onboarding.field.teamSize': 'Wie viele Teammitglieder? *',
+                'onboarding.field.chooseProvider': 'Können Kunden ihren Anbieter wählen? *',
+                'onboarding.field.services': 'Beschreiben Sie Ihre buchbaren Dienste *',
+                'onboarding.field.popularService': 'Was ist Ihr beliebtester Service?',
+                'onboarding.field.cancellationTime': 'Stornierungsfrist ohne Gebühr',
+                'onboarding.field.deposit': 'Verlangen Sie eine Anzahlung?',
+                'onboarding.field.parking': 'Parkplatz verfügbar?',
+                'onboarding.field.customerData': 'Welche Kundendaten erfassen?',
+                'onboarding.field.personality': 'Persönlichkeit des Assistenten',
+                'onboarding.field.paymentMethods': 'Akzeptierte Zahlungsmethoden',
+                'onboarding.field.hasGoogle': 'Haben Sie ein Google-Konto? *',
+                'onboarding.field.currentCalendar': 'Aktuelles Kalendersystem',
+                'onboarding.field.reminders': 'Automatische Erinnerungen?',
+                'onboarding.field.reminderTime': 'Erinnerungsvorlaufzeit',
+                'onboarding.field.referrals': 'Empfehlungs- oder Rabattprogramm?',
+                'onboarding.field.additionalInfo': 'Zusätzliche Geschäftsinformationen',
+                'onboarding.field.contactWhatsapp': 'Ihre WhatsApp-Nummer *',
+                'onboarding.placeholder.businessName': 'z.B. Elite Friseursalon',
+                'onboarding.placeholder.socialMedia': '@IhrUnternehmen auf Instagram',
+                'onboarding.placeholder.activity': 'z.B. Friseursalon für moderne Schnitte',
+                'onboarding.placeholder.location': 'Hauptstraße 123, Stadt',
+                'onboarding.placeholder.schedule': '9:00 - 20:00',
+                'onboarding.placeholder.lastAppointment': '19:00',
+                'onboarding.placeholder.closedDays': 'Sonntags geschlossen, Feiertage reduziert',
+                'onboarding.placeholder.teamSize': 'z.B. 3 Friseure - Hans, Peter, Maria',
+                'onboarding.placeholder.services': 'z.B. Klassischer Schnitt - €25 - 30min\nSchnitt + Bart - €40 - 45min',
+                'onboarding.placeholder.popularService': 'Klassischer Schnitt',
+                'onboarding.placeholder.parking': 'Ja, kostenlos',
+                'onboarding.placeholder.reminderTime': '24h und 2h vorher',
+                'onboarding.placeholder.referrals': 'z.B. 10% Rabatt für Empfehlungen',
+                'onboarding.placeholder.additionalInfo': 'Weitere relevante Informationen für Ihren Assistenten',
+                'onboarding.option.yes': 'Ja',
+                'onboarding.option.no': 'Nein',
+                'onboarding.option.other': 'Andere',
+                'onboarding.data.name': 'Name',
+                'onboarding.data.phone': 'Telefon',
+                'onboarding.data.id': 'Ausweisnummer',
+                'onboarding.data.birthday': 'Geburtstag',
+                'onboarding.data.address': 'Adresse',
+                'onboarding.personality.professional': 'Professionell',
+                'onboarding.personality.friendly': 'Freundlich',
+                'onboarding.personality.casual': 'Locker',
+                'onboarding.payment.cash': 'Bargeld',
+                'onboarding.payment.card': 'Karte',
+                'onboarding.payment.transfer': 'Überweisung',
+                'onboarding.calendar.none': 'Keines',
+                'onboarding.btn.back': 'Zurück',
+                'onboarding.btn.next': 'Weiter',
+                'onboarding.btn.submit': 'Absenden und aktivieren',
+                'onboarding.success.title': 'Information erhalten!',
+                'onboarding.success.message': 'Unser Team richtet Ihren KI-Assistenten ein. Wir kontaktieren Sie per WhatsApp in weniger als 2 Stunden.',
+                'onboarding.success.close': 'Verstanden',
                 // Chat Widget
                 'chat.status': 'Online',
                 'chat.welcome': 'Hallo! Ich bin die Sinapsio KI. Möchten Sie sehen, wie ich Ihrem Unternehmen helfen kann, automatisch zu antworten?',
@@ -4067,8 +4271,164 @@ REGLAS IMPORTANTES:
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 closeVideoModal();
+                closeOnboardingModal();
             }
         });
+
+        // ==================== ONBOARDING MODAL ====================
+        let currentOnboardingStep = 1;
+        const totalOnboardingSteps = 5;
+
+        function openOnboardingModal() {
+            const modal = document.getElementById('onboardingModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+            // Reset to step 1
+            currentOnboardingStep = 1;
+            updateOnboardingUI();
+            // Apply current language translations to modal
+            setLanguage(currentLang);
+        }
+
+        function closeOnboardingModal() {
+            const modal = document.getElementById('onboardingModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = 'auto';
+        }
+
+        function updateOnboardingUI() {
+            // Update progress bar
+            const progress = (currentOnboardingStep / totalOnboardingSteps) * 100;
+            document.getElementById('onboarding-progress').style.width = progress + '%';
+            document.getElementById('onboarding-current-step').textContent = currentOnboardingStep;
+
+            // Show/hide steps
+            document.querySelectorAll('.onboarding-step').forEach(step => {
+                const stepNum = parseInt(step.getAttribute('data-step'));
+                step.classList.toggle('hidden', stepNum !== currentOnboardingStep);
+            });
+
+            // Show/hide navigation buttons
+            const prevBtn = document.getElementById('onboarding-prev');
+            const nextBtn = document.getElementById('onboarding-next');
+            const submitBtn = document.getElementById('onboarding-submit');
+
+            prevBtn.classList.toggle('hidden', currentOnboardingStep === 1);
+            nextBtn.classList.toggle('hidden', currentOnboardingStep === totalOnboardingSteps);
+            submitBtn.classList.toggle('hidden', currentOnboardingStep !== totalOnboardingSteps);
+        }
+
+        function validateCurrentStep() {
+            const currentStepEl = document.querySelector(`.onboarding-step[data-step="${currentOnboardingStep}"]`);
+            const requiredFields = currentStepEl.querySelectorAll('[required]');
+            let isValid = true;
+
+            requiredFields.forEach(field => {
+                if (field.type === 'radio') {
+                    const radioGroup = currentStepEl.querySelectorAll(`[name="${field.name}"]`);
+                    const isChecked = Array.from(radioGroup).some(r => r.checked);
+                    if (!isChecked) {
+                        isValid = false;
+                        radioGroup[0].closest('div').classList.add('ring-2', 'ring-red-500');
+                    } else {
+                        radioGroup[0].closest('div').classList.remove('ring-2', 'ring-red-500');
+                    }
+                } else if (!field.value.trim()) {
+                    isValid = false;
+                    field.classList.add('ring-2', 'ring-red-500');
+                } else {
+                    field.classList.remove('ring-2', 'ring-red-500');
+                }
+            });
+
+            return isValid;
+        }
+
+        function nextOnboardingStep() {
+            if (!validateCurrentStep()) {
+                return;
+            }
+            if (currentOnboardingStep < totalOnboardingSteps) {
+                currentOnboardingStep++;
+                updateOnboardingUI();
+                // Scroll modal to top
+                document.getElementById('onboardingModal').scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        function prevOnboardingStep() {
+            if (currentOnboardingStep > 1) {
+                currentOnboardingStep--;
+                updateOnboardingUI();
+            }
+        }
+
+        // Handle form submission
+        document.getElementById('onboarding-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            if (!validateCurrentStep()) {
+                return;
+            }
+
+            const formData = new FormData(this);
+            const data = {};
+
+            // Process form data
+            formData.forEach((value, key) => {
+                if (data[key]) {
+                    if (Array.isArray(data[key])) {
+                        data[key].push(value);
+                    } else {
+                        data[key] = [data[key], value];
+                    }
+                } else {
+                    data[key] = value;
+                }
+            });
+
+            // Add metadata
+            data.language = currentLang;
+            data.currency = currentCurrency;
+            data.submittedAt = new Date().toISOString();
+
+            console.log('Onboarding data:', data);
+
+            // Here you would send to your backend/webhook
+            // For now, we'll simulate success and store in localStorage
+            try {
+                // Store locally for demo purposes
+                const submissions = JSON.parse(localStorage.getItem('onboarding_submissions') || '[]');
+                submissions.push(data);
+                localStorage.setItem('onboarding_submissions', JSON.stringify(submissions));
+
+                // Show success state
+                document.getElementById('onboarding-form').classList.add('hidden');
+                document.getElementById('onboarding-success').classList.remove('hidden');
+
+                // Optional: Send to a webhook (uncomment and configure)
+                // await fetch('YOUR_WEBHOOK_URL', {
+                //     method: 'POST',
+                //     headers: { 'Content-Type': 'application/json' },
+                //     body: JSON.stringify(data)
+                // });
+
+            } catch (error) {
+                console.error('Error submitting form:', error);
+                alert('Error al enviar. Por favor intenta de nuevo.');
+            }
+        });
+
+        // Reset form when modal is opened again
+        function resetOnboardingForm() {
+            document.getElementById('onboarding-form').reset();
+            document.getElementById('onboarding-form').classList.remove('hidden');
+            document.getElementById('onboarding-success').classList.add('hidden');
+            currentOnboardingStep = 1;
+            updateOnboardingUI();
+        }
 
         // ==================== INIT ====================
         // Apply saved language and currency on page load
@@ -4078,6 +4438,375 @@ REGLAS IMPORTANTES:
         // Initialize Early Adopter spots
         updateEarlyAdopterSpots();
     </script>
+
+    <!-- Onboarding Form Modal -->
+    <div id="onboardingModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-sm overflow-y-auto py-8" onclick="if(event.target === this) closeOnboardingModal()">
+        <div class="relative w-full max-w-2xl mx-4 my-auto">
+            <!-- Modal Content -->
+            <div class="bg-white dark:bg-slate-800 rounded-3xl shadow-2xl overflow-hidden">
+                <!-- Header -->
+                <div class="bg-gradient-to-r from-electric-600 to-purple-600 p-6 text-white relative">
+                    <button onclick="closeOnboardingModal()" class="absolute top-4 right-4 text-white/80 hover:text-white transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                    <div class="flex items-center gap-3 mb-2">
+                        <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+                            <span class="text-2xl">🚀</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold" data-i18n="onboarding.title">Configura tu asistente IA</h3>
+                            <p class="text-white/80 text-sm" data-i18n="onboarding.subtitle">Cuéntanos sobre tu negocio para personalizar tu bot</p>
+                        </div>
+                    </div>
+                    <!-- Progress bar -->
+                    <div class="mt-4">
+                        <div class="flex justify-between text-xs text-white/70 mb-2">
+                            <span data-i18n="onboarding.step">Paso</span>
+                            <span><span id="onboarding-current-step">1</span> / 5</span>
+                        </div>
+                        <div class="h-2 bg-white/20 rounded-full overflow-hidden">
+                            <div id="onboarding-progress" class="h-full bg-white rounded-full transition-all duration-300" style="width: 20%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Steps Container -->
+                <form id="onboarding-form" class="p-6">
+                    <!-- Step 1: Basic Info -->
+                    <div class="onboarding-step" data-step="1">
+                        <h4 class="text-lg font-semibold text-slate-900 dark:text-white mb-6 flex items-center gap-2">
+                            <span class="w-8 h-8 bg-electric-100 dark:bg-electric-900/30 rounded-full flex items-center justify-center text-electric-600 text-sm font-bold">1</span>
+                            <span data-i18n="onboarding.step1.title">Información básica</span>
+                        </h4>
+
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n="onboarding.field.businessName">Nombre de tu negocio *</label>
+                                <input type="text" name="businessName" required class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-electric-500 focus:border-transparent transition-all" data-i18n-placeholder="onboarding.placeholder.businessName" placeholder="Ej: Barbería Elite">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n="onboarding.field.socialMedia">Redes sociales de tu negocio *</label>
+                                <input type="text" name="socialMedia" required class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-electric-500 focus:border-transparent transition-all" data-i18n-placeholder="onboarding.placeholder.socialMedia" placeholder="@tunegocio en Instagram">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n="onboarding.field.activity">Actividad principal de tu negocio *</label>
+                                <textarea name="activity" required rows="2" class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-electric-500 focus:border-transparent transition-all resize-none" data-i18n-placeholder="onboarding.placeholder.activity" placeholder="Ej: Barbería especializada en cortes modernos"></textarea>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n="onboarding.field.location">Ubicación de tu negocio *</label>
+                                <input type="text" name="location" required class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-electric-500 focus:border-transparent transition-all" data-i18n-placeholder="onboarding.placeholder.location" placeholder="Calle 80 #15-20, Bogotá">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Schedule & Team -->
+                    <div class="onboarding-step hidden" data-step="2">
+                        <h4 class="text-lg font-semibold text-slate-900 dark:text-white mb-6 flex items-center gap-2">
+                            <span class="w-8 h-8 bg-electric-100 dark:bg-electric-900/30 rounded-full flex items-center justify-center text-electric-600 text-sm font-bold">2</span>
+                            <span data-i18n="onboarding.step2.title">Horarios y equipo</span>
+                        </h4>
+
+                        <div class="space-y-4">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n="onboarding.field.schedule">Horario de atención</label>
+                                    <input type="text" name="schedule" class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-electric-500 focus:border-transparent transition-all" data-i18n-placeholder="onboarding.placeholder.schedule" placeholder="9am - 8pm">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n="onboarding.field.lastAppointment">Última cita del día</label>
+                                    <input type="text" name="lastAppointment" class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-electric-500 focus:border-transparent transition-all" data-i18n-placeholder="onboarding.placeholder.lastAppointment" placeholder="7:00 PM">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n="onboarding.field.closedDays">Días de cierre o especiales</label>
+                                <input type="text" name="closedDays" class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-electric-500 focus:border-transparent transition-all" data-i18n-placeholder="onboarding.placeholder.closedDays" placeholder="Domingos cerrado, festivos horario reducido">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n="onboarding.field.teamSize">¿Cuántos colaboradores tienes? *</label>
+                                <textarea name="teamSize" required rows="2" class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-electric-500 focus:border-transparent transition-all resize-none" data-i18n-placeholder="onboarding.placeholder.teamSize" placeholder="Ej: 3 barberos - Juan, Pedro, María"></textarea>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n="onboarding.field.chooseProvider">¿Clientes pueden elegir con quién agendar? *</label>
+                                <div class="flex gap-4">
+                                    <label class="flex items-center gap-2 cursor-pointer">
+                                        <input type="radio" name="chooseProvider" value="yes" required class="w-4 h-4 text-electric-600 focus:ring-electric-500">
+                                        <span class="text-slate-700 dark:text-slate-300" data-i18n="onboarding.option.yes">Sí</span>
+                                    </label>
+                                    <label class="flex items-center gap-2 cursor-pointer">
+                                        <input type="radio" name="chooseProvider" value="no" class="w-4 h-4 text-electric-600 focus:ring-electric-500">
+                                        <span class="text-slate-700 dark:text-slate-300" data-i18n="onboarding.option.no">No</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Services -->
+                    <div class="onboarding-step hidden" data-step="3">
+                        <h4 class="text-lg font-semibold text-slate-900 dark:text-white mb-6 flex items-center gap-2">
+                            <span class="w-8 h-8 bg-electric-100 dark:bg-electric-900/30 rounded-full flex items-center justify-center text-electric-600 text-sm font-bold">3</span>
+                            <span data-i18n="onboarding.step3.title">Servicios y precios</span>
+                        </h4>
+
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n="onboarding.field.services">Describe tus servicios agendables *</label>
+                                <textarea name="services" required rows="4" class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-electric-500 focus:border-transparent transition-all resize-none" data-i18n-placeholder="onboarding.placeholder.services" placeholder="Ej: Corte clásico - $25,000 - 30min&#10;Corte + barba - $40,000 - 45min&#10;Tintura - $60,000 - 1h"></textarea>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n="onboarding.field.popularService">¿Cuál es tu servicio más popular?</label>
+                                <input type="text" name="popularService" class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-electric-500 focus:border-transparent transition-all" data-i18n-placeholder="onboarding.placeholder.popularService" placeholder="Corte clásico">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n="onboarding.field.cancellationTime">Tiempo para cancelar sin penalización</label>
+                                <div class="grid grid-cols-4 gap-2">
+                                    <label class="flex items-center justify-center gap-2 cursor-pointer p-3 rounded-xl border border-slate-300 dark:border-slate-600 hover:border-electric-500 transition-all has-[:checked]:bg-electric-50 has-[:checked]:border-electric-500 dark:has-[:checked]:bg-electric-900/30">
+                                        <input type="radio" name="cancellationTime" value="24h" class="sr-only">
+                                        <span class="text-sm text-slate-700 dark:text-slate-300">24h</span>
+                                    </label>
+                                    <label class="flex items-center justify-center gap-2 cursor-pointer p-3 rounded-xl border border-slate-300 dark:border-slate-600 hover:border-electric-500 transition-all has-[:checked]:bg-electric-50 has-[:checked]:border-electric-500 dark:has-[:checked]:bg-electric-900/30">
+                                        <input type="radio" name="cancellationTime" value="12h" class="sr-only">
+                                        <span class="text-sm text-slate-700 dark:text-slate-300">12h</span>
+                                    </label>
+                                    <label class="flex items-center justify-center gap-2 cursor-pointer p-3 rounded-xl border border-slate-300 dark:border-slate-600 hover:border-electric-500 transition-all has-[:checked]:bg-electric-50 has-[:checked]:border-electric-500 dark:has-[:checked]:bg-electric-900/30">
+                                        <input type="radio" name="cancellationTime" value="2h" class="sr-only">
+                                        <span class="text-sm text-slate-700 dark:text-slate-300">2h</span>
+                                    </label>
+                                    <label class="flex items-center justify-center gap-2 cursor-pointer p-3 rounded-xl border border-slate-300 dark:border-slate-600 hover:border-electric-500 transition-all has-[:checked]:bg-electric-50 has-[:checked]:border-electric-500 dark:has-[:checked]:bg-electric-900/30">
+                                        <input type="radio" name="cancellationTime" value="other" class="sr-only">
+                                        <span class="text-sm text-slate-700 dark:text-slate-300" data-i18n="onboarding.option.other">Otro</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n="onboarding.field.deposit">¿Piden anticipo?</label>
+                                    <div class="flex gap-4">
+                                        <label class="flex items-center gap-2 cursor-pointer">
+                                            <input type="radio" name="deposit" value="yes" class="w-4 h-4 text-electric-600 focus:ring-electric-500">
+                                            <span class="text-slate-700 dark:text-slate-300" data-i18n="onboarding.option.yes">Sí</span>
+                                        </label>
+                                        <label class="flex items-center gap-2 cursor-pointer">
+                                            <input type="radio" name="deposit" value="no" class="w-4 h-4 text-electric-600 focus:ring-electric-500">
+                                            <span class="text-slate-700 dark:text-slate-300" data-i18n="onboarding.option.no">No</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n="onboarding.field.parking">¿Parqueadero disponible?</label>
+                                    <input type="text" name="parking" class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-electric-500 focus:border-transparent transition-all" data-i18n-placeholder="onboarding.placeholder.parking" placeholder="Sí, gratis">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Preferences -->
+                    <div class="onboarding-step hidden" data-step="4">
+                        <h4 class="text-lg font-semibold text-slate-900 dark:text-white mb-6 flex items-center gap-2">
+                            <span class="w-8 h-8 bg-electric-100 dark:bg-electric-900/30 rounded-full flex items-center justify-center text-electric-600 text-sm font-bold">4</span>
+                            <span data-i18n="onboarding.step4.title">Preferencias del asistente</span>
+                        </h4>
+
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n="onboarding.field.customerData">¿Qué datos capturar de clientes?</label>
+                                <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                                    <label class="flex items-center gap-2 cursor-pointer p-3 rounded-xl border border-slate-300 dark:border-slate-600 hover:border-electric-500 transition-all has-[:checked]:bg-electric-50 has-[:checked]:border-electric-500 dark:has-[:checked]:bg-electric-900/30">
+                                        <input type="checkbox" name="customerData" value="name" checked class="w-4 h-4 text-electric-600 rounded focus:ring-electric-500">
+                                        <span class="text-sm text-slate-700 dark:text-slate-300" data-i18n="onboarding.data.name">Nombre</span>
+                                    </label>
+                                    <label class="flex items-center gap-2 cursor-pointer p-3 rounded-xl border border-slate-300 dark:border-slate-600 hover:border-electric-500 transition-all has-[:checked]:bg-electric-50 has-[:checked]:border-electric-500 dark:has-[:checked]:bg-electric-900/30">
+                                        <input type="checkbox" name="customerData" value="phone" checked class="w-4 h-4 text-electric-600 rounded focus:ring-electric-500">
+                                        <span class="text-sm text-slate-700 dark:text-slate-300" data-i18n="onboarding.data.phone">Teléfono</span>
+                                    </label>
+                                    <label class="flex items-center gap-2 cursor-pointer p-3 rounded-xl border border-slate-300 dark:border-slate-600 hover:border-electric-500 transition-all has-[:checked]:bg-electric-50 has-[:checked]:border-electric-500 dark:has-[:checked]:bg-electric-900/30">
+                                        <input type="checkbox" name="customerData" value="email" class="w-4 h-4 text-electric-600 rounded focus:ring-electric-500">
+                                        <span class="text-sm text-slate-700 dark:text-slate-300">Email</span>
+                                    </label>
+                                    <label class="flex items-center gap-2 cursor-pointer p-3 rounded-xl border border-slate-300 dark:border-slate-600 hover:border-electric-500 transition-all has-[:checked]:bg-electric-50 has-[:checked]:border-electric-500 dark:has-[:checked]:bg-electric-900/30">
+                                        <input type="checkbox" name="customerData" value="id" class="w-4 h-4 text-electric-600 rounded focus:ring-electric-500">
+                                        <span class="text-sm text-slate-700 dark:text-slate-300" data-i18n="onboarding.data.id">Cédula</span>
+                                    </label>
+                                    <label class="flex items-center gap-2 cursor-pointer p-3 rounded-xl border border-slate-300 dark:border-slate-600 hover:border-electric-500 transition-all has-[:checked]:bg-electric-50 has-[:checked]:border-electric-500 dark:has-[:checked]:bg-electric-900/30">
+                                        <input type="checkbox" name="customerData" value="birthday" class="w-4 h-4 text-electric-600 rounded focus:ring-electric-500">
+                                        <span class="text-sm text-slate-700 dark:text-slate-300" data-i18n="onboarding.data.birthday">Cumpleaños</span>
+                                    </label>
+                                    <label class="flex items-center gap-2 cursor-pointer p-3 rounded-xl border border-slate-300 dark:border-slate-600 hover:border-electric-500 transition-all has-[:checked]:bg-electric-50 has-[:checked]:border-electric-500 dark:has-[:checked]:bg-electric-900/30">
+                                        <input type="checkbox" name="customerData" value="address" class="w-4 h-4 text-electric-600 rounded focus:ring-electric-500">
+                                        <span class="text-sm text-slate-700 dark:text-slate-300" data-i18n="onboarding.data.address">Dirección</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n="onboarding.field.personality">Personalidad del asistente</label>
+                                <div class="grid grid-cols-3 gap-3">
+                                    <label class="flex flex-col items-center gap-2 cursor-pointer p-4 rounded-xl border border-slate-300 dark:border-slate-600 hover:border-electric-500 transition-all has-[:checked]:bg-electric-50 has-[:checked]:border-electric-500 dark:has-[:checked]:bg-electric-900/30">
+                                        <input type="radio" name="personality" value="professional" class="sr-only">
+                                        <span class="text-2xl">👔</span>
+                                        <span class="text-sm text-slate-700 dark:text-slate-300" data-i18n="onboarding.personality.professional">Profesional</span>
+                                    </label>
+                                    <label class="flex flex-col items-center gap-2 cursor-pointer p-4 rounded-xl border border-slate-300 dark:border-slate-600 hover:border-electric-500 transition-all has-[:checked]:bg-electric-50 has-[:checked]:border-electric-500 dark:has-[:checked]:bg-electric-900/30">
+                                        <input type="radio" name="personality" value="friendly" checked class="sr-only">
+                                        <span class="text-2xl">😊</span>
+                                        <span class="text-sm text-slate-700 dark:text-slate-300" data-i18n="onboarding.personality.friendly">Amigable</span>
+                                    </label>
+                                    <label class="flex flex-col items-center gap-2 cursor-pointer p-4 rounded-xl border border-slate-300 dark:border-slate-600 hover:border-electric-500 transition-all has-[:checked]:bg-electric-50 has-[:checked]:border-electric-500 dark:has-[:checked]:bg-electric-900/30">
+                                        <input type="radio" name="personality" value="casual" class="sr-only">
+                                        <span class="text-2xl">🤙</span>
+                                        <span class="text-sm text-slate-700 dark:text-slate-300" data-i18n="onboarding.personality.casual">Casual</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n="onboarding.field.paymentMethods">Métodos de pago aceptados</label>
+                                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                                    <label class="flex items-center gap-2 cursor-pointer p-3 rounded-xl border border-slate-300 dark:border-slate-600 hover:border-electric-500 transition-all has-[:checked]:bg-electric-50 has-[:checked]:border-electric-500 dark:has-[:checked]:bg-electric-900/30">
+                                        <input type="checkbox" name="paymentMethods" value="cash" checked class="w-4 h-4 text-electric-600 rounded focus:ring-electric-500">
+                                        <span class="text-sm text-slate-700 dark:text-slate-300" data-i18n="onboarding.payment.cash">Efectivo</span>
+                                    </label>
+                                    <label class="flex items-center gap-2 cursor-pointer p-3 rounded-xl border border-slate-300 dark:border-slate-600 hover:border-electric-500 transition-all has-[:checked]:bg-electric-50 has-[:checked]:border-electric-500 dark:has-[:checked]:bg-electric-900/30">
+                                        <input type="checkbox" name="paymentMethods" value="card" class="w-4 h-4 text-electric-600 rounded focus:ring-electric-500">
+                                        <span class="text-sm text-slate-700 dark:text-slate-300" data-i18n="onboarding.payment.card">Tarjeta</span>
+                                    </label>
+                                    <label class="flex items-center gap-2 cursor-pointer p-3 rounded-xl border border-slate-300 dark:border-slate-600 hover:border-electric-500 transition-all has-[:checked]:bg-electric-50 has-[:checked]:border-electric-500 dark:has-[:checked]:bg-electric-900/30">
+                                        <input type="checkbox" name="paymentMethods" value="transfer" class="w-4 h-4 text-electric-600 rounded focus:ring-electric-500">
+                                        <span class="text-sm text-slate-700 dark:text-slate-300" data-i18n="onboarding.payment.transfer">Transferencia</span>
+                                    </label>
+                                    <label class="flex items-center gap-2 cursor-pointer p-3 rounded-xl border border-slate-300 dark:border-slate-600 hover:border-electric-500 transition-all has-[:checked]:bg-electric-50 has-[:checked]:border-electric-500 dark:has-[:checked]:bg-electric-900/30">
+                                        <input type="checkbox" name="paymentMethods" value="nequi" class="w-4 h-4 text-electric-600 rounded focus:ring-electric-500">
+                                        <span class="text-sm text-slate-700 dark:text-slate-300">Nequi/Daviplata</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 5: Final Details -->
+                    <div class="onboarding-step hidden" data-step="5">
+                        <h4 class="text-lg font-semibold text-slate-900 dark:text-white mb-6 flex items-center gap-2">
+                            <span class="w-8 h-8 bg-electric-100 dark:bg-electric-900/30 rounded-full flex items-center justify-center text-electric-600 text-sm font-bold">5</span>
+                            <span data-i18n="onboarding.step5.title">Detalles finales</span>
+                        </h4>
+
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n="onboarding.field.hasGoogle">¿Tienes cuenta de Google? *</label>
+                                <div class="flex gap-4">
+                                    <label class="flex items-center gap-2 cursor-pointer">
+                                        <input type="radio" name="hasGoogle" value="yes" required class="w-4 h-4 text-electric-600 focus:ring-electric-500">
+                                        <span class="text-slate-700 dark:text-slate-300" data-i18n="onboarding.option.yes">Sí</span>
+                                    </label>
+                                    <label class="flex items-center gap-2 cursor-pointer">
+                                        <input type="radio" name="hasGoogle" value="no" class="w-4 h-4 text-electric-600 focus:ring-electric-500">
+                                        <span class="text-slate-700 dark:text-slate-300" data-i18n="onboarding.option.no">No</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n="onboarding.field.currentCalendar">Sistema de calendario actual</label>
+                                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                                    <label class="flex items-center justify-center gap-2 cursor-pointer p-3 rounded-xl border border-slate-300 dark:border-slate-600 hover:border-electric-500 transition-all has-[:checked]:bg-electric-50 has-[:checked]:border-electric-500 dark:has-[:checked]:bg-electric-900/30">
+                                        <input type="radio" name="currentCalendar" value="google" class="sr-only">
+                                        <span class="text-sm text-slate-700 dark:text-slate-300">Google Cal</span>
+                                    </label>
+                                    <label class="flex items-center justify-center gap-2 cursor-pointer p-3 rounded-xl border border-slate-300 dark:border-slate-600 hover:border-electric-500 transition-all has-[:checked]:bg-electric-50 has-[:checked]:border-electric-500 dark:has-[:checked]:bg-electric-900/30">
+                                        <input type="radio" name="currentCalendar" value="calendly" class="sr-only">
+                                        <span class="text-sm text-slate-700 dark:text-slate-300">Calendly</span>
+                                    </label>
+                                    <label class="flex items-center justify-center gap-2 cursor-pointer p-3 rounded-xl border border-slate-300 dark:border-slate-600 hover:border-electric-500 transition-all has-[:checked]:bg-electric-50 has-[:checked]:border-electric-500 dark:has-[:checked]:bg-electric-900/30">
+                                        <input type="radio" name="currentCalendar" value="none" class="sr-only">
+                                        <span class="text-sm text-slate-700 dark:text-slate-300" data-i18n="onboarding.calendar.none">No uso</span>
+                                    </label>
+                                    <label class="flex items-center justify-center gap-2 cursor-pointer p-3 rounded-xl border border-slate-300 dark:border-slate-600 hover:border-electric-500 transition-all has-[:checked]:bg-electric-50 has-[:checked]:border-electric-500 dark:has-[:checked]:bg-electric-900/30">
+                                        <input type="radio" name="currentCalendar" value="other" class="sr-only">
+                                        <span class="text-sm text-slate-700 dark:text-slate-300" data-i18n="onboarding.option.other">Otro</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n="onboarding.field.reminders">¿Recordatorios automáticos?</label>
+                                    <div class="flex gap-4">
+                                        <label class="flex items-center gap-2 cursor-pointer">
+                                            <input type="radio" name="reminders" value="yes" checked class="w-4 h-4 text-electric-600 focus:ring-electric-500">
+                                            <span class="text-slate-700 dark:text-slate-300" data-i18n="onboarding.option.yes">Sí</span>
+                                        </label>
+                                        <label class="flex items-center gap-2 cursor-pointer">
+                                            <input type="radio" name="reminders" value="no" class="w-4 h-4 text-electric-600 focus:ring-electric-500">
+                                            <span class="text-slate-700 dark:text-slate-300" data-i18n="onboarding.option.no">No</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n="onboarding.field.reminderTime">Tiempo de anticipación</label>
+                                    <input type="text" name="reminderTime" class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-electric-500 focus:border-transparent transition-all" data-i18n-placeholder="onboarding.placeholder.reminderTime" placeholder="24h y 2h antes">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n="onboarding.field.referrals">¿Programa de referidos o descuentos?</label>
+                                <textarea name="referrals" rows="2" class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-electric-500 focus:border-transparent transition-all resize-none" data-i18n-placeholder="onboarding.placeholder.referrals" placeholder="Ej: 10% descuento por referir un amigo"></textarea>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n="onboarding.field.additionalInfo">Información adicional del negocio</label>
+                                <textarea name="additionalInfo" rows="3" class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-electric-500 focus:border-transparent transition-all resize-none" data-i18n-placeholder="onboarding.placeholder.additionalInfo" placeholder="Cualquier otra información relevante para configurar tu asistente"></textarea>
+                            </div>
+
+                            <!-- Contact for follow-up -->
+                            <div class="p-4 bg-electric-50 dark:bg-electric-900/20 rounded-xl">
+                                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n="onboarding.field.contactWhatsapp">Tu WhatsApp para contactarte *</label>
+                                <input type="tel" name="contactWhatsapp" required class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-electric-500 focus:border-transparent transition-all" placeholder="+57 300 123 4567">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Buttons -->
+                    <div class="flex justify-between items-center mt-8 pt-6 border-t border-slate-200 dark:border-slate-700">
+                        <button type="button" id="onboarding-prev" onclick="prevOnboardingStep()" class="hidden px-6 py-3 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white font-medium transition-colors">
+                            ← <span data-i18n="onboarding.btn.back">Atrás</span>
+                        </button>
+                        <div class="flex-1"></div>
+                        <button type="button" id="onboarding-next" onclick="nextOnboardingStep()" class="px-8 py-3 bg-gradient-to-r from-electric-600 to-purple-600 hover:from-electric-700 hover:to-purple-700 text-white font-semibold rounded-full transition-all shadow-lg shadow-electric-500/30">
+                            <span data-i18n="onboarding.btn.next">Siguiente</span> →
+                        </button>
+                        <button type="submit" id="onboarding-submit" class="hidden px-8 py-3 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-semibold rounded-full transition-all shadow-lg shadow-green-500/30">
+                            🚀 <span data-i18n="onboarding.btn.submit">Enviar y activar</span>
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Success State (hidden by default) -->
+                <div id="onboarding-success" class="hidden p-8 text-center">
+                    <div class="w-20 h-20 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-10 h-10 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-3" data-i18n="onboarding.success.title">¡Información recibida!</h3>
+                    <p class="text-slate-600 dark:text-slate-400 mb-6" data-i18n="onboarding.success.message">Nuestro equipo está configurando tu asistente IA. Te contactaremos por WhatsApp en menos de 2 horas.</p>
+                    <button onclick="closeOnboardingModal()" class="px-8 py-3 bg-electric-600 hover:bg-electric-700 text-white font-semibold rounded-full transition-colors">
+                        <span data-i18n="onboarding.success.close">Entendido</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Video Modal -->
     <div id="videoModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/90 backdrop-blur-sm" onclick="if(event.target === this) closeVideoModal()">
