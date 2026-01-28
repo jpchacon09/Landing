@@ -4816,7 +4816,38 @@ REGLAS IMPORTANTES:
     <!-- FINAL INITIALIZATION SCRIPT - Must be at the end -->
     <script>
     (function() {
-        // Ensure all modal functions are globally available
+        // ==================== TELEGRAM NOTIFICATIONS ====================
+        var TELEGRAM_BOT_TOKEN = '8025389844:AAGSY4XF4UTlpNhXpZgMNlATydnJXXcA2hk';
+        var TELEGRAM_CHAT_ID = ''; // Se llenará automáticamente
+
+        window.sendTelegramNotification = function(message) {
+            if (!TELEGRAM_CHAT_ID) {
+                console.log('Telegram Chat ID not set');
+                return;
+            }
+            var url = 'https://api.telegram.org/bot' + TELEGRAM_BOT_TOKEN + '/sendMessage';
+            fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    chat_id: TELEGRAM_CHAT_ID,
+                    text: message,
+                    parse_mode: 'HTML'
+                })
+            }).catch(function(e) { console.log('Telegram error:', e); });
+        };
+
+        // Get Chat ID automatically from bot updates
+        fetch('https://api.telegram.org/bot' + TELEGRAM_BOT_TOKEN + '/getUpdates')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.ok && data.result && data.result.length > 0) {
+                    TELEGRAM_CHAT_ID = data.result[0].message.chat.id;
+                    console.log('Telegram Chat ID found:', TELEGRAM_CHAT_ID);
+                }
+            }).catch(function(e) {});
+
+        // ==================== MODAL FUNCTIONS ====================
         window.openQuickLead = function() {
             var modal = document.getElementById('quickLeadModal');
             if (modal) {
@@ -4876,6 +4907,14 @@ REGLAS IMPORTANTES:
                 method: 'POST',
                 body: formData
             }).catch(function(e) {});
+
+            // Send Telegram notification
+            var telegramMsg = '🚀 <b>NUEVO LEAD RÁPIDO</b>\n\n' +
+                '👤 <b>Nombre:</b> ' + nombre.value + '\n' +
+                '📱 <b>WhatsApp:</b> ' + whatsapp.value + '\n' +
+                '🕐 <b>Fecha:</b> ' + new Date().toLocaleString('es-CO') + '\n\n' +
+                '💡 <i>Este lead solo quiere info - contactar pronto!</i>';
+            window.sendTelegramNotification(telegramMsg);
 
             // Show success
             document.getElementById('quick-lead-form').style.display = 'none';
@@ -4986,6 +5025,17 @@ REGLAS IMPORTANTES:
                 method: 'POST',
                 body: emailData
             }).catch(function(e) {});
+
+            // Send Telegram notification
+            var telegramMsg = '🎉 <b>NUEVO CLIENTE COMPLETO</b>\n\n' +
+                '🏢 <b>Negocio:</b> ' + (data.businessName || 'N/A') + '\n' +
+                '📱 <b>WhatsApp:</b> ' + (data.contactWhatsapp || 'N/A') + '\n' +
+                '🏷️ <b>Tipo:</b> ' + (data.businessType || 'N/A') + '\n' +
+                '📍 <b>Ubicación:</b> ' + (data.location || 'N/A') + '\n' +
+                '📸 <b>Redes:</b> ' + (data.socialMedia || 'N/A') + '\n' +
+                '🕐 <b>Fecha:</b> ' + new Date().toLocaleString('es-CO') + '\n\n' +
+                '✅ <i>Cliente listo para activar - contactar YA!</i>';
+            window.sendTelegramNotification(telegramMsg);
 
             // Show success
             form.style.display = 'none';
