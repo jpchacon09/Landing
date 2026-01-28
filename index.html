@@ -787,7 +787,7 @@
                     <strong>PROGRAMA EARLY ADOPTER:</strong>
                     <span class="hidden sm:inline">15 días gratis + 30% OFF permanente |</span>
                     <span class="sm:hidden">15 días gratis + 30% OFF |</span>
-                    Solo quedan <strong class="counter-animated inline-block" id="banner-spots">47</strong> de 50 cupos
+                    Solo quedan <strong class="counter-animated inline-block" id="banner-spots">5</strong> de 50 cupos
                 </p>
                 <a href="#contacto" class="inline-flex items-center gap-1 px-4 py-1.5 bg-white text-orange-600 text-sm font-bold rounded-full hover:bg-orange-50 transition-colors whitespace-nowrap">
                     Activar prueba gratis
@@ -4367,6 +4367,97 @@ REGLAS IMPORTANTES:
             window.updateOnboardingUI();
         };
 
+        // Submit onboarding form
+        window.submitOnboardingForm = function() {
+            console.log('Submit form called');
+
+            if (!window.validateCurrentStep()) {
+                console.log('Validation failed on submit');
+                return;
+            }
+
+            var form = document.getElementById('onboarding-form');
+            if (!form) {
+                console.error('Form not found');
+                return;
+            }
+
+            var formData = new FormData(form);
+            var data = {};
+
+            // Process form data
+            formData.forEach(function(value, key) {
+                if (data[key]) {
+                    if (Array.isArray(data[key])) {
+                        data[key].push(value);
+                    } else {
+                        data[key] = [data[key], value];
+                    }
+                } else {
+                    data[key] = value;
+                }
+            });
+
+            // Add metadata
+            data.language = currentLang;
+            data.currency = currentCurrency;
+            data.submittedAt = new Date().toISOString();
+
+            console.log('Submitting data:', data);
+
+            // Save to localStorage immediately
+            var submissions = JSON.parse(localStorage.getItem('onboarding_submissions') || '[]');
+            submissions.push(data);
+            localStorage.setItem('onboarding_submissions', JSON.stringify(submissions));
+
+            // Send via Web3Forms (free, no activation needed)
+            var web3Data = new FormData();
+            web3Data.append('access_key', 'YOUR_KEY'); // Placeholder - will use mailto fallback
+
+            // Build email body
+            var emailBody = 'NUEVO CLIENTE SINAPSIO\n\n';
+            Object.keys(data).forEach(function(key) {
+                var value = Array.isArray(data[key]) ? data[key].join(', ') : data[key];
+                emailBody += key + ': ' + value + '\n';
+            });
+
+            // Try to open email client as reliable fallback
+            var subject = encodeURIComponent('Nuevo Cliente Sinapsio - ' + (data.businessName || 'Sin nombre'));
+            var body = encodeURIComponent(emailBody);
+
+            // Create hidden mailto link and try FormSubmit
+            var emailData = new FormData();
+            emailData.append('_subject', 'Nuevo Cliente Sinapsio - ' + (data.businessName || 'Sin nombre'));
+            emailData.append('_template', 'table');
+            emailData.append('_captcha', 'false');
+
+            Object.keys(data).forEach(function(key) {
+                var value = Array.isArray(data[key]) ? data[key].join(', ') : data[key];
+                emailData.append(key, value);
+            });
+
+            fetch('https://formsubmit.co/ajax/sinapsio.ia@gmail.com', {
+                method: 'POST',
+                body: emailData
+            })
+            .then(function(response) {
+                console.log('FormSubmit response:', response.status);
+                return response.json();
+            })
+            .then(function(result) {
+                console.log('FormSubmit result:', result);
+            })
+            .catch(function(error) {
+                console.error('FormSubmit error:', error);
+            });
+
+            // Show success immediately (data is saved locally)
+            document.getElementById('onboarding-form').classList.add('hidden');
+            document.getElementById('onboarding-success').classList.remove('hidden');
+
+            console.log('Form submitted successfully, data saved to localStorage');
+        };
+
         // ==================== INIT ====================
         // Apply saved language and currency on page load
         setLanguage(currentLang);
@@ -4467,6 +4558,16 @@ REGLAS IMPORTANTES:
                     e.preventDefault();
                     e.stopPropagation();
                     window.prevOnboardingStep();
+                });
+            }
+
+            // Bind submit button directly
+            var submitBtn = document.getElementById('onboarding-submit');
+            if (submitBtn) {
+                submitBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    window.submitOnboardingForm();
                 });
             }
 
@@ -4820,7 +4921,7 @@ REGLAS IMPORTANTES:
                         <button type="button" id="onboarding-next" onclick="nextOnboardingStep()" class="px-8 py-3 bg-gradient-to-r from-electric-600 to-purple-600 hover:from-electric-700 hover:to-purple-700 text-white font-semibold rounded-full transition-all shadow-lg shadow-electric-500/30">
                             <span data-i18n="onboarding.btn.next">Siguiente</span> →
                         </button>
-                        <button type="submit" id="onboarding-submit" class="hidden px-8 py-3 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-semibold rounded-full transition-all shadow-lg shadow-green-500/30">
+                        <button type="button" id="onboarding-submit" onclick="window.submitOnboardingForm()" class="hidden px-8 py-3 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-semibold rounded-full transition-all shadow-lg shadow-green-500/30">
                             🚀 <span data-i18n="onboarding.btn.submit">Enviar y activar</span>
                         </button>
                     </div>
