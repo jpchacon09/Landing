@@ -349,26 +349,61 @@
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
         }
 
-        /* FAB WhatsApp */
+        /* FAB WhatsApp - Optimized for mobile */
         .fab-whatsapp {
             position: fixed;
-            bottom: 24px;
-            right: 24px;
+            bottom: 20px;
+            right: 20px;
             z-index: 50;
-            width: 60px;
-            height: 60px;
-            background: #25d366;
-            border-radius: 50%;
             display: flex;
             align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            gap: 10px;
+            padding: 14px 20px;
+            background: #25d366;
+            border-radius: 50px;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
             transition: all 0.3s ease;
+            animation: pulse-whatsapp 2s infinite;
+        }
+
+        .fab-whatsapp .fab-text {
+            color: white;
+            font-weight: 600;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        @keyframes pulse-whatsapp {
+            0%, 100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5); }
+            50% { box-shadow: 0 4px 30px rgba(37, 211, 102, 0.8); }
         }
 
         .fab-whatsapp:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6);
+            transform: scale(1.05);
+            box-shadow: 0 6px 30px rgba(37, 211, 102, 0.7);
+        }
+
+        /* Mobile: Show text, larger touch target */
+        @media (max-width: 768px) {
+            .fab-whatsapp {
+                bottom: 16px;
+                right: 16px;
+                padding: 16px 24px;
+            }
+            .fab-whatsapp .fab-text {
+                font-size: 15px;
+            }
+        }
+
+        /* Desktop: Hide text after 3 seconds */
+        @media (min-width: 769px) {
+            .fab-whatsapp {
+                padding: 16px;
+                border-radius: 50%;
+            }
+            .fab-whatsapp .fab-text {
+                display: none;
+            }
         }
 
         /* Smooth transitions for dark mode */
@@ -949,18 +984,22 @@
                         </div>
                     </div>
 
-                    <div class="reveal flex flex-col sm:flex-row gap-4 justify-center lg:justify-start" style="animation-delay: 0.4s;">
+                    <div class="reveal flex flex-col sm:flex-row gap-4 justify-center lg:justify-start flex-wrap" style="animation-delay: 0.4s;">
                         <button onclick="openOnboardingModal()" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white text-base font-semibold rounded-full btn-glow shadow-lg shadow-orange-500/30 hover:shadow-orange-500/50 transition-all">
-                            <span data-i18n="hero.cta1">Prueba gratis 15 días + 30% OFF</span>
+                            <span data-i18n="hero.cta1">Activar prueba gratis</span>
                             <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
                             </svg>
                         </button>
-                        <button onclick="openVideoModal()" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-900 dark:text-white text-base font-semibold rounded-full border border-slate-200 dark:border-slate-700 transition-all">
-                            <svg class="w-5 h-5 text-electric-600" fill="currentColor" viewBox="0 0 24 24">
+                        <button onclick="openQuickLead()" class="inline-flex items-center justify-center gap-2 px-6 py-4 bg-white dark:bg-slate-800 hover:bg-green-50 dark:hover:bg-slate-700 text-slate-900 dark:text-white text-base font-semibold rounded-full border-2 border-green-500 transition-all">
+                            <svg class="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                            <span data-i18n="hero.cta3">Solo quiero info</span>
+                        </button>
+                        <button onclick="openVideoModal()" class="inline-flex items-center justify-center gap-2 px-6 py-4 bg-white/80 dark:bg-slate-800/80 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 text-sm font-medium rounded-full border border-slate-200 dark:border-slate-700 transition-all">
+                            <svg class="w-4 h-4 text-electric-600" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M8 5v14l11-7z"/>
                             </svg>
-                            <span data-i18n="hero.cta2">Video</span>
+                            <span data-i18n="hero.cta2">Ver video</span>
                         </button>
                     </div>
 
@@ -1121,6 +1160,25 @@
         </div>
     </section>
 
+    <!-- Compact Guarantee Banner (High visibility) -->
+    <section class="py-6 bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 dark:from-yellow-600 dark:via-yellow-500 dark:to-yellow-600">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-center gap-4 text-center md:text-left">
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 bg-yellow-900/20 rounded-full flex items-center justify-center flex-shrink-0">
+                        <svg class="w-6 h-6 text-yellow-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="font-bold text-yellow-900 text-lg" data-i18n="guarantee.banner.title">Garantia de Hierro</p>
+                        <p class="text-yellow-800 text-sm" data-i18n="guarantee.banner.text">Si no agendamos tu primera cita en 48h, <strong>te devolvemos el DOBLE</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Early Adopter Section -->
     <section id="early-adopter" class="py-16 md:py-24 bg-gradient-to-br from-orange-50 via-white to-yellow-50 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900 relative overflow-hidden">
         <!-- Background decoration -->
@@ -1267,7 +1325,7 @@
                                 </div>
                             </div>
                             <p class="text-slate-600 dark:text-slate-300 mb-6" data-i18n="cases.barber.desc">
-                                Las barberías son el negocio perfecto para la automatización. Clientes recurrentes, citas frecuentes y alta tasa de no-shows que la IA elimina.
+                                <strong>Clientes recurrentes + citas frecuentes</strong> = negocio perfecto para IA. Eliminamos la <strong>alta tasa de no-shows</strong> automaticamente.
                             </p>
                             <ul class="space-y-3">
                                 <li class="flex items-center gap-3">
@@ -1320,7 +1378,7 @@
                                 </div>
                             </div>
                             <p class="text-slate-600 dark:text-slate-300 mb-6" data-i18n="cases.spa.desc">
-                                Servicios de mayor valor requieren confirmaciones más cuidadosas. Nuestra IA personaliza el tono y ofrece reagendamiento automático.
+                                <strong>Servicios de alto valor</strong> requieren confirmaciones cuidadosas. IA con <strong>tono personalizado</strong> y reagendamiento automatico.
                             </p>
                             <ul class="space-y-3">
                                 <li class="flex items-center gap-3">
@@ -1373,7 +1431,7 @@
                                 </div>
                             </div>
                             <p class="text-slate-600 dark:text-slate-300 mb-6" data-i18n="cases.restaurant.desc">
-                                Reservaciones perdidas significan mesas vacías. Nuestra IA confirma reservas, maneja lista de espera y optimiza la ocupación.
+                                <strong>Mesas vacias = dinero perdido</strong>. IA que confirma reservas, maneja <strong>lista de espera</strong> y optimiza ocupacion.
                             </p>
                             <ul class="space-y-3">
                                 <li class="flex items-center gap-3">
@@ -1426,7 +1484,7 @@
                                 </div>
                             </div>
                             <p class="text-slate-600 dark:text-slate-300 mb-6" data-i18n="cases.clinic.desc">
-                                Citas médicas tienen alto valor y requieren confirmación profesional. Nuestra IA mantiene el tono adecuado y reduce cancelaciones.
+                                <strong>Citas medicas de alto valor</strong> requieren confirmacion profesional. IA con <strong>tono adecuado</strong> que reduce cancelaciones.
                             </p>
                             <ul class="space-y-3">
                                 <li class="flex items-center gap-3">
@@ -1479,7 +1537,7 @@
                                 </div>
                             </div>
                             <p class="text-slate-600 dark:text-slate-300 mb-6" data-i18n="cases.gym.desc">
-                                Clases con cupo limitado necesitan confirmación. Nuestra IA maneja inscripciones, lista de espera y motivación para asistencia.
+                                <strong>Clases con cupo limitado</strong> necesitan confirmacion. IA que maneja inscripciones, <strong>lista de espera</strong> y motivacion.
                             </p>
                             <ul class="space-y-3">
                                 <li class="flex items-center gap-3">
@@ -2697,11 +2755,12 @@
         </svg>
     </button>
 
-    <!-- Floating WhatsApp Button (FAB) -->
+    <!-- Floating WhatsApp Button (FAB) - Optimized for mobile -->
     <a href="https://wa.me/573123766146?text=Hola!%20Quiero%20saber%20m%C3%A1s%20sobre%20Sinapsio" target="_blank" class="fab-whatsapp" aria-label="Contactar por WhatsApp">
-        <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
+        <svg class="w-7 h-7 text-white flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
         </svg>
+        <span class="fab-text">Escríbenos</span>
     </a>
 
     <!-- JavaScript -->
@@ -4235,19 +4294,94 @@ REGLAS IMPORTANTES:
             }
         });
 
-        // ==================== ONBOARDING MODAL ====================
+        // ==================== QUICK LEAD MODAL (Simple Form) ====================
+        window.openQuickLead = function() {
+            var modal = document.getElementById('quickLeadModal');
+            if (!modal) return;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+            // Reset form
+            var form = document.getElementById('quick-lead-form');
+            var success = document.getElementById('quick-lead-success');
+            if (form) form.classList.remove('hidden');
+            if (success) success.classList.add('hidden');
+        };
+
+        window.closeQuickLead = function() {
+            var modal = document.getElementById('quickLeadModal');
+            if (!modal) return;
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = 'auto';
+        };
+
+        window.submitQuickLead = function() {
+            var whatsapp = document.getElementById('quick-whatsapp');
+            var nombre = document.getElementById('quick-nombre');
+
+            // Validate
+            var valid = true;
+            [whatsapp, nombre].forEach(function(field) {
+                field.classList.remove('ring-2', 'ring-red-500');
+                if (!field.value.trim()) {
+                    field.classList.add('ring-2', 'ring-red-500');
+                    valid = false;
+                }
+            });
+
+            if (!valid) return;
+
+            var data = {
+                tipo: 'Lead Rapido',
+                whatsapp: whatsapp.value,
+                nombre: nombre.value,
+                fecha: new Date().toISOString(),
+                idioma: currentLang
+            };
+
+            // Save locally
+            var leads = JSON.parse(localStorage.getItem('quick_leads') || '[]');
+            leads.push(data);
+            localStorage.setItem('quick_leads', JSON.stringify(leads));
+
+            // Send to FormSubmit
+            var formData = new FormData();
+            formData.append('_subject', 'LEAD RAPIDO - ' + nombre.value);
+            formData.append('_template', 'table');
+            formData.append('_captcha', 'false');
+            formData.append('WhatsApp', whatsapp.value);
+            formData.append('Nombre', nombre.value);
+            formData.append('Fecha', data.fecha);
+            formData.append('Tipo', 'Lead Rapido - Solo quiere info');
+
+            fetch('https://formsubmit.co/ajax/sinapsio.ia@gmail.com', {
+                method: 'POST',
+                body: formData
+            }).catch(function(e) { console.log('FormSubmit error:', e); });
+
+            // Show success
+            document.getElementById('quick-lead-form').classList.add('hidden');
+            document.getElementById('quick-lead-success').classList.remove('hidden');
+        };
+
+        // ==================== ONBOARDING MODAL (Complete Form) ====================
         window.currentOnboardingStep = 1;
-        window.totalOnboardingSteps = 5;
+        window.totalOnboardingSteps = 2;
 
         window.openOnboardingModal = function() {
             var modal = document.getElementById('onboardingModal');
-            if (!modal) { console.error('Modal not found'); return; }
+            if (!modal) return;
             modal.classList.remove('hidden');
             modal.classList.add('flex');
             document.body.style.overflow = 'hidden';
             window.currentOnboardingStep = 1;
+            // Reset form
+            var form = document.getElementById('onboarding-form');
+            var success = document.getElementById('onboarding-success');
+            if (form) { form.reset(); form.classList.remove('hidden'); }
+            if (success) success.classList.add('hidden');
             window.updateOnboardingUI();
-            if (typeof setLanguage === 'function') setLanguage(currentLang);
         };
 
         window.closeOnboardingModal = function() {
@@ -4266,84 +4400,69 @@ REGLAS IMPORTANTES:
             if (progressBar) progressBar.style.width = progress + '%';
             if (stepCounter) stepCounter.textContent = window.currentOnboardingStep;
 
+            // Show/hide steps
             var steps = document.querySelectorAll('.onboarding-step');
             for (var i = 0; i < steps.length; i++) {
                 var stepNum = parseInt(steps[i].getAttribute('data-step'));
-                if (stepNum === window.currentOnboardingStep) {
-                    steps[i].classList.remove('hidden');
-                } else {
-                    steps[i].classList.add('hidden');
-                }
+                steps[i].style.display = (stepNum === window.currentOnboardingStep) ? 'block' : 'none';
             }
 
+            // Show/hide buttons
             var prevBtn = document.getElementById('onboarding-prev');
             var nextBtn = document.getElementById('onboarding-next');
             var submitBtn = document.getElementById('onboarding-submit');
 
-            if (prevBtn) {
-                prevBtn.style.display = (window.currentOnboardingStep === 1) ? 'none' : 'block';
-            }
-
-            if (nextBtn) {
-                nextBtn.style.display = (window.currentOnboardingStep === window.totalOnboardingSteps) ? 'none' : 'block';
-            }
-
-            if (submitBtn) {
-                submitBtn.style.display = (window.currentOnboardingStep === window.totalOnboardingSteps) ? 'block' : 'none';
-            }
+            if (prevBtn) prevBtn.style.display = (window.currentOnboardingStep === 1) ? 'none' : 'inline-flex';
+            if (nextBtn) nextBtn.style.display = (window.currentOnboardingStep === window.totalOnboardingSteps) ? 'none' : 'inline-flex';
+            if (submitBtn) submitBtn.style.display = (window.currentOnboardingStep === window.totalOnboardingSteps) ? 'inline-flex' : 'none';
         };
 
         window.validateCurrentStep = function() {
-            var currentStepEl = document.querySelector('.onboarding-step[data-step="' + window.currentOnboardingStep + '"]');
-            if (!currentStepEl) return true;
+            var stepEl = document.querySelector('.onboarding-step[data-step="' + window.currentOnboardingStep + '"]');
+            if (!stepEl) return true;
 
-            var requiredFields = currentStepEl.querySelectorAll('[required]');
-            var isValid = true;
-            var checkedRadios = {};
+            var fields = stepEl.querySelectorAll('[required]');
+            var valid = true;
 
-            for (var i = 0; i < requiredFields.length; i++) {
-                var field = requiredFields[i];
+            for (var i = 0; i < fields.length; i++) {
+                var field = fields[i];
                 field.classList.remove('ring-2', 'ring-red-500');
 
                 if (field.type === 'radio') {
-                    if (!checkedRadios[field.name]) {
-                        var radios = currentStepEl.querySelectorAll('input[name="' + field.name + '"]');
-                        var anyChecked = false;
-                        for (var j = 0; j < radios.length; j++) {
-                            if (radios[j].checked) anyChecked = true;
-                        }
-                        checkedRadios[field.name] = anyChecked;
-                        if (!anyChecked) {
-                            isValid = false;
-                            field.classList.add('ring-2', 'ring-red-500');
-                        }
+                    var radios = stepEl.querySelectorAll('input[name="' + field.name + '"]');
+                    var checked = false;
+                    for (var j = 0; j < radios.length; j++) {
+                        if (radios[j].checked) checked = true;
+                    }
+                    if (!checked) {
+                        valid = false;
+                        field.classList.add('ring-2', 'ring-red-500');
+                    }
+                } else if (field.tagName === 'SELECT') {
+                    if (!field.value) {
+                        valid = false;
+                        field.classList.add('ring-2', 'ring-red-500');
                     }
                 } else {
-                    if (!field.value || field.value.trim() === '') {
-                        isValid = false;
+                    if (!field.value.trim()) {
+                        valid = false;
                         field.classList.add('ring-2', 'ring-red-500');
                     }
                 }
             }
-            return isValid;
+            return valid;
         };
 
         window.nextOnboardingStep = function() {
-            console.log('Next step clicked, current:', window.currentOnboardingStep);
-
             if (!window.validateCurrentStep()) {
-                console.log('Validation failed');
-                var firstInvalid = document.querySelector('.onboarding-step:not(.hidden) .ring-red-500');
-                if (firstInvalid) firstInvalid.focus();
+                var invalid = document.querySelector('.onboarding-step:not([style*="none"]) .ring-red-500');
+                if (invalid) invalid.focus();
                 return;
             }
-
             if (window.currentOnboardingStep < window.totalOnboardingSteps) {
                 window.currentOnboardingStep++;
-                console.log('Moving to step:', window.currentOnboardingStep);
                 window.updateOnboardingUI();
-                var modal = document.getElementById('onboardingModal');
-                if (modal) modal.scrollTo(0, 0);
+                document.getElementById('onboardingModal').scrollTo(0, 0);
             }
         };
 
@@ -4354,228 +4473,168 @@ REGLAS IMPORTANTES:
             }
         };
 
-        // Reset form when modal is opened again
-        window.resetOnboardingForm = function() {
-            var form = document.getElementById('onboarding-form');
-            if (form) {
-                form.reset();
-                form.classList.remove('hidden');
-            }
-            var success = document.getElementById('onboarding-success');
-            if (success) success.classList.add('hidden');
-            window.currentOnboardingStep = 1;
-            window.updateOnboardingUI();
-        };
-
-        // Submit onboarding form
         window.submitOnboardingForm = function() {
-            console.log('Submit form called');
-
-            if (!window.validateCurrentStep()) {
-                console.log('Validation failed on submit');
-                return;
-            }
+            if (!window.validateCurrentStep()) return;
 
             var form = document.getElementById('onboarding-form');
-            if (!form) {
-                console.error('Form not found');
-                return;
-            }
+            if (!form) return;
 
             var formData = new FormData(form);
-            var data = {};
+            var data = { tipo: 'Cliente Completo' };
 
-            // Process form data
             formData.forEach(function(value, key) {
                 if (data[key]) {
-                    if (Array.isArray(data[key])) {
-                        data[key].push(value);
-                    } else {
-                        data[key] = [data[key], value];
-                    }
+                    data[key] = Array.isArray(data[key]) ? data[key].concat(value) : [data[key], value];
                 } else {
                     data[key] = value;
                 }
             });
 
-            // Add metadata
-            data.language = currentLang;
-            data.currency = currentCurrency;
-            data.submittedAt = new Date().toISOString();
+            data.fecha = new Date().toISOString();
+            data.idioma = currentLang;
+            data.moneda = currentCurrency;
 
-            console.log('Submitting data:', data);
-
-            // Save to localStorage immediately
+            // Save locally
             var submissions = JSON.parse(localStorage.getItem('onboarding_submissions') || '[]');
             submissions.push(data);
             localStorage.setItem('onboarding_submissions', JSON.stringify(submissions));
 
-            // Send via Web3Forms (free, no activation needed)
-            var web3Data = new FormData();
-            web3Data.append('access_key', 'YOUR_KEY'); // Placeholder - will use mailto fallback
-
-            // Build email body
-            var emailBody = 'NUEVO CLIENTE SINAPSIO\n\n';
-            Object.keys(data).forEach(function(key) {
-                var value = Array.isArray(data[key]) ? data[key].join(', ') : data[key];
-                emailBody += key + ': ' + value + '\n';
-            });
-
-            // Try to open email client as reliable fallback
-            var subject = encodeURIComponent('Nuevo Cliente Sinapsio - ' + (data.businessName || 'Sin nombre'));
-            var body = encodeURIComponent(emailBody);
-
-            // Create hidden mailto link and try FormSubmit
+            // Send to FormSubmit
             var emailData = new FormData();
-            emailData.append('_subject', 'Nuevo Cliente Sinapsio - ' + (data.businessName || 'Sin nombre'));
+            emailData.append('_subject', 'CLIENTE COMPLETO - ' + (data.businessName || 'Sin nombre'));
             emailData.append('_template', 'table');
             emailData.append('_captcha', 'false');
 
             Object.keys(data).forEach(function(key) {
-                var value = Array.isArray(data[key]) ? data[key].join(', ') : data[key];
-                emailData.append(key, value);
+                var val = Array.isArray(data[key]) ? data[key].join(', ') : data[key];
+                emailData.append(key, val);
             });
 
             fetch('https://formsubmit.co/ajax/sinapsio.ia@gmail.com', {
                 method: 'POST',
                 body: emailData
-            })
-            .then(function(response) {
-                console.log('FormSubmit response:', response.status);
-                return response.json();
-            })
-            .then(function(result) {
-                console.log('FormSubmit result:', result);
-            })
-            .catch(function(error) {
-                console.error('FormSubmit error:', error);
-            });
+            }).catch(function(e) { console.log('FormSubmit error:', e); });
 
-            // Show success immediately (data is saved locally)
-            document.getElementById('onboarding-form').classList.add('hidden');
+            // Show success
+            form.classList.add('hidden');
             document.getElementById('onboarding-success').classList.remove('hidden');
-
-            console.log('Form submitted successfully, data saved to localStorage');
         };
 
         // ==================== INIT ====================
-        // Apply saved language and currency on page load
         setLanguage(currentLang);
         setCurrency(currentCurrency);
-
-        // Initialize Early Adopter spots
         updateEarlyAdopterSpots();
 
-        // Setup form submission handler when DOM is ready
+        // Bind all buttons when DOM is ready
         document.addEventListener('DOMContentLoaded', function() {
-            var form = document.getElementById('onboarding-form');
-            if (form) {
-                form.addEventListener('submit', function(e) {
+            // Quick Lead submit button
+            var quickSubmitBtn = document.getElementById('quick-submit-btn');
+            if (quickSubmitBtn) {
+                quickSubmitBtn.addEventListener('click', function(e) {
                     e.preventDefault();
-
-                    if (!window.validateCurrentStep()) {
-                        return;
-                    }
-
-                    var formData = new FormData(form);
-                    var data = {};
-
-                    // Process form data
-                    formData.forEach(function(value, key) {
-                        if (data[key]) {
-                            if (Array.isArray(data[key])) {
-                                data[key].push(value);
-                            } else {
-                                data[key] = [data[key], value];
-                            }
-                        } else {
-                            data[key] = value;
-                        }
-                    });
-
-                    // Add metadata
-                    data.language = currentLang;
-                    data.currency = currentCurrency;
-                    data.submittedAt = new Date().toISOString();
-
-                    console.log('Onboarding data:', data);
-
-                    // Prepare email-friendly format
-                    var emailData = new FormData();
-                    emailData.append('_subject', 'Nuevo Cliente Sinapsio - ' + (data.businessName || 'Sin nombre'));
-                    emailData.append('_template', 'table');
-                    emailData.append('_captcha', 'false');
-
-                    // Add all form data
-                    Object.keys(data).forEach(function(key) {
-                        var value = Array.isArray(data[key]) ? data[key].join(', ') : data[key];
-                        emailData.append(key, value);
-                    });
-
-                    // Send email via FormSubmit
-                    fetch('https://formsubmit.co/ajax/sinapsio.ia@gmail.com', {
-                        method: 'POST',
-                        body: emailData
-                    })
-                    .then(function(response) {
-                        // Store locally as backup
-                        var submissions = JSON.parse(localStorage.getItem('onboarding_submissions') || '[]');
-                        submissions.push(data);
-                        localStorage.setItem('onboarding_submissions', JSON.stringify(submissions));
-
-                        // Show success state
-                        document.getElementById('onboarding-form').classList.add('hidden');
-                        document.getElementById('onboarding-success').classList.remove('hidden');
-                    })
-                    .catch(function(error) {
-                        console.error('Error submitting form:', error);
-                        // Still save locally even if email fails
-                        var submissions = JSON.parse(localStorage.getItem('onboarding_submissions') || '[]');
-                        submissions.push(data);
-                        localStorage.setItem('onboarding_submissions', JSON.stringify(submissions));
-
-                        // Show success anyway (data is saved locally)
-                        document.getElementById('onboarding-form').classList.add('hidden');
-                        document.getElementById('onboarding-success').classList.remove('hidden');
-                    });
+                    window.submitQuickLead();
                 });
             }
 
-            // Also bind button events via JS (backup for onclick)
+            // Onboarding buttons
             var nextBtn = document.getElementById('onboarding-next');
             var prevBtn = document.getElementById('onboarding-prev');
+            var submitBtn = document.getElementById('onboarding-submit');
 
             if (nextBtn) {
                 nextBtn.addEventListener('click', function(e) {
                     e.preventDefault();
-                    e.stopPropagation();
                     window.nextOnboardingStep();
                 });
             }
-
             if (prevBtn) {
                 prevBtn.addEventListener('click', function(e) {
                     e.preventDefault();
-                    e.stopPropagation();
                     window.prevOnboardingStep();
                 });
             }
-
-            // Bind submit button directly
-            var submitBtn = document.getElementById('onboarding-submit');
             if (submitBtn) {
                 submitBtn.addEventListener('click', function(e) {
                     e.preventDefault();
-                    e.stopPropagation();
                     window.submitOnboardingForm();
                 });
             }
 
-            console.log('Onboarding form initialized successfully');
+            // Close modals on click outside
+            document.getElementById('quickLeadModal').addEventListener('click', function(e) {
+                if (e.target === this) window.closeQuickLead();
+            });
+
+            console.log('All forms initialized');
         });
     </script>
 
-    <!-- Onboarding Form Modal -->
+    <!-- ==================== QUICK LEAD MODAL (Simple: WhatsApp + Name) ==================== -->
+    <div id="quickLeadModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+        <div class="relative w-full max-w-md mx-auto">
+            <div class="bg-white dark:bg-slate-800 rounded-3xl shadow-2xl overflow-hidden">
+                <!-- Header -->
+                <div class="bg-gradient-to-r from-green-500 to-emerald-600 p-6 text-white relative">
+                    <button onclick="window.closeQuickLead()" class="absolute top-4 right-4 text-white/80 hover:text-white transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+                            <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold">Te contactamos</h3>
+                            <p class="text-white/80 text-sm">Solo necesitamos tu WhatsApp</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form -->
+                <form id="quick-lead-form" class="p-6 space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Tu WhatsApp *</label>
+                        <input type="tel" name="whatsapp" id="quick-whatsapp" required
+                            class="w-full px-4 py-4 rounded-xl border-2 border-green-300 dark:border-green-700 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all text-lg"
+                            placeholder="+57 300 123 4567">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Tu nombre *</label>
+                        <input type="text" name="nombre" id="quick-nombre" required
+                            class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
+                            placeholder="Juan Perez">
+                    </div>
+
+                    <button type="button" id="quick-submit-btn"
+                        class="w-full py-4 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white text-lg font-bold rounded-xl transition-all shadow-lg shadow-green-500/30">
+                        Enviar
+                    </button>
+
+                    <p class="text-center text-xs text-slate-500 dark:text-slate-400">
+                        Te escribiremos por WhatsApp en menos de 2 horas
+                    </p>
+                </form>
+
+                <!-- Success State -->
+                <div id="quick-lead-success" class="hidden p-8 text-center">
+                    <div class="w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">¡Listo!</h3>
+                    <p class="text-slate-600 dark:text-slate-400 mb-4">Te contactaremos pronto por WhatsApp</p>
+                    <button onclick="window.closeQuickLead()" class="px-6 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition-colors">
+                        Cerrar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== ONBOARDING FORM MODAL (Complete: 2 Steps) ==================== -->
     <div id="onboardingModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-sm overflow-y-auto py-8" onclick="if(event.target === this) closeOnboardingModal()">
         <div class="relative w-full max-w-2xl mx-4 my-auto">
             <!-- Modal Content -->
@@ -4600,7 +4659,7 @@ REGLAS IMPORTANTES:
                     <div class="mt-4">
                         <div class="flex justify-between text-xs text-white/70 mb-2">
                             <span data-i18n="onboarding.step">Paso</span>
-                            <span><span id="onboarding-current-step">1</span> / 5</span>
+                            <span><span id="onboarding-current-step">1</span> / 2</span>
                         </div>
                         <div class="h-2 bg-white/20 rounded-full overflow-hidden">
                             <div id="onboarding-progress" class="h-full bg-white rounded-full transition-all duration-300" style="width: 20%"></div>
@@ -4610,304 +4669,103 @@ REGLAS IMPORTANTES:
 
                 <!-- Form Steps Container -->
                 <form id="onboarding-form" class="p-6">
-                    <!-- Step 1: Basic Info -->
+                    <!-- Step 1: Lead Capture (WhatsApp + Name) -->
                     <div class="onboarding-step" data-step="1">
-                        <h4 class="text-lg font-semibold text-slate-900 dark:text-white mb-6 flex items-center gap-2">
-                            <span class="w-8 h-8 bg-electric-100 dark:bg-electric-900/30 rounded-full flex items-center justify-center text-electric-600 text-sm font-bold">1</span>
-                            <span data-i18n="onboarding.step1.title">Información básica</span>
+                        <h4 class="text-lg font-semibold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                            <span class="w-8 h-8 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center text-green-600 text-sm font-bold">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                            </span>
+                            <span data-i18n="onboarding.step1.title">Activa tu prueba gratis</span>
                         </h4>
 
+                        <p class="text-slate-600 dark:text-slate-400 mb-6 text-sm" data-i18n="onboarding.step1.desc">Te contactaremos por WhatsApp para activar tus 15 días gratis</p>
+
                         <div class="space-y-4">
+                            <!-- WhatsApp - Most important field first -->
+                            <div class="p-4 bg-green-50 dark:bg-green-900/20 rounded-xl border-2 border-green-200 dark:border-green-800">
+                                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                                    <span class="flex items-center gap-2">
+                                        <svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                                        <span data-i18n="onboarding.field.contactWhatsapp">Tu WhatsApp *</span>
+                                    </span>
+                                </label>
+                                <input type="tel" name="contactWhatsapp" required class="w-full px-4 py-4 rounded-xl border border-green-300 dark:border-green-700 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all text-lg" placeholder="+57 300 123 4567">
+                            </div>
+
                             <div>
                                 <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n="onboarding.field.businessName">Nombre de tu negocio *</label>
-                                <input type="text" name="businessName" required class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-electric-500 focus:border-transparent transition-all" data-i18n-placeholder="onboarding.placeholder.businessName" placeholder="Ej: Barbería Elite">
+                                <input type="text" name="businessName" required class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-electric-500 focus:border-transparent transition-all" data-i18n-placeholder="onboarding.placeholder.businessName" placeholder="Ej: Barberia Elite">
                             </div>
 
                             <div>
-                                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n="onboarding.field.socialMedia">Redes sociales de tu negocio *</label>
-                                <input type="text" name="socialMedia" required class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-electric-500 focus:border-transparent transition-all" data-i18n-placeholder="onboarding.placeholder.socialMedia" placeholder="@tunegocio en Instagram">
+                                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n="onboarding.field.activity">Tipo de negocio *</label>
+                                <select name="businessType" required class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-electric-500 focus:border-transparent transition-all">
+                                    <option value="" data-i18n="onboarding.select.choose">Selecciona...</option>
+                                    <option value="barberia" data-i18n="onboarding.type.barbershop">Barberia / Peluqueria</option>
+                                    <option value="spa" data-i18n="onboarding.type.spa">Spa / Centro de belleza</option>
+                                    <option value="clinica" data-i18n="onboarding.type.clinic">Clinica / Consultorio</option>
+                                    <option value="restaurante" data-i18n="onboarding.type.restaurant">Restaurante</option>
+                                    <option value="gym" data-i18n="onboarding.type.gym">Gimnasio / Entrenador</option>
+                                    <option value="otro" data-i18n="onboarding.type.other">Otro</option>
+                                </select>
                             </div>
 
-                            <div>
-                                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n="onboarding.field.activity">Actividad principal de tu negocio *</label>
-                                <textarea name="activity" required rows="2" class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-electric-500 focus:border-transparent transition-all resize-none" data-i18n-placeholder="onboarding.placeholder.activity" placeholder="Ej: Barbería especializada en cortes modernos"></textarea>
-                            </div>
-
-                            <div>
-                                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n="onboarding.field.location">Ubicación de tu negocio *</label>
-                                <input type="text" name="location" required class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-electric-500 focus:border-transparent transition-all" data-i18n-placeholder="onboarding.placeholder.location" placeholder="Calle 80 #15-20, Bogotá">
+                            <!-- Trust badges -->
+                            <div class="flex items-center justify-center gap-4 pt-4 text-xs text-slate-500 dark:text-slate-400">
+                                <span class="flex items-center gap-1">
+                                    <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                    15 dias gratis
+                                </span>
+                                <span class="flex items-center gap-1">
+                                    <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                    Sin tarjeta
+                                </span>
+                                <span class="flex items-center gap-1">
+                                    <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                    Cancela cuando quieras
+                                </span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Step 2: Schedule & Team -->
+                    <!-- Step 2: Additional Details (Optional but helpful) -->
                     <div class="onboarding-step hidden" data-step="2">
-                        <h4 class="text-lg font-semibold text-slate-900 dark:text-white mb-6 flex items-center gap-2">
+                        <h4 class="text-lg font-semibold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
                             <span class="w-8 h-8 bg-electric-100 dark:bg-electric-900/30 rounded-full flex items-center justify-center text-electric-600 text-sm font-bold">2</span>
-                            <span data-i18n="onboarding.step2.title">Horarios y equipo</span>
+                            <span data-i18n="onboarding.step2.title">Cuentanos mas (opcional)</span>
                         </h4>
-
-                        <div class="space-y-4">
-                            <div class="grid grid-cols-2 gap-4">
-                                <div>
-                                    <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n="onboarding.field.schedule">Horario de atención</label>
-                                    <input type="text" name="schedule" class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-electric-500 focus:border-transparent transition-all" data-i18n-placeholder="onboarding.placeholder.schedule" placeholder="9am - 8pm">
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n="onboarding.field.lastAppointment">Última cita del día</label>
-                                    <input type="text" name="lastAppointment" class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-electric-500 focus:border-transparent transition-all" data-i18n-placeholder="onboarding.placeholder.lastAppointment" placeholder="7:00 PM">
-                                </div>
-                            </div>
-
-                            <div>
-                                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n="onboarding.field.closedDays">Días de cierre o especiales</label>
-                                <input type="text" name="closedDays" class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-electric-500 focus:border-transparent transition-all" data-i18n-placeholder="onboarding.placeholder.closedDays" placeholder="Domingos cerrado, festivos horario reducido">
-                            </div>
-
-                            <div>
-                                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n="onboarding.field.teamSize">¿Cuántos colaboradores tienes? *</label>
-                                <textarea name="teamSize" required rows="2" class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-electric-500 focus:border-transparent transition-all resize-none" data-i18n-placeholder="onboarding.placeholder.teamSize" placeholder="Ej: 3 barberos - Juan, Pedro, María"></textarea>
-                            </div>
-
-                            <div>
-                                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n="onboarding.field.chooseProvider">¿Clientes pueden elegir con quién agendar? *</label>
-                                <div class="flex gap-4">
-                                    <label class="flex items-center gap-2 cursor-pointer">
-                                        <input type="radio" name="chooseProvider" value="yes" required class="w-4 h-4 text-electric-600 focus:ring-electric-500">
-                                        <span class="text-slate-700 dark:text-slate-300" data-i18n="onboarding.option.yes">Sí</span>
-                                    </label>
-                                    <label class="flex items-center gap-2 cursor-pointer">
-                                        <input type="radio" name="chooseProvider" value="no" class="w-4 h-4 text-electric-600 focus:ring-electric-500">
-                                        <span class="text-slate-700 dark:text-slate-300" data-i18n="onboarding.option.no">No</span>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Step 3: Services -->
-                    <div class="onboarding-step hidden" data-step="3">
-                        <h4 class="text-lg font-semibold text-slate-900 dark:text-white mb-6 flex items-center gap-2">
-                            <span class="w-8 h-8 bg-electric-100 dark:bg-electric-900/30 rounded-full flex items-center justify-center text-electric-600 text-sm font-bold">3</span>
-                            <span data-i18n="onboarding.step3.title">Servicios y precios</span>
-                        </h4>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm mb-6">Esta info nos ayuda a personalizar tu asistente. Puedes completarla despues.</p>
 
                         <div class="space-y-4">
                             <div>
-                                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n="onboarding.field.services">Describe tus servicios agendables *</label>
-                                <textarea name="services" required rows="4" class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-electric-500 focus:border-transparent transition-all resize-none" data-i18n-placeholder="onboarding.placeholder.services" placeholder="Ej: Corte clásico - $25,000 - 30min&#10;Corte + barba - $40,000 - 45min&#10;Tintura - $60,000 - 1h"></textarea>
+                                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n="onboarding.field.socialMedia">Instagram o redes sociales</label>
+                                <input type="text" name="socialMedia" class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-electric-500 focus:border-transparent transition-all" placeholder="@tunegocio">
                             </div>
 
                             <div>
-                                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n="onboarding.field.popularService">¿Cuál es tu servicio más popular?</label>
-                                <input type="text" name="popularService" class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-electric-500 focus:border-transparent transition-all" data-i18n-placeholder="onboarding.placeholder.popularService" placeholder="Corte clásico">
+                                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n="onboarding.field.location">Ciudad / Ubicacion</label>
+                                <input type="text" name="location" class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-electric-500 focus:border-transparent transition-all" placeholder="Bogota, Colombia">
                             </div>
 
                             <div>
-                                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n="onboarding.field.cancellationTime">Tiempo para cancelar sin penalización</label>
-                                <div class="grid grid-cols-4 gap-2">
-                                    <label class="flex items-center justify-center gap-2 cursor-pointer p-3 rounded-xl border border-slate-300 dark:border-slate-600 hover:border-electric-500 transition-all has-[:checked]:bg-electric-50 has-[:checked]:border-electric-500 dark:has-[:checked]:bg-electric-900/30">
-                                        <input type="radio" name="cancellationTime" value="24h" class="sr-only">
-                                        <span class="text-sm text-slate-700 dark:text-slate-300">24h</span>
-                                    </label>
-                                    <label class="flex items-center justify-center gap-2 cursor-pointer p-3 rounded-xl border border-slate-300 dark:border-slate-600 hover:border-electric-500 transition-all has-[:checked]:bg-electric-50 has-[:checked]:border-electric-500 dark:has-[:checked]:bg-electric-900/30">
-                                        <input type="radio" name="cancellationTime" value="12h" class="sr-only">
-                                        <span class="text-sm text-slate-700 dark:text-slate-300">12h</span>
-                                    </label>
-                                    <label class="flex items-center justify-center gap-2 cursor-pointer p-3 rounded-xl border border-slate-300 dark:border-slate-600 hover:border-electric-500 transition-all has-[:checked]:bg-electric-50 has-[:checked]:border-electric-500 dark:has-[:checked]:bg-electric-900/30">
-                                        <input type="radio" name="cancellationTime" value="2h" class="sr-only">
-                                        <span class="text-sm text-slate-700 dark:text-slate-300">2h</span>
-                                    </label>
-                                    <label class="flex items-center justify-center gap-2 cursor-pointer p-3 rounded-xl border border-slate-300 dark:border-slate-600 hover:border-electric-500 transition-all has-[:checked]:bg-electric-50 has-[:checked]:border-electric-500 dark:has-[:checked]:bg-electric-900/30">
-                                        <input type="radio" name="cancellationTime" value="other" class="sr-only">
-                                        <span class="text-sm text-slate-700 dark:text-slate-300" data-i18n="onboarding.option.other">Otro</span>
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="grid grid-cols-2 gap-4">
-                                <div>
-                                    <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n="onboarding.field.deposit">¿Piden anticipo?</label>
-                                    <div class="flex gap-4">
-                                        <label class="flex items-center gap-2 cursor-pointer">
-                                            <input type="radio" name="deposit" value="yes" class="w-4 h-4 text-electric-600 focus:ring-electric-500">
-                                            <span class="text-slate-700 dark:text-slate-300" data-i18n="onboarding.option.yes">Sí</span>
-                                        </label>
-                                        <label class="flex items-center gap-2 cursor-pointer">
-                                            <input type="radio" name="deposit" value="no" class="w-4 h-4 text-electric-600 focus:ring-electric-500">
-                                            <span class="text-slate-700 dark:text-slate-300" data-i18n="onboarding.option.no">No</span>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n="onboarding.field.parking">¿Parqueadero disponible?</label>
-                                    <input type="text" name="parking" class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-electric-500 focus:border-transparent transition-all" data-i18n-placeholder="onboarding.placeholder.parking" placeholder="Sí, gratis">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Step 4: Preferences -->
-                    <div class="onboarding-step hidden" data-step="4">
-                        <h4 class="text-lg font-semibold text-slate-900 dark:text-white mb-6 flex items-center gap-2">
-                            <span class="w-8 h-8 bg-electric-100 dark:bg-electric-900/30 rounded-full flex items-center justify-center text-electric-600 text-sm font-bold">4</span>
-                            <span data-i18n="onboarding.step4.title">Preferencias del asistente</span>
-                        </h4>
-
-                        <div class="space-y-4">
-                            <div>
-                                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n="onboarding.field.customerData">¿Qué datos capturar de clientes?</label>
-                                <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                                    <label class="flex items-center gap-2 cursor-pointer p-3 rounded-xl border border-slate-300 dark:border-slate-600 hover:border-electric-500 transition-all has-[:checked]:bg-electric-50 has-[:checked]:border-electric-500 dark:has-[:checked]:bg-electric-900/30">
-                                        <input type="checkbox" name="customerData" value="name" checked class="w-4 h-4 text-electric-600 rounded focus:ring-electric-500">
-                                        <span class="text-sm text-slate-700 dark:text-slate-300" data-i18n="onboarding.data.name">Nombre</span>
-                                    </label>
-                                    <label class="flex items-center gap-2 cursor-pointer p-3 rounded-xl border border-slate-300 dark:border-slate-600 hover:border-electric-500 transition-all has-[:checked]:bg-electric-50 has-[:checked]:border-electric-500 dark:has-[:checked]:bg-electric-900/30">
-                                        <input type="checkbox" name="customerData" value="phone" checked class="w-4 h-4 text-electric-600 rounded focus:ring-electric-500">
-                                        <span class="text-sm text-slate-700 dark:text-slate-300" data-i18n="onboarding.data.phone">Teléfono</span>
-                                    </label>
-                                    <label class="flex items-center gap-2 cursor-pointer p-3 rounded-xl border border-slate-300 dark:border-slate-600 hover:border-electric-500 transition-all has-[:checked]:bg-electric-50 has-[:checked]:border-electric-500 dark:has-[:checked]:bg-electric-900/30">
-                                        <input type="checkbox" name="customerData" value="email" class="w-4 h-4 text-electric-600 rounded focus:ring-electric-500">
-                                        <span class="text-sm text-slate-700 dark:text-slate-300">Email</span>
-                                    </label>
-                                    <label class="flex items-center gap-2 cursor-pointer p-3 rounded-xl border border-slate-300 dark:border-slate-600 hover:border-electric-500 transition-all has-[:checked]:bg-electric-50 has-[:checked]:border-electric-500 dark:has-[:checked]:bg-electric-900/30">
-                                        <input type="checkbox" name="customerData" value="id" class="w-4 h-4 text-electric-600 rounded focus:ring-electric-500">
-                                        <span class="text-sm text-slate-700 dark:text-slate-300" data-i18n="onboarding.data.id">Cédula</span>
-                                    </label>
-                                    <label class="flex items-center gap-2 cursor-pointer p-3 rounded-xl border border-slate-300 dark:border-slate-600 hover:border-electric-500 transition-all has-[:checked]:bg-electric-50 has-[:checked]:border-electric-500 dark:has-[:checked]:bg-electric-900/30">
-                                        <input type="checkbox" name="customerData" value="birthday" class="w-4 h-4 text-electric-600 rounded focus:ring-electric-500">
-                                        <span class="text-sm text-slate-700 dark:text-slate-300" data-i18n="onboarding.data.birthday">Cumpleaños</span>
-                                    </label>
-                                    <label class="flex items-center gap-2 cursor-pointer p-3 rounded-xl border border-slate-300 dark:border-slate-600 hover:border-electric-500 transition-all has-[:checked]:bg-electric-50 has-[:checked]:border-electric-500 dark:has-[:checked]:bg-electric-900/30">
-                                        <input type="checkbox" name="customerData" value="address" class="w-4 h-4 text-electric-600 rounded focus:ring-electric-500">
-                                        <span class="text-sm text-slate-700 dark:text-slate-300" data-i18n="onboarding.data.address">Dirección</span>
-                                    </label>
-                                </div>
+                                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n="onboarding.field.services">Servicios principales</label>
+                                <textarea name="services" rows="2" class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-electric-500 focus:border-transparent transition-all resize-none" placeholder="Ej: Corte $25,000, Barba $15,000..."></textarea>
                             </div>
 
                             <div>
-                                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n="onboarding.field.personality">Personalidad del asistente</label>
-                                <div class="grid grid-cols-3 gap-3">
-                                    <label class="flex flex-col items-center gap-2 cursor-pointer p-4 rounded-xl border border-slate-300 dark:border-slate-600 hover:border-electric-500 transition-all has-[:checked]:bg-electric-50 has-[:checked]:border-electric-500 dark:has-[:checked]:bg-electric-900/30">
-                                        <input type="radio" name="personality" value="professional" class="sr-only">
-                                        <span class="text-2xl">👔</span>
-                                        <span class="text-sm text-slate-700 dark:text-slate-300" data-i18n="onboarding.personality.professional">Profesional</span>
-                                    </label>
-                                    <label class="flex flex-col items-center gap-2 cursor-pointer p-4 rounded-xl border border-slate-300 dark:border-slate-600 hover:border-electric-500 transition-all has-[:checked]:bg-electric-50 has-[:checked]:border-electric-500 dark:has-[:checked]:bg-electric-900/30">
-                                        <input type="radio" name="personality" value="friendly" checked class="sr-only">
-                                        <span class="text-2xl">😊</span>
-                                        <span class="text-sm text-slate-700 dark:text-slate-300" data-i18n="onboarding.personality.friendly">Amigable</span>
-                                    </label>
-                                    <label class="flex flex-col items-center gap-2 cursor-pointer p-4 rounded-xl border border-slate-300 dark:border-slate-600 hover:border-electric-500 transition-all has-[:checked]:bg-electric-50 has-[:checked]:border-electric-500 dark:has-[:checked]:bg-electric-900/30">
-                                        <input type="radio" name="personality" value="casual" class="sr-only">
-                                        <span class="text-2xl">🤙</span>
-                                        <span class="text-sm text-slate-700 dark:text-slate-300" data-i18n="onboarding.personality.casual">Casual</span>
-                                    </label>
-                                </div>
+                                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n="onboarding.field.teamSize">Numero de empleados</label>
+                                <select name="teamSize" class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-electric-500 focus:border-transparent transition-all">
+                                    <option value="">Selecciona...</option>
+                                    <option value="1">Solo yo</option>
+                                    <option value="2-3">2-3 personas</option>
+                                    <option value="4-10">4-10 personas</option>
+                                    <option value="10+">Mas de 10</option>
+                                </select>
                             </div>
 
                             <div>
-                                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n="onboarding.field.paymentMethods">Métodos de pago aceptados</label>
-                                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                                    <label class="flex items-center gap-2 cursor-pointer p-3 rounded-xl border border-slate-300 dark:border-slate-600 hover:border-electric-500 transition-all has-[:checked]:bg-electric-50 has-[:checked]:border-electric-500 dark:has-[:checked]:bg-electric-900/30">
-                                        <input type="checkbox" name="paymentMethods" value="cash" checked class="w-4 h-4 text-electric-600 rounded focus:ring-electric-500">
-                                        <span class="text-sm text-slate-700 dark:text-slate-300" data-i18n="onboarding.payment.cash">Efectivo</span>
-                                    </label>
-                                    <label class="flex items-center gap-2 cursor-pointer p-3 rounded-xl border border-slate-300 dark:border-slate-600 hover:border-electric-500 transition-all has-[:checked]:bg-electric-50 has-[:checked]:border-electric-500 dark:has-[:checked]:bg-electric-900/30">
-                                        <input type="checkbox" name="paymentMethods" value="card" class="w-4 h-4 text-electric-600 rounded focus:ring-electric-500">
-                                        <span class="text-sm text-slate-700 dark:text-slate-300" data-i18n="onboarding.payment.card">Tarjeta</span>
-                                    </label>
-                                    <label class="flex items-center gap-2 cursor-pointer p-3 rounded-xl border border-slate-300 dark:border-slate-600 hover:border-electric-500 transition-all has-[:checked]:bg-electric-50 has-[:checked]:border-electric-500 dark:has-[:checked]:bg-electric-900/30">
-                                        <input type="checkbox" name="paymentMethods" value="transfer" class="w-4 h-4 text-electric-600 rounded focus:ring-electric-500">
-                                        <span class="text-sm text-slate-700 dark:text-slate-300" data-i18n="onboarding.payment.transfer">Transferencia</span>
-                                    </label>
-                                    <label class="flex items-center gap-2 cursor-pointer p-3 rounded-xl border border-slate-300 dark:border-slate-600 hover:border-electric-500 transition-all has-[:checked]:bg-electric-50 has-[:checked]:border-electric-500 dark:has-[:checked]:bg-electric-900/30">
-                                        <input type="checkbox" name="paymentMethods" value="nequi" class="w-4 h-4 text-electric-600 rounded focus:ring-electric-500">
-                                        <span class="text-sm text-slate-700 dark:text-slate-300">Nequi/Daviplata</span>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Step 5: Final Details -->
-                    <div class="onboarding-step hidden" data-step="5">
-                        <h4 class="text-lg font-semibold text-slate-900 dark:text-white mb-6 flex items-center gap-2">
-                            <span class="w-8 h-8 bg-electric-100 dark:bg-electric-900/30 rounded-full flex items-center justify-center text-electric-600 text-sm font-bold">5</span>
-                            <span data-i18n="onboarding.step5.title">Detalles finales</span>
-                        </h4>
-
-                        <div class="space-y-4">
-                            <div>
-                                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n="onboarding.field.hasGoogle">¿Tienes cuenta de Google? *</label>
-                                <div class="flex gap-4">
-                                    <label class="flex items-center gap-2 cursor-pointer">
-                                        <input type="radio" name="hasGoogle" value="yes" required class="w-4 h-4 text-electric-600 focus:ring-electric-500">
-                                        <span class="text-slate-700 dark:text-slate-300" data-i18n="onboarding.option.yes">Sí</span>
-                                    </label>
-                                    <label class="flex items-center gap-2 cursor-pointer">
-                                        <input type="radio" name="hasGoogle" value="no" class="w-4 h-4 text-electric-600 focus:ring-electric-500">
-                                        <span class="text-slate-700 dark:text-slate-300" data-i18n="onboarding.option.no">No</span>
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div>
-                                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n="onboarding.field.currentCalendar">Sistema de calendario actual</label>
-                                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                                    <label class="flex items-center justify-center gap-2 cursor-pointer p-3 rounded-xl border border-slate-300 dark:border-slate-600 hover:border-electric-500 transition-all has-[:checked]:bg-electric-50 has-[:checked]:border-electric-500 dark:has-[:checked]:bg-electric-900/30">
-                                        <input type="radio" name="currentCalendar" value="google" class="sr-only">
-                                        <span class="text-sm text-slate-700 dark:text-slate-300">Google Cal</span>
-                                    </label>
-                                    <label class="flex items-center justify-center gap-2 cursor-pointer p-3 rounded-xl border border-slate-300 dark:border-slate-600 hover:border-electric-500 transition-all has-[:checked]:bg-electric-50 has-[:checked]:border-electric-500 dark:has-[:checked]:bg-electric-900/30">
-                                        <input type="radio" name="currentCalendar" value="calendly" class="sr-only">
-                                        <span class="text-sm text-slate-700 dark:text-slate-300">Calendly</span>
-                                    </label>
-                                    <label class="flex items-center justify-center gap-2 cursor-pointer p-3 rounded-xl border border-slate-300 dark:border-slate-600 hover:border-electric-500 transition-all has-[:checked]:bg-electric-50 has-[:checked]:border-electric-500 dark:has-[:checked]:bg-electric-900/30">
-                                        <input type="radio" name="currentCalendar" value="none" class="sr-only">
-                                        <span class="text-sm text-slate-700 dark:text-slate-300" data-i18n="onboarding.calendar.none">No uso</span>
-                                    </label>
-                                    <label class="flex items-center justify-center gap-2 cursor-pointer p-3 rounded-xl border border-slate-300 dark:border-slate-600 hover:border-electric-500 transition-all has-[:checked]:bg-electric-50 has-[:checked]:border-electric-500 dark:has-[:checked]:bg-electric-900/30">
-                                        <input type="radio" name="currentCalendar" value="other" class="sr-only">
-                                        <span class="text-sm text-slate-700 dark:text-slate-300" data-i18n="onboarding.option.other">Otro</span>
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="grid grid-cols-2 gap-4">
-                                <div>
-                                    <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n="onboarding.field.reminders">¿Recordatorios automáticos?</label>
-                                    <div class="flex gap-4">
-                                        <label class="flex items-center gap-2 cursor-pointer">
-                                            <input type="radio" name="reminders" value="yes" checked class="w-4 h-4 text-electric-600 focus:ring-electric-500">
-                                            <span class="text-slate-700 dark:text-slate-300" data-i18n="onboarding.option.yes">Sí</span>
-                                        </label>
-                                        <label class="flex items-center gap-2 cursor-pointer">
-                                            <input type="radio" name="reminders" value="no" class="w-4 h-4 text-electric-600 focus:ring-electric-500">
-                                            <span class="text-slate-700 dark:text-slate-300" data-i18n="onboarding.option.no">No</span>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n="onboarding.field.reminderTime">Tiempo de anticipación</label>
-                                    <input type="text" name="reminderTime" class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-electric-500 focus:border-transparent transition-all" data-i18n-placeholder="onboarding.placeholder.reminderTime" placeholder="24h y 2h antes">
-                                </div>
-                            </div>
-
-                            <div>
-                                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n="onboarding.field.referrals">¿Programa de referidos o descuentos?</label>
-                                <textarea name="referrals" rows="2" class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-electric-500 focus:border-transparent transition-all resize-none" data-i18n-placeholder="onboarding.placeholder.referrals" placeholder="Ej: 10% descuento por referir un amigo"></textarea>
-                            </div>
-
-                            <div>
-                                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n="onboarding.field.additionalInfo">Información adicional del negocio</label>
-                                <textarea name="additionalInfo" rows="3" class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-electric-500 focus:border-transparent transition-all resize-none" data-i18n-placeholder="onboarding.placeholder.additionalInfo" placeholder="Cualquier otra información relevante para configurar tu asistente"></textarea>
-                            </div>
-
-                            <!-- Contact for follow-up -->
-                            <div class="p-4 bg-electric-50 dark:bg-electric-900/20 rounded-xl">
-                                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" data-i18n="onboarding.field.contactWhatsapp">Tu WhatsApp para contactarte *</label>
-                                <input type="tel" name="contactWhatsapp" required class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-electric-500 focus:border-transparent transition-all" placeholder="+57 300 123 4567">
+                                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Algo mas que debamos saber?</label>
+                                <textarea name="additionalInfo" rows="2" class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-electric-500 focus:border-transparent transition-all resize-none" placeholder="Opcional..."></textarea>
                             </div>
                         </div>
                     </div>
