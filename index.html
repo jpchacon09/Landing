@@ -4191,22 +4191,40 @@ REGLAS IMPORTANTES:
 
         // ==================== VIDEO MODAL ====================
         function openVideoModal() {
-            const modal = document.getElementById('videoModal');
-            const video = document.getElementById('demoVideo');
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-            document.body.style.overflow = 'hidden';
-            video.play();
+            try {
+                const modal = document.getElementById('videoModal');
+                const video = document.getElementById('demoVideo');
+                if (modal) {
+                    modal.classList.remove('hidden');
+                    modal.classList.add('flex');
+                    document.body.style.overflow = 'hidden';
+                }
+                if (video) {
+                    video.play().catch(function(e) {
+                        console.log('Video autoplay prevented:', e);
+                    });
+                }
+            } catch (e) {
+                console.error('Error opening video modal:', e);
+            }
         }
 
         function closeVideoModal() {
-            const modal = document.getElementById('videoModal');
-            const video = document.getElementById('demoVideo');
-            video.pause();
-            video.currentTime = 0;
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
-            document.body.style.overflow = 'auto';
+            try {
+                const modal = document.getElementById('videoModal');
+                const video = document.getElementById('demoVideo');
+                if (video) {
+                    video.pause();
+                    video.currentTime = 0;
+                }
+                if (modal) {
+                    modal.classList.add('hidden');
+                    modal.classList.remove('flex');
+                    document.body.style.overflow = 'auto';
+                }
+            } catch (e) {
+                console.error('Error closing video modal:', e);
+            }
         }
 
         // Close modal on escape key
@@ -4218,106 +4236,159 @@ REGLAS IMPORTANTES:
         });
 
         // ==================== ONBOARDING MODAL ====================
-        let currentOnboardingStep = 1;
-        const totalOnboardingSteps = 5;
+        var currentOnboardingStep = 1;
+        var totalOnboardingSteps = 5;
 
         function openOnboardingModal() {
-            const modal = document.getElementById('onboardingModal');
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-            document.body.style.overflow = 'hidden';
-            // Reset to step 1
-            currentOnboardingStep = 1;
-            updateOnboardingUI();
-            // Apply current language translations to modal
-            setLanguage(currentLang);
+            try {
+                var modal = document.getElementById('onboardingModal');
+                if (!modal) return;
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                document.body.style.overflow = 'hidden';
+                currentOnboardingStep = 1;
+                updateOnboardingUI();
+                setLanguage(currentLang);
+            } catch (e) {
+                console.error('Error opening onboarding:', e);
+            }
         }
 
         function closeOnboardingModal() {
-            const modal = document.getElementById('onboardingModal');
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
-            document.body.style.overflow = 'auto';
+            try {
+                var modal = document.getElementById('onboardingModal');
+                if (!modal) return;
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+                document.body.style.overflow = 'auto';
+            } catch (e) {
+                console.error('Error closing onboarding:', e);
+            }
         }
 
         function updateOnboardingUI() {
-            // Update progress bar
-            const progress = (currentOnboardingStep / totalOnboardingSteps) * 100;
-            document.getElementById('onboarding-progress').style.width = progress + '%';
-            document.getElementById('onboarding-current-step').textContent = currentOnboardingStep;
+            try {
+                var progress = (currentOnboardingStep / totalOnboardingSteps) * 100;
+                var progressBar = document.getElementById('onboarding-progress');
+                var stepCounter = document.getElementById('onboarding-current-step');
 
-            // Show/hide steps
-            document.querySelectorAll('.onboarding-step').forEach(step => {
-                const stepNum = parseInt(step.getAttribute('data-step'));
-                step.classList.toggle('hidden', stepNum !== currentOnboardingStep);
-            });
+                if (progressBar) progressBar.style.width = progress + '%';
+                if (stepCounter) stepCounter.textContent = currentOnboardingStep;
 
-            // Show/hide navigation buttons
-            const prevBtn = document.getElementById('onboarding-prev');
-            const nextBtn = document.getElementById('onboarding-next');
-            const submitBtn = document.getElementById('onboarding-submit');
+                var steps = document.querySelectorAll('.onboarding-step');
+                for (var i = 0; i < steps.length; i++) {
+                    var stepNum = parseInt(steps[i].getAttribute('data-step'));
+                    if (stepNum === currentOnboardingStep) {
+                        steps[i].classList.remove('hidden');
+                    } else {
+                        steps[i].classList.add('hidden');
+                    }
+                }
 
-            prevBtn.classList.toggle('hidden', currentOnboardingStep === 1);
-            nextBtn.classList.toggle('hidden', currentOnboardingStep === totalOnboardingSteps);
-            submitBtn.classList.toggle('hidden', currentOnboardingStep !== totalOnboardingSteps);
+                var prevBtn = document.getElementById('onboarding-prev');
+                var nextBtn = document.getElementById('onboarding-next');
+                var submitBtn = document.getElementById('onboarding-submit');
+
+                if (prevBtn) {
+                    if (currentOnboardingStep === 1) {
+                        prevBtn.classList.add('hidden');
+                    } else {
+                        prevBtn.classList.remove('hidden');
+                    }
+                }
+
+                if (nextBtn) {
+                    if (currentOnboardingStep === totalOnboardingSteps) {
+                        nextBtn.classList.add('hidden');
+                    } else {
+                        nextBtn.classList.remove('hidden');
+                    }
+                }
+
+                if (submitBtn) {
+                    if (currentOnboardingStep === totalOnboardingSteps) {
+                        submitBtn.classList.remove('hidden');
+                    } else {
+                        submitBtn.classList.add('hidden');
+                    }
+                }
+            } catch (e) {
+                console.error('Error updating UI:', e);
+            }
         }
 
         function validateCurrentStep() {
-            const currentStepEl = document.querySelector('.onboarding-step[data-step="' + currentOnboardingStep + '"]');
-            if (!currentStepEl) {
-                console.error('Step element not found:', currentOnboardingStep);
-                return true; // Allow proceeding if step not found
-            }
+            try {
+                var currentStepEl = document.querySelector('.onboarding-step[data-step="' + currentOnboardingStep + '"]');
+                if (!currentStepEl) return true;
 
-            const requiredFields = currentStepEl.querySelectorAll('[required]');
-            let isValid = true;
+                var requiredFields = currentStepEl.querySelectorAll('[required]');
+                var isValid = true;
+                var checkedRadios = {};
 
-            requiredFields.forEach(field => {
-                // Remove previous error styling
-                field.classList.remove('ring-2', 'ring-red-500');
+                for (var i = 0; i < requiredFields.length; i++) {
+                    var field = requiredFields[i];
+                    field.classList.remove('ring-2', 'ring-red-500');
 
-                if (field.type === 'radio') {
-                    const radioGroup = currentStepEl.querySelectorAll('input[name="' + field.name + '"]');
-                    const isChecked = Array.from(radioGroup).some(r => r.checked);
-                    if (!isChecked) {
-                        isValid = false;
-                        field.classList.add('ring-2', 'ring-red-500');
+                    if (field.type === 'radio') {
+                        if (!checkedRadios[field.name]) {
+                            var radios = currentStepEl.querySelectorAll('input[name="' + field.name + '"]');
+                            var anyChecked = false;
+                            for (var j = 0; j < radios.length; j++) {
+                                if (radios[j].checked) anyChecked = true;
+                            }
+                            checkedRadios[field.name] = anyChecked;
+                            if (!anyChecked) {
+                                isValid = false;
+                                field.classList.add('ring-2', 'ring-red-500');
+                            }
+                        }
+                    } else {
+                        if (!field.value || field.value.trim() === '') {
+                            isValid = false;
+                            field.classList.add('ring-2', 'ring-red-500');
+                        }
                     }
-                } else if (!field.value || !field.value.trim()) {
-                    isValid = false;
-                    field.classList.add('ring-2', 'ring-red-500');
                 }
-            });
-
-            return isValid;
+                return isValid;
+            } catch (e) {
+                console.error('Error validating:', e);
+                return true;
+            }
         }
 
         function nextOnboardingStep() {
-            const isValid = validateCurrentStep();
-            console.log('Step', currentOnboardingStep, 'validation:', isValid);
+            try {
+                console.log('nextOnboardingStep called, current step:', currentOnboardingStep);
+                var isValid = validateCurrentStep();
+                console.log('Validation result:', isValid);
 
-            if (!isValid) {
-                // Scroll to first invalid field
-                const firstInvalid = document.querySelector('.onboarding-step:not(.hidden) .ring-red-500');
-                if (firstInvalid) {
-                    firstInvalid.focus();
+                if (!isValid) {
+                    var firstInvalid = document.querySelector('.onboarding-step:not(.hidden) .ring-red-500');
+                    if (firstInvalid) firstInvalid.focus();
+                    return;
                 }
-                return;
-            }
 
-            if (currentOnboardingStep < totalOnboardingSteps) {
-                currentOnboardingStep++;
-                updateOnboardingUI();
-                // Scroll modal to top
-                const modal = document.getElementById('onboardingModal');
-                if (modal) modal.scrollTo({ top: 0, behavior: 'smooth' });
+                if (currentOnboardingStep < totalOnboardingSteps) {
+                    currentOnboardingStep = currentOnboardingStep + 1;
+                    console.log('Moving to step:', currentOnboardingStep);
+                    updateOnboardingUI();
+                    var modal = document.getElementById('onboardingModal');
+                    if (modal) modal.scrollTo(0, 0);
+                }
+            } catch (e) {
+                console.error('Error in nextOnboardingStep:', e);
             }
         }
 
         function prevOnboardingStep() {
-            if (currentOnboardingStep > 1) {
-                currentOnboardingStep--;
-                updateOnboardingUI();
+            try {
+                if (currentOnboardingStep > 1) {
+                    currentOnboardingStep = currentOnboardingStep - 1;
+                    updateOnboardingUI();
+                }
+            } catch (e) {
+                console.error('Error in prevOnboardingStep:', e);
             }
         }
 
