@@ -4286,14 +4286,6 @@ REGLAS IMPORTANTES:
             }
         }
 
-        // Close modal on escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeVideoModal();
-                closeOnboardingModal();
-            }
-        });
-
         // ==================== QUICK LEAD MODAL (Simple Form) ====================
         window.openQuickLead = function() {
             var modal = document.getElementById('quickLeadModal');
@@ -4820,5 +4812,207 @@ REGLAS IMPORTANTES:
             </div>
         </div>
     </div>
+
+    <!-- FINAL INITIALIZATION SCRIPT - Must be at the end -->
+    <script>
+    (function() {
+        // Ensure all modal functions are globally available
+        window.openQuickLead = function() {
+            var modal = document.getElementById('quickLeadModal');
+            if (modal) {
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+                var form = document.getElementById('quick-lead-form');
+                var success = document.getElementById('quick-lead-success');
+                if (form) form.style.display = 'block';
+                if (success) success.style.display = 'none';
+            }
+        };
+
+        window.closeQuickLead = function() {
+            var modal = document.getElementById('quickLeadModal');
+            if (modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        };
+
+        window.submitQuickLead = function() {
+            var whatsapp = document.getElementById('quick-whatsapp');
+            var nombre = document.getElementById('quick-nombre');
+
+            if (!whatsapp || !nombre) return;
+
+            // Validate
+            var valid = true;
+            if (!whatsapp.value.trim()) { whatsapp.style.border = '2px solid red'; valid = false; }
+            else { whatsapp.style.border = ''; }
+            if (!nombre.value.trim()) { nombre.style.border = '2px solid red'; valid = false; }
+            else { nombre.style.border = ''; }
+
+            if (!valid) return;
+
+            // Save locally
+            var data = {
+                tipo: 'Lead Rapido',
+                whatsapp: whatsapp.value,
+                nombre: nombre.value,
+                fecha: new Date().toISOString()
+            };
+            var leads = JSON.parse(localStorage.getItem('quick_leads') || '[]');
+            leads.push(data);
+            localStorage.setItem('quick_leads', JSON.stringify(leads));
+
+            // Send to FormSubmit
+            var formData = new FormData();
+            formData.append('_subject', 'LEAD RAPIDO - ' + nombre.value);
+            formData.append('_template', 'table');
+            formData.append('_captcha', 'false');
+            formData.append('WhatsApp', whatsapp.value);
+            formData.append('Nombre', nombre.value);
+            formData.append('Tipo', 'Lead Rapido');
+
+            fetch('https://formsubmit.co/ajax/sinapsio.ia@gmail.com', {
+                method: 'POST',
+                body: formData
+            }).catch(function(e) {});
+
+            // Show success
+            document.getElementById('quick-lead-form').style.display = 'none';
+            document.getElementById('quick-lead-success').style.display = 'block';
+        };
+
+        window.openOnboardingModal = function() {
+            var modal = document.getElementById('onboardingModal');
+            if (modal) {
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+                window.currentStep = 1;
+                window.updateStepUI();
+                var form = document.getElementById('onboarding-form');
+                var success = document.getElementById('onboarding-success');
+                if (form) { form.reset(); form.style.display = 'block'; }
+                if (success) success.style.display = 'none';
+            }
+        };
+
+        window.closeOnboardingModal = function() {
+            var modal = document.getElementById('onboardingModal');
+            if (modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        };
+
+        window.currentStep = 1;
+        window.totalSteps = 2;
+
+        window.updateStepUI = function() {
+            var steps = document.querySelectorAll('.onboarding-step');
+            steps.forEach(function(step) {
+                var num = parseInt(step.getAttribute('data-step'));
+                step.style.display = (num === window.currentStep) ? 'block' : 'none';
+            });
+
+            var progress = document.getElementById('onboarding-progress');
+            var counter = document.getElementById('onboarding-current-step');
+            if (progress) progress.style.width = (window.currentStep / window.totalSteps * 100) + '%';
+            if (counter) counter.textContent = window.currentStep;
+
+            var prevBtn = document.getElementById('onboarding-prev');
+            var nextBtn = document.getElementById('onboarding-next');
+            var submitBtn = document.getElementById('onboarding-submit');
+
+            if (prevBtn) prevBtn.style.display = (window.currentStep === 1) ? 'none' : 'inline-flex';
+            if (nextBtn) nextBtn.style.display = (window.currentStep === window.totalSteps) ? 'none' : 'inline-flex';
+            if (submitBtn) submitBtn.style.display = (window.currentStep === window.totalSteps) ? 'inline-flex' : 'none';
+        };
+
+        window.nextStep = function() {
+            // Validate current step
+            var stepEl = document.querySelector('.onboarding-step[data-step="' + window.currentStep + '"]');
+            if (stepEl) {
+                var required = stepEl.querySelectorAll('[required]');
+                var valid = true;
+                required.forEach(function(field) {
+                    field.style.border = '';
+                    if (!field.value || !field.value.trim()) {
+                        field.style.border = '2px solid red';
+                        valid = false;
+                    }
+                });
+                if (!valid) return;
+            }
+
+            if (window.currentStep < window.totalSteps) {
+                window.currentStep++;
+                window.updateStepUI();
+            }
+        };
+
+        window.prevStep = function() {
+            if (window.currentStep > 1) {
+                window.currentStep--;
+                window.updateStepUI();
+            }
+        };
+
+        window.submitOnboarding = function() {
+            var form = document.getElementById('onboarding-form');
+            if (!form) return;
+
+            var formData = new FormData(form);
+            var data = { tipo: 'Cliente Completo' };
+            formData.forEach(function(value, key) {
+                data[key] = value;
+            });
+            data.fecha = new Date().toISOString();
+
+            // Save locally
+            var submissions = JSON.parse(localStorage.getItem('onboarding_submissions') || '[]');
+            submissions.push(data);
+            localStorage.setItem('onboarding_submissions', JSON.stringify(submissions));
+
+            // Send to FormSubmit
+            var emailData = new FormData();
+            emailData.append('_subject', 'CLIENTE - ' + (data.businessName || 'Sin nombre'));
+            emailData.append('_template', 'table');
+            emailData.append('_captcha', 'false');
+            Object.keys(data).forEach(function(key) {
+                emailData.append(key, data[key]);
+            });
+
+            fetch('https://formsubmit.co/ajax/sinapsio.ia@gmail.com', {
+                method: 'POST',
+                body: emailData
+            }).catch(function(e) {});
+
+            // Show success
+            form.style.display = 'none';
+            document.getElementById('onboarding-success').style.display = 'block';
+        };
+
+        // Bind buttons
+        document.getElementById('quick-submit-btn').onclick = function(e) { e.preventDefault(); window.submitQuickLead(); };
+        document.getElementById('onboarding-next').onclick = function(e) { e.preventDefault(); window.nextStep(); };
+        document.getElementById('onboarding-prev').onclick = function(e) { e.preventDefault(); window.prevStep(); };
+        document.getElementById('onboarding-submit').onclick = function(e) { e.preventDefault(); window.submitOnboarding(); };
+
+        // Close on escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                window.closeQuickLead();
+                window.closeOnboardingModal();
+                closeVideoModal();
+            }
+        });
+
+        // Click outside to close
+        document.getElementById('quickLeadModal').onclick = function(e) { if (e.target === this) window.closeQuickLead(); };
+        document.getElementById('onboardingModal').onclick = function(e) { if (e.target === this) window.closeOnboardingModal(); };
+
+        console.log('Sinapsio forms ready!');
+    })();
+    </script>
 </body>
 </html>
